@@ -22,9 +22,9 @@ https://github.com/sharonbrainacademy-stack/edupro-school-template
 
 Preferred stack:
 - HTML
-- CSS
+- CSS (design tokens via CSS custom properties)
 - Vanilla JavaScript
-- Vite only if useful
+- Vite (optional, for dev server and build)
 
 The project must NOT use Tailwind CDN or hardcoded Tailwind utility classes as its styling architecture.
 
@@ -34,7 +34,49 @@ Use maintainable CSS with centralized design tokens.
 
 Primary color: `#0d8215`
 
-The brand color is subject to change, so keep it centralized.
+The brand color is subject to change, so keep it centralized in `assets/css/variables.css`.
+
+## Development
+
+### Prerequisites
+
+- Node.js 18+
+
+### Install
+
+```bash
+npm install
+```
+
+### Run (dev server)
+
+```bash
+npm run dev
+```
+
+Opens at http://localhost:3000.
+
+### Build
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`.
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Without Vite
+
+Open any `.html` file directly in a browser, or serve the project root with any static file server:
+
+```bash
+npx serve .
+```
 
 ## Current phase
 
