@@ -163,6 +163,10 @@
   .main-nav .mobile-cta {
     margin-top: var(--spacing-sm);
   }
+
+  .mobile-cta .btn {
+    width: 100%;
+  }
 }
 
 /* ===== Page hero (inner pages) ===== */
