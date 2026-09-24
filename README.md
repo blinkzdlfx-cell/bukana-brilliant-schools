@@ -108,3 +108,10 @@ Do not invent official school facts. Phone, address, email, leadership, fees, cu
 ## Development
 
 The coding agent should choose a simple maintainable setup and document the exact install/build/run commands after implementation.
+
+
+## Offline and navigation behavior
+
+The public site uses a service worker (`/sw.js`) to cache the app shell and demo image assets. Same-origin page navigation is handled as soft navigation with the History API and View Transitions API where supported, so the header/footer/runtime are not torn down and rebuilt on every click. Full page URLs remain valid and work without JavaScript.
+
+See `docs/IMAGE_SOURCES.md` for the current demo photography sources and the AVIF production-image strategy.
