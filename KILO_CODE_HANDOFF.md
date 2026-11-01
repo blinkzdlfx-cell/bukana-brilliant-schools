@@ -53,16 +53,16 @@ Do not introduce Bootstrap or an unnecessary competing framework. Keep the packa
 
 ## Design direction
 
-Implement Bukana Brilliant Schools' green-and-yellow school identity exactly as documented:
-- `#0D8215` primary school green and dominant brand colour.
-- `#094F1B` deep supporting green for contrast and depth.
-- `#F2C94C` restrained yellow accent for small highlights and emphasis.
-- `#171B17` deep charcoal for selected dark sections and text contrast.
-- `#F4F5EF` warm light surface.
+Implement Bukana Brilliant Schools' three-colour identity exactly as documented:
+- `#0D8215` primary green: the leading brand colour.
+- `#094F1B` deep supporting green: a shade of the green identity for contrast and depth.
+- `#FFFFFF` white: an important supporting colour for readable details, cards, and selected content surfaces.
+- `#F2C94C` yellow: a small brightness accent for selected highlights and emphasis only.
+- `#F4F5EF` warm light neutral to soften content-heavy areas.
 - `#172018` main text on light surfaces.
-- White only where needed; do not make the overall site predominantly white.
+- `#171B17` deep charcoal for selected contrast and text.
 
-Green must remain dominant. Use yellow sparingly; it must not take over large sections or compete with the primary green. Balance coloured sections with warm neutral surfaces so the pages remain readable and visually varied.
+Green, white, and yellow are the three brand colours. Green leads; white provides clarity but must not make the whole site predominantly white; yellow adds controlled brightness and must never dominate, become a large section background, or compete with green. Use a deliberate mix of green sections, white and warm-light content surfaces, and small yellow details. Maintain strong contrast so parents can easily read and notice important information.
 
 Make the site feel welcoming, credible, energetic, and appropriate for Creche, Nursery, and Primary education. Follow the complete tokens and usage rules in `docs/DESIGN_SYSTEM.md`.
 
