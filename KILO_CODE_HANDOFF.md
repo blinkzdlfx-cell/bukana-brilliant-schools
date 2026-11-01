@@ -53,16 +53,18 @@ Do not introduce Bootstrap or an unnecessary competing framework. Keep the packa
 
 ## Design direction
 
-Implement the dark monochrome design system exactly as documented:
-- `#070707` page foundation.
-- `#f5f5f5` primary text and key light surfaces.
-- `#111111` cards and dark surfaces.
-- Muted greys for secondary content.
-- Subtle white borders.
-- No predominantly white page template.
-- No unrelated accent colour without owner approval.
+Implement Bukana Brilliant Schools' green-and-yellow school identity exactly as documented:
+- `#0D8215` primary school green and dominant brand colour.
+- `#094F1B` deep supporting green for contrast and depth.
+- `#F2C94C` restrained yellow accent for small highlights and emphasis.
+- `#171B17` deep charcoal for selected dark sections and text contrast.
+- `#F4F5EF` warm light surface.
+- `#172018` main text on light surfaces.
+- White only where needed; do not make the overall site predominantly white.
 
-Make the site feel like a welcoming, credible, contemporary school. Use appropriate school imagery and clear educational storytelling. Do not make the website look like a generic corporate template.
+Green must remain dominant. Use yellow sparingly; it must not take over large sections or compete with the primary green. Balance coloured sections with warm neutral surfaces so the pages remain readable and visually varied.
+
+Make the site feel welcoming, credible, energetic, and appropriate for Creche, Nursery, and Primary education. Follow the complete tokens and usage rules in `docs/DESIGN_SYSTEM.md`.
 
 ## Product requirements
 
