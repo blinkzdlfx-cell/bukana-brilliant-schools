@@ -51,18 +51,18 @@ Current parents, family members, prospective staff, and community visitors looki
 
 ## 5. Brand and visual direction
 
-Bukana Brilliant Schools has its own green-and-yellow school identity:
-- Primary school green: `#0D8215`.
+Bukana Brilliant Schools' brand identity is built around three colours: green, white, and yellow.
+- Primary green: `#0D8215`.
 - Deep supporting green: `#094F1B`.
-- Small yellow accent: `#F2C94C`.
-- Deep charcoal: `#171B17`.
-- Warm light surface: `#F4F5EF`.
+- Yellow accent: `#F2C94C`.
+- White: `#FFFFFF`.
+- Warm light neutral: `#F4F5EF`.
 - Main text on light surfaces: `#172018`.
-- White: `#FFFFFF`, used selectively.
+- Deep charcoal: `#171B17`.
 
-Green is the dominant brand colour and should be immediately recognizable throughout the website. Yellow is a small supporting accent for highlights, badges, selected icons, underlines, and occasional emphasis. It must not dominate large areas.
+Green is the leading brand colour and should be recognizable throughout the website. White is an important supporting colour that helps parents read details and navigate content, but it must be used with green and warm-light sections so the overall site does not become predominantly white. Yellow is only a restrained brightness accent for small highlights, selected icons, badges, underlines, and occasional emphasis. It must not dominate large areas or compete with green.
 
-Use a balanced mix of green brand sections, deep green or charcoal contrast sections, and warm light neutral surfaces. Avoid both an all-white template and an all-green page. Keep text contrast strong and the overall experience lively, clear, welcoming, and suitable for early-years and primary education.
+Use a deliberate mix of green brand sections, white and warm-light content surfaces, and small yellow details. Deep green and charcoal may add contrast, but they are supporting shades/neutrals rather than additional brand colours. Avoid an all-white template, an all-green page, or a yellow-heavy design. Keep text contrast strong and the overall experience lively, clear, welcoming, and suitable for early-years and primary education.
 
 The visual tone should be confident, welcoming, energetic, safe, and educational.
 
