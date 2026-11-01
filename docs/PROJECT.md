@@ -44,7 +44,7 @@ Current parents, family members, prospective staff, and community visitors looki
 - **Trust before hype:** factual, useful, verifiable information.
 - **Warmth through imagery:** use relevant, approved school and learning imagery.
 - **Clarity:** explain school levels and next steps in plain language.
-- **Distinctiveness:** a dark monochrome visual foundation with expressive typography and intentional contrast.
+- **Distinctiveness:** a green-led school identity with restrained yellow accents, expressive typography, and intentional contrast.
 - **Accessibility:** readable, keyboard-friendly, mobile-first experience.
 - **Performance:** fast initial load, optimized images, minimal dependencies.
 - **Maintainability:** reusable components and structured content.
