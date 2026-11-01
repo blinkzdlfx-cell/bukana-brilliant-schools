@@ -4,9 +4,7 @@
 
 You are working on **Bukana Brilliant Schools**, an original, independently defined school website project.
 
-Treat this repository as a completely new project created from an empty repository. Build its structure, architecture, components, content model, routes, and visual experience specifically for this school.
-
-This is not a migration, port, restoration, continuation, or reimplementation of another website. Do not search for, import, copy, or assume the existence of another project's source files. Do not carry over unrelated business logic, page structures, content, assets, naming, or assumptions.
+Build the structure, architecture, components, content model, routes, and visual experience specifically for Bukana Brilliant Schools. Follow the requirements and decisions recorded in this repository's project documentation.
 
 The project has its own source of truth in this repository:
 - `PROJECT.md` — project identity and goals (see `docs/PROJECT.md`)
