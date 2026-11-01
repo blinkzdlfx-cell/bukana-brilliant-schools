@@ -4,57 +4,65 @@
 
 Create a contemporary, welcoming, energetic, and trustworthy school identity for Creche, Nursery, and Primary education.
 
-The visual identity is green-led with a small yellow accent. It should feel bright and engaging without becoming noisy, childish, or overly decorative. Use a deliberate balance of brand-colour sections, deep contrast sections, and warm neutral surfaces.
+The visual identity uses three brand colours: **green, white, and yellow**. Green establishes the school's identity, white provides clear space and readable content surfaces, and yellow adds controlled brightness and emphasis. The three colours must work together; none should make the site feel washed out, overly loud, or difficult to read.
 
-Do not use a predominantly white template. Do not make every section green. Colour should be visibly present throughout the experience, while content remains easy to read.
+Use a deliberate balance of green-led brand areas, purposeful white/light content areas, and small yellow accents. Do not make the website predominantly white, uniformly green, or yellow-heavy. The design should feel bright and clear while giving photographs, headings, and important details enough visual contrast.
 
 ## 2. Brand colour tokens
 
-These are the approved starting tokens for the school identity:
+These are the approved starting tokens:
 
 | Token | Value | Usage |
 |---|---|---|
 | Primary green | `#0D8215` | Main brand colour, primary buttons, key brand moments, selected section backgrounds |
-| Deep green | `#094F1B` | Supporting brand shade, dark green sections, hover/active states, depth |
-| Accent yellow | `#F2C94C` | Small highlights, badges, selected icons, underlines, decorative details, occasional emphasis |
-| Deep charcoal | `#171B17` | Dark contrast sections, footer, dark text where appropriate |
-| Warm light surface | `#F4F5EF` | Main light page sections and cards |
-| Main text | `#172018` | Primary text on warm light surfaces |
-| White | `#FFFFFF` | Selective text, cards, and contrast—not the default background everywhere |
+| Deep green | `#094F1B` | Supporting green shade for depth, hover/active states, and selected dark-green surfaces |
+| Yellow accent | `#F2C94C` | Small highlights, selected icons, badges, underlines, markers, and occasional emphasis |
+| White | `#FFFFFF` | Clear content surfaces, cards, text on green, and visual breathing room; use intentionally, not as the background for every section |
+| Warm light neutral | `#F4F5EF` | Alternative light content surface to prevent excessive pure white |
+| Main text | `#172018` | Primary text on white and warm-light surfaces |
+| Deep charcoal | `#171B17` | Text and selected dark contrast areas where needed |
 | Muted text | `#687268` | Secondary text on light surfaces |
 | Soft border | `rgba(23,32,24,0.12)` | Dividers and outlines on light surfaces |
 | Dark border | `rgba(255,255,255,0.14)` | Dividers and outlines on dark surfaces |
 
-### Colour hierarchy
+Green, white, and yellow are the only brand colours. Deep green is a shade of the green identity. Warm light and charcoal are supporting neutrals for legibility and depth, not additional brand colours. Do not introduce unrelated accent colours.
 
-1. Primary green is the dominant brand colour.
-2. Deep green supports the primary green and adds depth.
-3. Yellow is a small accent only. It must not compete with green or become a large page background.
-4. Warm light neutral surfaces provide breathing room without making the site predominantly white.
-5. Charcoal is used selectively for footer areas, contrast sections, and dark components.
+## 3. Colour hierarchy
 
-Do not introduce unrelated brand colours. Photographs may naturally contain other colours, but the interface palette must remain consistent.
+1. **Green is the main identity colour.** It should be immediately recognizable across the site and lead the visual system.
+2. **White is a supporting colour, not a default page template.** Use it for clear reading surfaces, cards, selected backgrounds, and text on green. Alternate it with green sections and warm-light surfaces so the site does not become an endless white layout.
+3. **Yellow is a brightness accent only.** Use it sparingly to draw attention to small details. It must never compete with green, dominate a section, or become the main background colour.
+4. Deep green supports the green identity and adds contrast. Warm light and charcoal support readability.
 
-## 3. Colour application guidance
+Do not treat the three colours as equal blocks or apply them mechanically in every section. The visual balance should feel natural and intentional.
+
+## 4. Colour application guidance
 
 Use a varied section rhythm, for example:
-- Warm light surface for readable content-heavy sections.
-- Primary green for selected brand sections, key calls to action, and education-level highlights.
-- Deep green for strong contrast sections, selected feature panels, and footer treatments.
-- Charcoal for occasional visual grounding.
-- Yellow for small visual cues and emphasis.
+- Green for selected hero/brand sections, key calls to action, navigation details, and education-level highlights.
+- White for selected cards, content panels, and text on green backgrounds.
+- Warm light surfaces for longer text-heavy sections and to soften transitions between green and white.
+- Deep green for selected contrast sections, footer treatments, and hover/active states.
+- Yellow for small badges, icons, short underlines, thin separators, tiny decorative shapes, and carefully selected emphasis.
 
-Do not:
-- Use yellow as a dominant background.
-- Use green behind every section or every card.
-- Put low-contrast green text on green backgrounds.
-- Put yellow text on white or pale surfaces where it is difficult to read.
-- Use white as the automatic background for every page section.
-- Use colour alone to communicate status or meaning.
+Keep important details easy to see:
+- Use dark text on white and warm-light surfaces.
+- Use white text on green only after checking contrast.
+- Use deep charcoal or deep green text on yellow.
+- Never use yellow for long text, paragraph text, or small text on white.
+- Do not place white text on pale yellow.
+- Do not place low-contrast green text on green backgrounds.
+- Do not use colour alone to communicate status or meaning.
 
-For text on green backgrounds, use white or another verified high-contrast text colour. For text on yellow, use deep charcoal. Check contrast for all interactive and text combinations before sign-off.
+Avoid:
+- Large yellow section backgrounds or oversized yellow panels.
+- Yellow buttons for every call to action.
+- A white background on every page section.
+- Making every section or card green.
+- Excessive white space that weakens the visual identity.
+- Busy colour combinations that make school information harder to scan.
 
-## 4. Typography
+## 5. Typography
 
 - Primary family: Inter or a visually compatible sans-serif fallback.
 - Use a clear scale from display headings to body and labels.
@@ -72,7 +80,7 @@ Suggested hierarchy:
 - Body: readable, relaxed line height.
 - Caption/eyebrow: small but comfortably legible.
 
-## 5. Layout and spacing
+## 6. Layout and spacing
 
 - Mobile-first layout.
 - Center content within a consistent max-width container.
@@ -84,16 +92,16 @@ Suggested hierarchy:
 - Use asymmetric layouts selectively for visual interest.
 - Vary section backgrounds intentionally to create a clear visual rhythm.
 
-## 6. Surfaces, borders, and radii
+## 7. Surfaces, borders, and radii
 
-- Use warm light cards for content-heavy areas and green/deep-green cards for selected highlights.
+- Use white and warm-light cards for readable content-heavy areas, balanced with selected green feature cards.
 - Use borders that suit the surface: subtle dark borders on light surfaces and subtle white borders on dark surfaces.
 - Use consistent medium-to-large radii for feature cards and image panels.
 - Buttons and compact controls may use pill or rounded rectangle shapes.
 - Use shadows sparingly; rely on contrast, borders, and image overlays.
 - Avoid layering too many translucent panels.
 
-## 7. Imagery and art direction
+## 8. Imagery and art direction
 
 Imagery should communicate a welcoming, active, supportive learning environment.
 
@@ -116,7 +124,7 @@ Image rules:
 - Optimize image size and loading behavior.
 - Never use an image that suggests facilities or services the school does not have.
 
-## 8. Buttons and links
+## 9. Buttons and links
 
 ### Primary button
 - Primary green surface.
@@ -124,13 +132,13 @@ Image rules:
 - Strong contrast and clear visual weight.
 - Use deep green for hover/active states where contrast remains clear.
 
-### Yellow-accent button or detail
+### Yellow-accent detail
 - Use sparingly for secondary emphasis or selected campaign/feature moments.
 - Use deep charcoal text on yellow.
 - Do not style every CTA yellow.
 
 ### Secondary button
-- Transparent or warm light surface depending on its context.
+- White or warm-light surface depending on its context.
 - Green or deep-green text on light surfaces.
 - White text and a subtle light border on dark surfaces.
 
@@ -144,7 +152,7 @@ CTA hierarchy:
 2. Explore academics.
 3. Contact / Find us.
 
-## 9. Cards and content modules
+## 10. Cards and content modules
 
 Use reusable variants for:
 - Education level cards.
@@ -157,7 +165,7 @@ Use reusable variants for:
 
 Cards should have consistent spacing and typography, but not every card should look identical. Use layout, imagery, and restrained brand-colour variation to establish hierarchy.
 
-## 10. Motion
+## 11. Motion
 
 Use Motion for subtle, purposeful interactions:
 - Short entrance transitions.
@@ -173,7 +181,7 @@ Rules:
 - Do not hide core content until animation completes.
 - No autoplay sound or video.
 
-## 11. Accessibility and states
+## 12. Accessibility and states
 
 - Maintain WCAG-conscious text contrast.
 - Verify contrast for green, yellow, charcoal, warm-light, and white combinations.
@@ -185,7 +193,7 @@ Rules:
 - Ensure touch targets are comfortable on mobile.
 - Provide clear empty, loading, error, and success states where relevant.
 
-## 12. Tailwind implementation
+## 13. Tailwind implementation
 
 - Tailwind CSS 4 is the primary styling system.
 - Define reusable CSS theme variables in the global stylesheet using the approved tokens above.
@@ -194,14 +202,15 @@ Rules:
 - Do not introduce Bootstrap or a parallel utility framework.
 - Avoid a large handwritten stylesheet; keep custom CSS limited to global tokens, resets, and cases Tailwind cannot express cleanly.
 
-## 13. Design acceptance
+## 14. Design acceptance
 
 A page meets this design system when:
-- The approved school green is the dominant brand colour.
-- Deep green provides supporting contrast and depth.
-- Yellow appears as a restrained accent, not a competing primary colour.
-- Warm neutral and dark sections create a deliberate visual rhythm.
-- The site is not predominantly white and is not uniformly green.
+- Green is clearly the leading brand colour.
+- White supports readability without making the overall site predominantly white.
+- Yellow is visible as a restrained brightness accent and never overwhelms the design.
+- Deep green adds supporting depth without becoming a separate competing identity.
+- Green, white, and yellow feel balanced rather than applied as equal blocks.
+- Warm neutral and dark details create a deliberate visual rhythm.
 - Text and controls maintain accessible contrast.
 - Imagery provides appropriate school context.
 - Typography is readable and expressive.
