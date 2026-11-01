@@ -4,7 +4,7 @@
 
 Build the Bukana Brilliant Schools public website as a new, original project in this repository.
 
-This repository was intentionally created empty and has now received its product and technical documentation. Treat it as a fresh project. Do not approach it as a rebuild, migration, port, restoration, or continuation of any other website. Do not import another project's components, page structure, business logic, assets, naming, or assumptions.
+This repository contains the approved product and technical documentation for Bukana Brilliant Schools. Implement the website according to these documents and the school's requirements.
 
 ## Mandatory reading
 
