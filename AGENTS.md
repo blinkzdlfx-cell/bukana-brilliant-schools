@@ -77,23 +77,24 @@ Do not change the Node runtime, npm version, or global machine configuration. Do
 
 ## 4. Design rules
 
-The visual language is a deliberate dark, monochrome system:
-- Base background: `#070707`
-- Main text: `#f5f5f5`
-- Card/surface: `#111111`
-- Muted text: `#8c8c8c`
-- Secondary muted text: `#a5a5a5`
-- Borders: subtle white at approximately 11% opacity
-- Primary action: white surface with near-black text, with a dark/inverted variant where appropriate
+Use Bukana Brilliant Schools' own green-and-yellow school identity:
+- Primary school green: `#0D8215`
+- Deep supporting green: `#094F1B`
+- Small yellow accent: `#F2C94C`
+- Deep charcoal: `#171B17`
+- Warm light surface: `#F4F5EF`
+- Main text on light surfaces: `#172018`
+- White: `#FFFFFF`, used selectively rather than as the default for every section.
 
-Do not turn the website into a predominantly white template. Dark surfaces should be the foundation, while white and grey are used deliberately for hierarchy, contrast, cards, text, controls, and selected emphasis. Images should add warmth, colour, and human context without changing the core palette.
+Green is the dominant brand colour. Yellow is a restrained accent for small highlights, selected icons, badges, underlines, and occasional emphasis. Do not allow yellow to compete with green or become a large background colour. Use deep green and charcoal for visual depth, and warm light surfaces to keep pages readable without making the site predominantly white.
 
-The school website must feel welcoming, credible, safe, energetic, and educational—not like a generic corporate landing page and not like an automotive, hospitality, or entertainment website.
+The school website must feel welcoming, credible, safe, energetic, and educational, with a distinctive identity appropriate for Creche, Nursery, and Primary education.
 
 Use:
 - Strong editorial typography and readable line lengths.
 - Intentional section spacing and clear hierarchy.
 - High-quality, relevant school/learning imagery.
+- Green-led brand moments balanced with warm neutral surfaces.
 - Restrained gradients and overlays for legibility.
 - Rounded surfaces and borders consistently.
 - Clear focus, hover, active, disabled, and loading states.
@@ -101,8 +102,9 @@ Use:
 - Mobile-first layouts that are fully usable on small screens.
 
 Avoid:
-- Large uninterrupted white sections.
-- Random accent colours that break the monochrome identity.
+- Making every section green or every section white.
+- Large yellow backgrounds or excessive yellow decoration.
+- Introducing unrelated brand colours.
 - Excessive glassmorphism, gradients, glow, shadows, or decorative shapes.
 - Animating every element.
 - Tiny text, low contrast, overcrowded sections, and oversized empty space.
