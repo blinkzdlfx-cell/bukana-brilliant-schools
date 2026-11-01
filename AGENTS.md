@@ -75,16 +75,18 @@ Do not change the Node runtime, npm version, or global machine configuration. Do
 
 ## 4. Design rules
 
-Use Bukana Brilliant Schools' own green-and-yellow school identity:
-- Primary school green: `#0D8215`
+Use Bukana Brilliant Schools' three-colour identity: green, white, and yellow.
+- Primary green: `#0D8215`
 - Deep supporting green: `#094F1B`
-- Small yellow accent: `#F2C94C`
-- Deep charcoal: `#171B17`
-- Warm light surface: `#F4F5EF`
+- Yellow accent: `#F2C94C`
+- White: `#FFFFFF`
+- Warm light neutral: `#F4F5EF`
 - Main text on light surfaces: `#172018`
-- White: `#FFFFFF`, used selectively rather than as the default for every section.
+- Deep charcoal: `#171B17`
 
-Green is the dominant brand colour. Yellow is a restrained accent for small highlights, selected icons, badges, underlines, and occasional emphasis. Do not allow yellow to compete with green or become a large background colour. Use deep green and charcoal for visual depth, and warm light surfaces to keep pages readable without making the site predominantly white.
+Green leads the identity. White is an important supporting colour for clear details and readable content, but must not become the background for every section or make the site predominantly white. Yellow is only a small brightness accent for selected icons, badges, underlines, markers, and occasional emphasis; it must never dominate or compete with green. Deep green, warm light, and charcoal are supporting shades/neutrals for contrast and legibility, not extra brand colours.
+
+Use green, white, and yellow in a deliberate, balanced way. Do not make the site uniformly green, predominantly white, or yellow-heavy. Keep text and important details easy to distinguish with strong contrast.
 
 The school website must feel welcoming, credible, safe, energetic, and educational, with a distinctive identity appropriate for Creche, Nursery, and Primary education.
 
