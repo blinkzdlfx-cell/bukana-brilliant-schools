@@ -51,16 +51,20 @@ Current parents, family members, prospective staff, and community visitors looki
 
 ## 5. Brand and visual direction
 
-The site uses a dark monochrome foundation:
-- Near-black background.
-- White primary text and key actions.
-- Muted grey supporting text.
-- Dark grey surfaces.
-- Subtle borders and restrained highlights.
+Bukana Brilliant Schools has its own green-and-yellow school identity:
+- Primary school green: `#0D8215`.
+- Deep supporting green: `#094F1B`.
+- Small yellow accent: `#F2C94C`.
+- Deep charcoal: `#171B17`.
+- Warm light surface: `#F4F5EF`.
+- Main text on light surfaces: `#172018`.
+- White: `#FFFFFF`, used selectively.
 
-Avoid a white-template appearance. The school context should come through through photography, copy, layout, and purposeful visual storytelling—not by abandoning the chosen palette.
+Green is the dominant brand colour and should be immediately recognizable throughout the website. Yellow is a small supporting accent for highlights, badges, selected icons, underlines, and occasional emphasis. It must not dominate large areas.
 
-The visual tone should be confident, welcoming, contemporary, safe, and appropriate for early-years and primary education.
+Use a balanced mix of green brand sections, deep green or charcoal contrast sections, and warm light neutral surfaces. Avoid both an all-white template and an all-green page. Keep text contrast strong and the overall experience lively, clear, welcoming, and suitable for early-years and primary education.
+
+The visual tone should be confident, welcoming, energetic, safe, and educational.
 
 ## 6. Core website experience
 
