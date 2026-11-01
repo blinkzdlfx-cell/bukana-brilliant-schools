@@ -122,7 +122,7 @@ This is a proposed organization, not a requirement to create empty folders or un
 - shadcn/ui is used selectively.
 - No Bootstrap.
 - Avoid a large custom CSS framework.
-- Keep the approved school green, deep green, restrained yellow, charcoal, and warm-neutral design tokens centralized in the global stylesheet.
+- Keep the approved green, white, and restrained yellow brand colours, plus supporting deep-green and neutral tokens, centralized in the global stylesheet. Follow the balance and contrast rules in `docs/DESIGN_SYSTEM.md`; do not let white become excessive or yellow dominate.
 
 ## 7. Content architecture
 
