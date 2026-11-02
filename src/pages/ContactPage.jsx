@@ -1,6 +1,7 @@
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
+import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { contactDetails, contactIntro } from '@/data/contact.js';
 import { admissionsCta } from '@/data/school.js';
