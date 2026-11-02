@@ -36,6 +36,15 @@ For Cloudflare Pages, verify its default SPA fallback behavior and ensure there 
 
 ## 4. Blank-screen troubleshooting
 
+### Confirmed source defect fixed in the runtime-rendering patch
+
+The shared footer rendered on every route but referenced `cn(...)` without importing the utility. This can throw a JavaScript `ReferenceError` while React renders the footer and leave the entire page white. The footer must import `cn` from `@/lib/utils.js`.
+
+The same patch adds missing imports for `Button` in `src/pages/AcademicsPage.jsx` and `TemporaryImage` in `src/pages/ContactPage.jsx`, preventing errors when those routes render. It also adds the required Tailwind CSS 4 import to `src/styles/index.css`.
+
+These source defects explain a credible blank-screen failure path, but the deployed browser must still be retested to confirm the issue is resolved.
+
+
 If a deployed URL shows a blank page:
 
 1. Open the browser developer tools and inspect **Console** for JavaScript errors.

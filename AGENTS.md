@@ -83,6 +83,13 @@ Never invent testimonials, names, faces, results, rankings, fees, facilities, po
 - Keep SEO metadata meaningful and page-specific.
 - Do not add analytics, trackers, or third-party scripts without approval.
 
+### Critical entry-point, rendering, and styling rules
+
+- A production blank-screen regression was traced in the current source to `SiteFooter.jsx` calling `cn(...)` without importing `cn`. Because the footer renders on every route, this causes a JavaScript ReferenceError during React rendering and can leave the entire page white. Keep the `cn` import from `@/lib/utils.js`.
+- Also keep explicit imports for every component used by a page: `AcademicsPage.jsx` uses `Button`, and `ContactPage.jsx` uses `TemporaryImage`. Missing imports can cause route-specific runtime failures.
+- Tailwind CSS 4 must be loaded with `@import "tailwindcss";` in `src/styles/index.css`. Importing only `tw-animate-css` does not generate the project's Tailwind utility classes.
+- Do not rely on a successful Vite bundle alone to detect undefined identifiers. Run lint, build, smoke checks, and inspect the actual rendered application whenever possible.
+
 ### Critical entry-point and styling rule
 
 - `src/main.jsx` is the browser entry point. It must import both the React app and the global stylesheet: `import './styles/index.css';`.

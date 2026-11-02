@@ -1,4 +1,5 @@
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
+import { Button } from '@/components/ui/button.jsx';
 import { Card, CardBody, CardHeader } from '@/components/ui/card.jsx';
 import { educationLevels, pendingNote } from '@/data/academics.js';
 import { admissionsCta } from '@/data/school.js';
