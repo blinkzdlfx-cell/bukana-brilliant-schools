@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
+import { cn } from '@/lib/utils.js';
 import { contactDetails, contactIntro } from '@/data/contact.js';
 
 const ICONS = { Mail, Phone, MapPin, Share2 };
