@@ -1,105 +1,121 @@
-# Owner Content and Asset Checklist
+# Owner Content and Production Approval Checklist
 
-This document tracks information that must be supplied or confirmed by the school owner before production publication.
+Use this list to collect the exact information and assets needed to finish the Bukana Brilliant Schools website. The site can be developed around the known school identity, but unconfirmed school-specific claims must not be invented.
 
-## 1. School identity
+## Status already known
 
-- [ ] Confirm official school name spelling and capitalization.
-- [ ] Supply official logo (preferably SVG or transparent PNG).
-- [ ] Confirm tagline: **Be a star @ BBS**.
-- [ ] Supply approved short school description.
-- [ ] Supply mission and vision, if they should appear publicly.
-- [ ] Supply approved school values, if any.
+- School name: **Bukana Brilliant Schools**
+- Short name: **BBS**
+- Tagline: **Be a star @ BBS**
+- Educational levels: **Creche, Nursery, Primary**
+- Domain: **bukanabrilliantschools.com**
+- WhatsApp number supplied for the site: **07019779736** (display format)
+- Address currently recorded: **Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos, Nigeria** — owner must verify spelling, directions, and exact location before final publication.
 
-## 2. Educational levels
+## Priority 1 — Required before the site can be signed off
 
-For each level, confirm the details intended for public display.
+### 1. Official identity and branding
+- [ ] Confirm the official school name and how it should appear in the header/footer.
+- [ ] Send the official logo (preferably SVG or transparent PNG; send the best available quality).
+- [ ] Confirm the tagline: **Be a star @ BBS**.
+- [ ] Approve the general wording and visual presentation of the website.
+- [ ] Provide any official school colours or brand rules beyond the current green/white/yellow design.
 
-### Creche
-- [ ] Age range.
-- [ ] Classes/groups, if applicable.
-- [ ] Short description.
-- [ ] Care and learning approach.
-- [ ] Daily routine details, if appropriate.
-- [ ] Relevant facilities and approved images.
+### 2. Contact and location
+- [ ] Confirm that **07019779736** is the official WhatsApp number to publish.
+- [ ] Confirm whether the same number should also be used for normal phone calls.
+- [ ] Confirm the complete address, including the spelling of **Jegun/Ikotun Road**, **Thomas Adeoye B/Stop**, and the correct entrance/landmark.
+- [ ] Send a Google Maps pin or shareable directions link.
+- [ ] Provide the official school email address, if one should be published.
+- [ ] Confirm opening days and hours, including whether visitors must arrange appointments.
+- [ ] Send official Facebook, Instagram, or other social media links, if used.
 
-### Nursery
-- [ ] Age range.
-- [ ] Class names/levels.
-- [ ] Short description.
-- [ ] Curriculum or learning focus.
-- [ ] Relevant activities and approved images.
-
-### Primary
-- [ ] Class/grade structure.
-- [ ] Curriculum and subjects.
-- [ ] Learning and assessment approach.
-- [ ] Relevant activities and approved images.
-
-## 3. Admissions
-
-- [ ] Confirm whether admissions are currently open.
-- [ ] Confirm application process.
-- [ ] Confirm entry requirements.
-- [ ] Confirm required documents.
-- [ ] Confirm age requirements.
-- [ ] Confirm admissions contact person/channel.
-- [ ] Confirm whether fees should be published.
-- [ ] Supply approved fee schedule if public display is authorized.
-- [ ] Supply answers to common parent questions.
-
-## 4. School profile and facilities
-
-- [ ] Confirm address: Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos.
-- [ ] Confirm mission, vision, and values.
-- [ ] Supply school history/founding year if it should be published.
-- [ ] Confirm facilities that may be described.
-- [ ] Confirm transport, meals, childcare, or other services before any mention.
-- [ ] Supply leadership/staff names and approved biographies only if required.
-
-## 5. Contact details
-
-- [ ] Official phone number.
-- [ ] Official WhatsApp number.
-- [ ] Official email address.
-- [ ] Opening days and hours.
-- [ ] Google Maps location / pin.
-- [ ] Official Facebook page.
-- [ ] Official Instagram page.
-- [ ] Other official social accounts.
-
-## 6. Photography and media
-
-- [ ] School exterior and entrance.
-- [ ] Classrooms.
+### 3. Real school photographs
+Please send original photos from the school, preferably clear, well-lit, high-resolution images:
+- [ ] School exterior, signboard, and entrance.
+- [ ] Classrooms or learning spaces.
 - [ ] Creche environment.
-- [ ] Nursery learning spaces.
-- [ ] Primary learning spaces.
-- [ ] Teachers and staff (approved for publication).
-- [ ] Learning activities.
-- [ ] Creative/play activities.
-- [ ] Facilities.
-- [ ] Events, where appropriate.
-- [ ] Confirm permission for each image.
-- [ ] Confirm parent/guardian consent for identifiable student photographs.
-- [ ] Confirm whether student faces should be obscured or excluded.
+- [ ] Nursery learning space.
+- [ ] Primary classrooms.
+- [ ] Teachers/staff or leadership, if they approve publication.
+- [ ] Learning activities and school events.
+- [ ] Facilities the school wants prospective parents to see.
 
-## 7. News and events
+For every photo:
+- [ ] Confirm that the school owns or has permission to publish it.
+- [ ] Confirm that identifiable children have the required parent/guardian consent.
+- [ ] Tell us whether any children's faces must be blurred or excluded.
+- [ ] Provide approved captions or tell us which photos must not be used.
 
-- [ ] Confirm whether the school wants a News & Events section.
-- [ ] Assign who will provide and maintain updates.
-- [ ] Supply current approved announcements and dates.
-- [ ] Confirm process for removing outdated notices.
+**Important:** Do not send student records, private documents, or sensitive personal information for the website.
 
-## 8. Final owner approval
+## Priority 2 — Needed to make each page detailed and accurate
 
-- [ ] Approve all page copy.
-- [ ] Approve all photographs and captions.
-- [ ] Approve admissions details.
-- [ ] Approve all contact links.
-- [ ] Approve public display of fees, if applicable.
-- [ ] Approve final website before production launch.
+### 4. About the school
+- [ ] A short official description (about 100–200 words): what the school wants families to know first.
+- [ ] Mission statement, if the school has one.
+- [ ] Vision statement, if the school has one.
+- [ ] Official values or educational philosophy, if documented.
+- [ ] Founding year and brief history, only if the school wants them published.
+- [ ] Proprietor/founder/principal name, official title, short biography, and approved photo, if a leadership section is wanted.
+- [ ] Any accreditations, registrations, awards, or affiliations the school wants mentioned, with exact names/details.
 
-## Content handling rule
+### 5. Creche, Nursery, and Primary
+For **each** level, please provide:
+- [ ] Age range and entry age criteria.
+- [ ] Class/group names and structure.
+- [ ] Short description of the level.
+- [ ] Curriculum, subjects, or learning focus.
+- [ ] Typical daily routine or school-day structure, if suitable for public display.
+- [ ] Teaching/assessment approach and how parents receive progress updates.
+- [ ] Learning materials or items children need.
+- [ ] Photos approved for that level.
 
-If a checklist item is not confirmed, do not invent it. Leave it out of production content or keep it as an internal pending item.
+### 6. Admissions
+- [ ] Confirm whether admissions are currently open.
+- [ ] Confirm which classes have spaces available, if the school wants availability published.
+- [ ] Official application/enquiry process, step by step.
+- [ ] Age and entry requirements for each level.
+- [ ] Required documents.
+- [ ] Application dates, deadlines, or school calendar dates, if applicable.
+- [ ] Whether visits or assessments are offered and how parents arrange them.
+- [ ] Official admissions contact person/channel.
+- [ ] Current fee schedule and other charges, **only if the owner approves publishing them publicly**.
+- [ ] Payment instructions and policies, if the school wants them published.
+- [ ] Answers to common parent questions.
+
+### 7. School life and facilities
+- [ ] Confirm which facilities actually exist and may be described publicly.
+- [ ] Confirm whether meals, transport, after-school care, childcare arrangements, clubs, sports, or other services are offered. Do not list a service unless confirmed.
+- [ ] Confirm school rules or parent policies that prospective families should know.
+- [ ] Confirm any safeguarding/photo-publication policy that should be represented on the site.
+
+## Priority 3 — Optional content and final approval
+
+### 8. News and events
+- [ ] Confirm whether the school wants a News & Events page/section.
+- [ ] Supply approved announcements, event dates, captions, and photos.
+- [ ] Name the person responsible for sending future updates.
+- [ ] Confirm who should approve and remove outdated announcements.
+
+### 9. Final sign-off
+- [ ] Review the Home, About, Academics, Admissions, School Life, and Contact pages.
+- [ ] Approve all wording, photographs, and captions.
+- [ ] Verify contact links, WhatsApp, address, map pin, and opening hours.
+- [ ] Approve any public display of fees, staff biographies, student images, or school results.
+- [ ] Confirm the final website is approved for public launch.
+
+## What the owner can send first
+
+To avoid delaying the project, request these first:
+1. Official logo.
+2. Confirmation of WhatsApp **07019779736**, address, phone, email, opening hours, and map pin.
+3. At least 8–15 approved school photos, with consent confirmed for any identifiable children.
+4. Short official school description and any approved mission/vision/values.
+5. Creche, Nursery, and Primary age ranges, class structure, and curriculum/learning details.
+6. Admission process, requirements, and whether fees should be shown publicly.
+7. Final approval of the website copy and photos.
+
+## Content safety rule
+
+Anything not confirmed remains internal or is omitted from the public-facing copy. Never invent the school's history, leadership, facilities, curriculum, fees, opening hours, results, testimonials, or services. The website is an enquiry website; do not imply that it accepts applications or payments unless that functionality is deliberately built and approved.
