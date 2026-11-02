@@ -1,7 +1,7 @@
 import { BookOpen, Users, Star, GraduationCap, MessageCircle } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Button } from '@/components/ui/button.jsx';
-import { Card, CardBody, CardHeader } from '@/components/ui/card.jsx';
+import { Card, CardBody } from '@/components/ui/card.jsx';
 import { admissionsCta, contactCta } from '@/data/school.js';
 
 const levels = [
