@@ -39,7 +39,7 @@ export function SchoolLifePage() {
           <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
             Learning happens in the little moments, too.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
             A child’s school experience includes lessons, play, relationships and the spaces where each day unfolds. Explore what you may want to ask about at Bukana Brilliant Schools.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
