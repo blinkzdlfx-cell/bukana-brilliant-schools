@@ -98,7 +98,7 @@ export function SiteFooter({ currentPath, onLinkClick }) {
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                     <div>
                       <p className="font-semibold text-ink-deep">Email</p>
-                      <a href={`mailto:${contactData.email}`} className="text-brand underline underline-offset-2 hover:text-brand-deep">
+                      <a href={`mailto:${contactData.email}`} className="text-brand hover:text-brand-deep">
                         {contactData.email}
                       </a>
                     </div>
@@ -109,7 +109,7 @@ export function SiteFooter({ currentPath, onLinkClick }) {
                     <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                     <div>
                       <p className="font-semibold text-ink-deep">WhatsApp</p>
-                      <a href={contactData.whatsapp} target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-2 hover:text-brand-deep">
+                      <a href={contactData.whatsapp} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-deep">
                         {contactData.whatsappDisplay}
                       </a>
                     </div>
