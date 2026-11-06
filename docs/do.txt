@@ -1,0 +1,64 @@
+do a git pull and add do.txt
+# Role & Objective
+You are an expert Frontend Architect and React/Tailwind CSS Developer. Your task is to completely refructure and update the provided React codebase (`bukana-brilliant-schools-main`) so that its structural layout, sections, component arrangement, navigation menus, and content hierarchy precisely mirror the professional school website template shown in the reference screenshots (Wentworth Schools). 
+
+Maintain a unique, clean color palette, distinct branding, and custom styling chosen specifically for the client's school, while ensuring every structural block, section sequence, and user flow matches the reference architecture.
+
+---
+
+## 1. Global Navigation & Header (`src/components/layout/SiteHeader.jsx`)
+* **Layout & Style:** Sticky header with a clean white background, subtle drop shadow, and high z-index.
+* **Logo:** Positioned on the far left with client branding/logo mark.
+* **Navigation Links (Right-aligned):**
+  * `Home` (Links to `/`)
+  * `About Us` (Dropdown menu containing: *Overview & History*, *Leadership / Director's Welcome*, *Facilities and Learning Environment*)
+  * `Academics` (Dropdown menu containing: *Curriculum Overview*, *Early Years (Pre-School & Nursery)*, *Primary School*)
+  * `Admissions` (Links to `/admissions`)
+  * `Gallery` (Links to `/gallery`)
+  * `Contact` (Links to `/contact`)
+  * `Career` (Links to `/career`)
+* **Language Selector:** Include an interactive EN dropdown indicator on the far right of the desktop navigation bar.
+* **Mobile Responsiveness:** Fully functional hamburger menu drawer scaling smoothly on smaller screens.
+
+---
+
+## 2. Homepage Architecture (`src/pages/HomePage.jsx`)
+Replicate the exact section-by-section vertical flow from top to bottom:
+1. **Hero Section:** Full-width dark background with an overlay image, bold headline statement, descriptive subtext, and a prominent centered CTA button ("Enroll Now").
+2. **Admissions Callout Banner:** Dark navy background highlighting open admissions for the academic year, featuring distinct side-by-side cards for promotional sibling discounts (e.g., tuition tier incentives) and an active "Register & Enroll Now" call-to-action block.
+3. **About Us Section Preview:** A two-column split layout featuring concise introductory copy on the left and a grid of high-quality campus/student imagery on the right, capped with a "Learn More" outline button.
+4. **Programs / Educational Stages Grid ("One School, Endless Opportunities"):** A 3-column feature grid highlighting core tiers (e.g., Creche & Nursery, Primary, Secondary) with descriptive hover cards.
+5. **Facilities & Media Showcase:** Horizontal scrolling preview or multi-image grid showcasing labs, sports grounds, computer rooms, and classrooms.
+6. **Testimonials Section:** Multi-column review cards featuring parent/guardian feedback with star ratings and avatar thumbnails.
+
+---
+
+## 3. Sub-Pages Structural Alignment
+Ensure all secondary pages match the exact content blocks and layouts seen in the reference designs:
+* **About Us / Leadership Page (`src/pages/AboutPage.jsx`):** 
+  * Structured sections for *A Brief History*, *Our Mission*, *Our Vision*, *Our Philosophy*, *Core Values*, and formal *Director's / Deputy Director's Welcome* blocks featuring portrait photos alongside detailed welcome notes.
+* **Academics Pages (`src/pages/AcademicsPage.jsx`, Early Years, Primary):** 
+  * Detailed age-group breakdown data tables, curriculum pillars (e.g., EYFS framework, literacy & communication, numeracy), and key learning areas with icon bullets.
+* **Admissions Page (`src/pages/AdmissionsPage.jsx`):** 
+  * Step-by-step numbered admission process guidelines (1. Inquiry $\rightarrow$ 2. Visit $\rightarrow$ 3. Application $\rightarrow$ 4. Assessment $\rightarrow$ 5. Meeting $\rightarrow$ 6. Decision $\rightarrow$ 7. Enrollment), followed by clear placement policies and required document checklists.
+* **Gallery Page (`src/pages/GalleryPage.jsx`):** 
+  * Responsive photo grid capturing student life, cultural events, sports, and classroom activities.
+* **Contact Page (`src/pages/ContactPage.jsx`):** 
+  * Fully interactive contact form with fields for Full Name, Email Address, Phone Number, and Inquiry Categories (Admissions, School Tour, General, etc.), alongside direct address blocks and WhatsApp contact details.
+
+---
+
+## 4. Footer Layout & Branding (`src/components/layout/SiteFooter.jsx`)
+* **Pre-Footer Callout:** Dark background banner reading *"Join [School Name]! Have a Question? Let Us Know How We Can Help"* with a centered primary button linking to the contact form, followed by social media links (Facebook, Instagram).
+* **Main Footer Grid:** 
+  * Left column: Official school logo box and tagline (*"Striving for Excellence"*).
+  * Right column: Complete contact metadata layout containing physical address, official email address, and direct WhatsApp contact numbers.
+* **Copyright Bar:** Bottom copyright notice with dynamic current year ($2026$).
+
+---
+
+## Technical & Code Quality Guidelines
+* Use clean, semantic Tailwind CSS utility classes throughout all components.
+* Maintain modular component separation (`src/components/layout/`, `src/pages/`, `src/data/`).
+* Ensure zero broken internal router links or missing import references.
+* Keep the code fully optimized for production builds (`npm run build`).
