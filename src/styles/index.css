@@ -49,8 +49,7 @@
   p { margin: 0 0 1rem 0; }
   a {
     color: var(--color-brand);
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
+    text-decoration: none !important;
   }
   a:focus-visible {
     outline: 2px solid var(--color-brand);
