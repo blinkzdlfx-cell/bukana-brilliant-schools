@@ -13,9 +13,10 @@ export function SiteHeader({ currentPath, onLinkClick }) {
   useEffect(() => {
     const onKeydown = (event) => {
       if (event.key === 'Escape') {
+        const mobileMenuWasOpen = menuButtonRef.current?.getAttribute('aria-expanded') === 'true';
         setIsOpen(false);
         setOpenDropdown(null);
-        menuButtonRef.current?.focus();
+        if (mobileMenuWasOpen) menuButtonRef.current?.focus();
       }
     };
     window.addEventListener('keydown', onKeydown);
