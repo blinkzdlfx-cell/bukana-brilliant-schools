@@ -53,7 +53,7 @@ export function ContactPage() {
       '',
       `Message:`,
       formData.message,
-    ].join('%0A');
+    ].join('\n');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,8 +62,8 @@ export function ContactPage() {
     // Real action: open the visitor's email client pre-filled with the enquiry.
     // No submission success is claimed until the visitor completes sending.
     const subject = encodeURIComponent(`Admissions enquiry from ${formData.name}`);
-    const body = buildMailtoBody();
-    window.location.href = `mailto:${contactDetails.email}?subject=${subject}&body=${body}`;
+    const body = encodeURIComponent(buildMailtoBody());
+    window.location.assign(`mailto:${contactDetails.email}?subject=${subject}&body=${body}`);
     setSubmitting(false);
   };
 
@@ -139,7 +139,7 @@ function ContactFormSection({
   onSubmit,
 }) {
   return (
-    <section className="bg-surface-white section-pad">
+    <section id="contact-form" className="bg-surface-white section-pad scroll-mt-24">
       <div className="container-wide">
         <SectionHeading
           eyebrow="Send a message"
