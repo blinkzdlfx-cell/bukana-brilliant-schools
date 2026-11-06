@@ -131,7 +131,6 @@ export function SiteFooter({ currentPath, onLinkClick }) {
                   { label: 'Admissions', href: '/admissions' },
                   { label: 'Gallery', href: '/gallery' },
                   { label: 'Contact', href: '/contact' },
-                  { label: 'Career', href: '/career' },
                 ].map((item) => {
                   const isActive = currentPath === item.href;
                   return (
