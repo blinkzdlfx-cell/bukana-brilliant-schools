@@ -1,4 +1,4 @@
-import { ArrowRight, Baby, BookOpen, CalendarDays, HeartHandshake, MessageCircle, Sparkles } from 'lucide-react';
+import { ArrowRight, Baby, BookOpen, HeartHandshake, MessageCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
