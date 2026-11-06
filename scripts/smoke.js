@@ -57,6 +57,7 @@ check(workerSource.includes("url.pathname === '/favicon.ico'") && workerSource.i
 check(workerSource.includes('SPA document fallback failed') && workerSource.includes('status: 503'), 'worker catches static asset and SPA fallback exceptions');
 check(contactSource.includes('id="contact-form"') && contactSource.includes('encodeURIComponent(buildMailtoBody())'), 'contact form has an anchor target and safely encoded email body');
 check(headerSource.includes('onMouseEnter={() => dropdown && setOpenDropdown(item.href)}'), 'desktop navigation dropdowns open on hover');
+check(!headerSource.includes('activeLang') && !headerSource.includes('languageOptions'), 'header does not expose a non-functional language switcher');
 
 const appSource = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf8') : '';
 const galleryData = fs.existsSync(galleryDataPath) ? fs.readFileSync(galleryDataPath, 'utf8') : '';
