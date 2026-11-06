@@ -24,7 +24,7 @@ function HeroSection() {
   const handleHeroNavigation = (event, href) => {
     event.preventDefault();
     navigate(href);
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.dispatchEvent(new window.PopStateEvent('popstate'));
   };
 
   return (
