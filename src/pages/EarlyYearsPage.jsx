@@ -1,148 +1,131 @@
-import { motion } from 'motion/react';
-import { BookOpen, Star, Users, Play } from 'lucide-react';
-import { SectionHeading } from '@/components/ui/section-heading.jsx';
-import { Card, CardBody } from '@/components/ui/card.jsx';
+import { ArrowRight, Baby, BookOpen, CalendarDays, HeartHandshake, MessageCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
-import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
-import { earlyYears, pendingNote } from '@/data/academics.js';
-import { contactCta, admissionsCta } from '@/data/school.js';
+import { Card, CardBody } from '@/components/ui/card.jsx';
+import { SectionHeading } from '@/components/ui/section-heading.jsx';
+
+const discussionTopics = [
+  {
+    title: 'Age and settling in',
+    detail: 'Ask about the age range for each class, how new children are welcomed and how the transition into school is supported.',
+    icon: Baby,
+  },
+  {
+    title: 'Learning through the day',
+    detail: 'Ask how stories, language, play, movement and early number activities fit into the daily programme.',
+    icon: BookOpen,
+  },
+  {
+    title: 'Care and communication',
+    detail: 'Find out about daily routines, meals, rest, collection arrangements and how parents receive updates.',
+    icon: HeartHandshake,
+  },
+];
+
+const learningAreas = [
+  'Communication and language',
+  'Personal and social development',
+  'Physical development',
+  'Early literacy and numeracy',
+  'Understanding the world',
+  'Creative expression',
+];
 
 export function EarlyYearsPage() {
   return (
     <>
-      <HeroSection />
-      <FrameworkSection />
-      <DailyRoutineSection />
-      <EnquirySection />
-    </>
-  );
-}
-
-function HeroSection() {
-  return (
-    <section className="relative bg-brand overflow-hidden">
-      <div className="relative container-wide section-pad pt-24 md:pt-36 pb-24 md:pb-36">
-        <div>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-accent">
+      <section className="relative isolate overflow-hidden bg-brand-deep text-white">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full border border-white/10" />
+        <div className="container-wide relative py-16 md:py-20 lg:py-24">
+          <p className="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D28C]">
             <span className="h-2 w-2 rounded-full bg-accent" />
-            Early Years
-          </span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 mb-6 text-4xl md:text-5xl font-bold leading-tight text-surface-white text-balance"
-          >
-            Early Years (Pre-School &amp; Nursery)
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-10 max-w-xl text-lg leading-relaxed text-[#dbe8dc] md:text-xl"
-          >
-            Foundational care and learning for the youngest pupils. Ask the school about age range, daily routine,
-            and how children are supported as they develop.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="accent" href="/contact" className="px-8 py-4">
-              Ask about early years
+            Early years
+          </p>
+          <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
+            A thoughtful start for the youngest learners.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+            Exploring Creche and Nursery? Speak with Bukana Brilliant Schools about age requirements, class availability, early learning and how children are supported as they settle in.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button variant="accent" href="/contact" className="min-h-12 px-6">
+              Ask about early years <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </Button>
-            <Button variant="outline" href="/admissions" className="px-8 py-4">
-              Admissions enquiries
+            <Button variant="secondary" href="/admissions" className="min-h-12 border-white/50 bg-white/8 px-6 text-white shadow-none hover:bg-white hover:text-brand-deep">
+              Admissions information
             </Button>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function FrameworkSection() {
-  return (
-    <section className="bg-surface-white section-pad">
-      <div className="container-wide">
-        <SectionHeading
-          eyebrow="Curriculum pillars"
-          title="Areas of learning and development"
-          description="Curriculum frameworks and subject details are pending owner confirmation. The pillars below are useful areas to discuss with the school."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {earlyYears.pillars.map((pillar) => (
-            <Card key={pillar.title}>
-              <CardBody className="p-7">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                  <Star className="h-6 w-6" />
+      <section className="section-pad bg-surface-white">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="Creche and Nursery"
+            title="What matters in the early years?"
+            description="Every child develops at their own pace. Use these topics to understand the school’s approach and decide whether it is a good fit for your family."
+          />
+          <div className="mt-11 grid gap-5 md:grid-cols-3">
+            {discussionTopics.map(({ title, detail, icon: Icon }, index) => (
+              <Card key={title} className="h-full">
+                <CardBody className="p-7 md:p-8">
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                      <Icon aria-hidden="true" className="h-6 w-6" />
+                    </span>
+                    <span className="text-xs font-bold tracking-[0.16em] text-ink-muted/60">0{index + 1}</span>
+                  </div>
+                  <h2 className="mt-7 text-xl font-bold text-ink-deep">{title}</h2>
+                  <p className="mt-3 leading-7 text-ink-muted">{detail}</p>
+                </CardBody>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad border-y border-border-soft bg-surface-warm">
+        <div className="container-wide grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">Areas to discuss</p>
+            <h2 className="text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">
+              Learning is more than letters and numbers.
+            </h2>
+            <p className="mt-5 leading-8 text-ink-muted">
+              These are common early-childhood development areas that parents may wish to discuss. Ask the school which areas are included in its current programme and how they are taught.
+            </p>
+          </div>
+          <div className="rounded-[1.5rem] border border-border-soft bg-white p-6 shadow-sm sm:p-8">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {learningAreas.map((area) => (
+                <div key={area} className="flex min-h-14 items-center gap-3 rounded-xl bg-surface-warm px-4 py-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                    <Sparkles aria-hidden="true" className="h-4 w-4" />
+                  </span>
+                  <span className="text-sm font-semibold leading-6 text-ink-deep">{area}</span>
                 </div>
-                <h3 className="mb-3 text-lg font-bold text-ink-deep">{pillar.title}</h3>
-                <p className="text-ink-muted">{pillar.detail || 'Detail pending owner confirmation.'}</p>
-                {pillar.detail === null && (
-                  <p className="mt-3 text-xs font-semibold text-ink-muted">Content pending owner confirmation.</p>
-                )}
-              </CardBody>
-            </Card>
-          ))}
+              ))}
+            </div>
+            <p className="mt-5 text-xs leading-6 text-ink-muted">
+              General discussion topics only. The school should confirm its actual curriculum, class structure and daily routine.
+            </p>
+          </div>
         </div>
-        <p className="mt-10 text-sm text-ink-muted text-center">{pendingNote}</p>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function DailyRoutineSection() {
-  return (
-    <section className="bg-surface-warm section-pad border-t border-border-soft">
-      <div className="container-wide">
-        <SectionHeading
-          eyebrow="School day"
-          title="Typical daily routine"
-          description="The daily schedule for early years is pending owner confirmation."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            { time: 'Arrival', activity: 'Welcome and settling in', detail: null },
-            { time: 'Morning', activity: 'Circle time and early learning', detail: null },
-            { time: 'Midday', activity: 'Meals, rest, and outdoor play', detail: null },
-            { time: 'Afternoon', activity: 'Creative activities and stories', detail: null },
-            { time: 'Pickup', activity: 'Handover and parent update', detail: null },
-          ].map((item) => (
-            <Card key={item.time}>
-              <CardBody className="p-6 text-center">
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand">{item.time}</p>
-                <h3 className="mb-2 text-lg font-bold text-ink-deep">{item.activity}</h3>
-                {item.detail === null ? (
-                  <p className="text-xs font-semibold text-ink-muted">Detail pending owner confirmation.</p>
-                ) : (
-                  <p className="text-sm text-ink-muted">{item.detail}</p>
-                )}
-              </CardBody>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function EnquirySection() {
-  return (
-    <section className="bg-brand-deep section-pad text-surface-white">
-      <div className="container-wide flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-        <div className="max-w-2xl">
-          <Play className="mb-4 h-8 w-8 text-accent" />
-          <h2 className="mb-3 text-3xl font-bold">Questions about early years?</h2>
-          <p className="leading-relaxed text-[#dbe8dc]">
-            Contact the school to confirm age range, class placement, daily routine, and next steps for enrolment.
-          </p>
-        </div>
-        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-          <Button variant="accent" href="/contact" className="px-8 py-4">
-            Contact the school
-          </Button>
-          <Button variant="secondary" href="/admissions" className="px-8 py-4">
-            Admissions
+      <section className="section-pad bg-surface-white">
+        <div className="container-wide flex flex-col items-start justify-between gap-7 rounded-[1.5rem] bg-brand-deep p-7 text-white sm:p-10 md:flex-row md:items-center">
+          <div className="max-w-2xl">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-accent">
+              <MessageCircle aria-hidden="true" className="h-5 w-5" />
+            </span>
+            <h2 className="mt-5 text-balance text-2xl font-bold text-white sm:text-3xl">Have questions about Creche or Nursery?</h2>
+            <p className="mt-3 leading-7 text-white/75">Ask about age range, class availability, daily arrangements and how to begin an enquiry.</p>
+          </div>
+          <Button variant="accent" href="/contact" className="min-h-12 w-full px-6 sm:w-auto">
+            Contact the school <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Button>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
