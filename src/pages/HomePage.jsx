@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, BookOpen, Users, GraduationCap, Building2, Play, Palette } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, GraduationCap, Building2, Play, Palette, Mail, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
