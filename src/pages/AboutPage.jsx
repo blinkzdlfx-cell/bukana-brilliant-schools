@@ -81,6 +81,10 @@ function OverviewSection() {
         <div className="mt-12 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h3 className="mb-4 text-2xl font-bold text-ink-deep">Our story and commitment</h3>
+            <div className="mb-6 space-y-4 leading-relaxed text-ink-muted">
+              <p>Bukana Brilliant Schools is built around the belief that a child’s early learning experiences can shape a lifelong attitude towards discovery, confidence and personal growth. Its educational journey brings together Creche, Nursery and Primary learning, giving families a place to explore the foundations of their children’s development.</p>
+              <p>As the school continues its work with families in Ijegun, Lagos, its purpose remains focused on nurturing potential, encouraging curiosity and helping every learner develop the knowledge and character to shine. The school’s story is not defined by a date or a building alone, but by the children it seeks to support and the partnership it builds with their families.</p>
+            </div>
             <ul className="space-y-4 text-ink-muted leading-relaxed">
               <li className="flex items-start gap-3">
                 <HeartHandshake className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
