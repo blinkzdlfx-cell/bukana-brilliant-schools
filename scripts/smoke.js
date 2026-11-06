@@ -19,6 +19,11 @@ function check(condition, message) {
 const indexPath = path.join(dist, 'index.html');
 const assetsDir = path.join(dist, 'assets');
 const homePagePath = path.join(projectRoot, 'src/pages/HomePage.jsx');
+const appPath = path.join(projectRoot, 'src/App.jsx');
+const galleryDataPath = path.join(projectRoot, 'src/data/gallery.js');
+const galleryPagePath = path.join(projectRoot, 'src/pages/GalleryPage.jsx');
+const navigationPath = path.join(projectRoot, 'src/data/school.js');
+const sitemapPath = path.join(projectRoot, 'public/sitemap.xml');
 const distExists = fs.existsSync(dist);
 const indexExists = fs.existsSync(indexPath);
 const assetsExists = fs.existsSync(assetsDir);
@@ -41,6 +46,18 @@ const lucideImport = homePage.match(/import\s*\{([^}]+)\}\s*from\s*['"]lucide-re
 const importedIcons = lucideImport ? lucideImport[1].split(',').map((name) => name.trim()) : [];
 check(importedIcons.includes('Mail'), 'homepage imports the Mail icon used by its contact section');
 check(importedIcons.includes('MessageCircle'), 'homepage imports the MessageCircle icon used by its contact section');
+
+const appSource = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf8') : '';
+const galleryData = fs.existsSync(galleryDataPath) ? fs.readFileSync(galleryDataPath, 'utf8') : '';
+const galleryPage = fs.existsSync(galleryPagePath) ? fs.readFileSync(galleryPagePath, 'utf8') : '';
+const navigation = fs.existsSync(navigationPath) ? fs.readFileSync(navigationPath, 'utf8') : '';
+const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
+check(appSource.includes("{ path: '/gallery', element: <GalleryPage /> }"), 'gallery route renders the dedicated gallery page');
+check((galleryData.match(/image\\('gallery-/g) || []).length === 30, 'gallery contains 30 image entries');
+check(galleryPage.includes('role="dialog"') && galleryPage.includes('aria-modal="true"'), 'gallery includes an accessible full-screen image viewer');
+check(galleryPage.includes('loading={index < 4 ? \'eager\' : \'lazy\'}') && galleryPage.includes('decoding="async"'), 'gallery uses lazy loading and asynchronous image decoding');
+check(!appSource.includes("'/career'") && !appSource.includes('CareerPage'), 'careers route and page import are removed');
+check(!navigation.includes("href: '/career'") && !sitemap.includes('/career'), 'careers page is removed from navigation and sitemap');
 
 if (assetsExists) {
   const assetFiles = fs.readdirSync(assetsDir);
