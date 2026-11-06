@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, ClipboardCheck, GraduationCap, MessageCircle, Users } from 'lucide-react';
+import { ArrowRight, BookOpen, ClipboardCheck, GraduationCap, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
