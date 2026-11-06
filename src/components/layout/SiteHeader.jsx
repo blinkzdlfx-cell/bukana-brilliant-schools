@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Menu, X, ChevronDown, ChevronRight, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { cn } from '@/lib/utils.js';
-import { navigationItems, navDropdowns, languageOptions, admissionsCta } from '@/data/school.js';
+import { navigationItems, navDropdowns, admissionsCta } from '@/data/school.js';
 
 export function SiteHeader({ currentPath, onLinkClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [activeLang, setActiveLang] = useState(languageOptions.find((l) => l.active) || languageOptions[0]);
 
   useEffect(() => {
     const onKeydown = (e) => {
@@ -117,39 +116,7 @@ export function SiteHeader({ currentPath, onLinkClick }) {
           <Button variant="outline" size="sm" href={admissionsCta.href}>
             {admissionsCta.label}
           </Button>
-          <div className="relative group">
-            <Button variant="outline" size="sm" className="flex items-center gap-2 px-3">
-              <Globe className="w-4 h-4" />
-              <span>{activeLang.label}</span>
-              <ChevronDown className="w-3 h-3" />
-            </Button>
-            <motion.div
-              initial={{ opacity: 0, y: -4, scale: 0.95 }}
-              animate={openDropdown === 'language' ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -4, scale: 0.95 }}
-              exit={{ opacity: 0, y: -4, scale: 0.95 }}
-              className="absolute right-0 top-full mt-2 w-20 rounded-lg border border-border-soft bg-surface-white shadow-lg py-2 z-50"
-            >
-              {languageOptions.map((lang) => {
-                const isActiveLang = lang.value === activeLang.value;
-                return (
-                  <button
-                    key={lang.value}
-                    onClick={() => {
-                      setActiveLang(lang);
-                      setOpenDropdown(null);
-                    }}
-                    className={cn(
-                      'flex w-full items-center gap-2 px-4 py-2 text-sm transition-colors',
-                      isActiveLang ? 'bg-surface-warm text-brand-deep font-semibold' : 'text-ink-muted hover:bg-surface-warm hover:text-brand-deep'
-                    )}
-                  >
-                    {lang.label}
-                    {isActiveLang && <span className="ml-auto text-xs font-bold text-brand">EN</span>}
-                  </button>
-                );
-              })}
-            </motion.div>
-          </div>
+
         </div>
 
         <button
@@ -251,23 +218,7 @@ export function SiteHeader({ currentPath, onLinkClick }) {
             );
           })}
 
-          <div className="pt-3 border-t border-border-soft mt-2 flex items-center gap-3">
-            <span className="text-xs font-medium text-ink-muted">Language</span>
-            {languageOptions.map((lang) => (
-              <button
-                key={lang.value}
-                onClick={() => setActiveLang(lang)}
-                className={cn(
-                  'px-3 py-1.5 rounded-md text-sm transition-colors',
-                  lang.active || lang.value === activeLang.value
-                    ? 'bg-surface-warm text-brand-deep font-semibold'
-                    : 'text-ink-muted hover:bg-surface-warm hover:text-brand-deep'
-                )}
-              >
-                {lang.label}
-              </button>
-            ))}
-          </div>
+
         </div>
       </motion.nav>
     </header>
