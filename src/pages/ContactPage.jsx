@@ -204,7 +204,7 @@ function ContactFormSection({
               onChange={(e) => onChange('message', e.currentTarget.value)}
             />
             {errors.message && (
-              <p className="text-sm text-accent">{errors.message}</p>
+              <p className="text-sm text-red-700">{errors.message}</p>
             )}
           </div>
           <Button
@@ -234,12 +234,12 @@ function TextField({ label, id, type = 'text', value, onChange, error }) {
         type={type}
         className={cnInput(
           'block w-full rounded-lg border px-4 py-3 text-ink leading-relaxed focus:outline-none focus:ring-2 transition-colors',
-          error ? 'border-accent focus:ring-accent' : 'border-border-soft focus:ring-brand'
+          error ? 'border-red-600 focus:ring-red-600' : 'border-border-soft focus:ring-brand'
         )}
         value={value}
         onChange={(e) => onChange(e.currentTarget.value)}
       />
-      {error && <p className="text-sm text-accent">{error}</p>}
+      {error && <p className="text-sm text-red-700">{error}</p>}
     </div>
   );
 }

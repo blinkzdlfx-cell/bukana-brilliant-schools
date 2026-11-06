@@ -71,6 +71,10 @@ check(workerSource.includes("url.pathname === '/favicon.ico'") && workerSource.i
 check(workerSource.includes('SPA document fallback failed') && workerSource.includes('status: 503'), 'worker catches static asset and SPA fallback exceptions');
 check(contactSource.includes('id="contact-form"') && contactSource.includes('encodeURIComponent(buildMailtoBody())'), 'contact form has an anchor target and safely encoded email body');
 check(headerSource.includes('onMouseEnter={() => dropdown && setOpenDropdown(item.href)}'), 'desktop navigation dropdowns open on hover');
+check(headerSource.includes("aria-label={isOpen ? 'Close menu' : 'Open menu'}") && !headerSource.includes('aria-label="Close menu"'), 'mobile navigation uses only the header toggle to open and close the menu');
+check(!headerSource.includes('>Menu</span>'), 'mobile navigation does not render a duplicate Menu heading or close control');
+check(homePage.includes('handleHeroNavigation(event, admissionsCta.href)') && homePage.includes('handleHeroNavigation(event, academicsCta.href)'), 'homepage hero actions navigate to their configured internal routes');
+check(homePage.includes('!text-surface-white') && homePage.includes('!border-surface-white'), 'homepage secondary hero action has visible contrast on the dark hero background');
 check(!headerSource.includes('activeLang') && !headerSource.includes('languageOptions'), 'header does not expose a non-functional language switcher');
 
 check(appSource.includes("{ path: '/gallery', element: <GalleryPage /> }"), 'gallery route renders the dedicated gallery page');
@@ -79,6 +83,11 @@ check(appSource.includes('const currentPathname = window.location.pathname') && 
 check(buttonSource.includes('inline-flex items-center justify-center'), 'shared buttons render as aligned flex controls');
 check(homePage.includes('sm:flex-1 sm:min-w-0') && homePage.includes('min-h-14 whitespace-normal'), 'homepage hero actions have separated responsive widths');
 check(wranglerSource.includes('binding = "ASSETS"'), 'Cloudflare Worker has an explicit static assets binding');
+const stylesPath = path.join(projectRoot, 'src/styles/index.css');
+const stylesSource = fs.existsSync(stylesPath) ? fs.readFileSync(stylesPath, 'utf8') : '';
+check(stylesSource.includes('--color-brand: #176B3A') && stylesSource.includes('--color-accent: #D8B85B'), 'site uses the restrained evergreen and muted-gold design palette');
+check(stylesSource.includes('.scroll-reveal.is-visible') && stylesSource.includes('prefers-reduced-motion: reduce'), 'scroll reveal animations support reduced-motion preferences');
+check(appSource.includes('new IntersectionObserver') && appSource.includes('scroll-reveal'), 'page sections and content groups reveal smoothly on scroll');
 check(routerSource.includes('window.history.pushState'), 'router updates browser history for internal navigation');
 check((galleryData.match(/gallery-[0-9]{2}/g) || []).length === 30, 'gallery contains 30 image entries');
 const galleryPhotoIds = [...galleryData.matchAll(/'photo-([a-zA-Z0-9-]+)'/g)].map((match) => match[1]);

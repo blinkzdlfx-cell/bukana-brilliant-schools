@@ -80,7 +80,7 @@ function StructureSection() {
                 </div>
                 <h3 className="mb-3 text-lg font-bold text-ink-deep">{item.label}</h3>
                 <p className="text-ink-muted">{item.text}</p>
-                <p className="mt-4 text-xs font-semibold text-accent">Detail pending owner confirmation.</p>
+                <p className="mt-4 text-xs font-semibold text-ink-muted">Detail pending owner confirmation.</p>
               </CardBody>
             </Card>
           ))}
@@ -116,7 +116,7 @@ function SubjectsSection() {
               {subject}
             </span>
           ))}
-          <p className="mt-8 text-xs font-semibold text-accent text-center">
+          <p className="mt-8 text-xs font-semibold text-ink-muted text-center">
             Subject list pending owner confirmation.
           </p>
         </div>
@@ -149,7 +149,7 @@ function AssessmentSection() {
               <CardBody className="p-7">
                 <h3 className="mb-3 text-lg font-bold text-ink-deep">{item.title}</h3>
                 <p className="text-ink-muted">{item.text}</p>
-                <p className="mt-4 text-xs font-semibold text-accent">Detail pending owner confirmation.</p>
+                <p className="mt-4 text-xs font-semibold text-ink-muted">Detail pending owner confirmation.</p>
               </CardBody>
             </Card>
           ))}

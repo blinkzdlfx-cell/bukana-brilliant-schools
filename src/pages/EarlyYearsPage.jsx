@@ -76,7 +76,7 @@ function FrameworkSection() {
                 <h3 className="mb-3 text-lg font-bold text-ink-deep">{pillar.title}</h3>
                 <p className="text-ink-muted">{pillar.detail || 'Detail pending owner confirmation.'}</p>
                 {pillar.detail === null && (
-                  <p className="mt-3 text-xs font-semibold text-accent">Content pending owner confirmation.</p>
+                  <p className="mt-3 text-xs font-semibold text-ink-muted">Content pending owner confirmation.</p>
                 )}
               </CardBody>
             </Card>
@@ -110,7 +110,7 @@ function DailyRoutineSection() {
                 <p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand">{item.time}</p>
                 <h3 className="mb-2 text-lg font-bold text-ink-deep">{item.activity}</h3>
                 {item.detail === null ? (
-                  <p className="text-xs font-semibold text-accent">Detail pending owner confirmation.</p>
+                  <p className="text-xs font-semibold text-ink-muted">Detail pending owner confirmation.</p>
                 ) : (
                   <p className="text-sm text-ink-muted">{item.detail}</p>
                 )}

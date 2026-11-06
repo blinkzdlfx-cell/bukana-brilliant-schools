@@ -141,22 +141,6 @@ export function SiteHeader({ currentPath, onLinkClick }) {
         style={{ overflow: 'hidden' }}
       >
         <div className="container-wide px-4 py-4 space-y-4">
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
-            transition={{ delay: 0.1 }}
-            className="flex items-center justify-between px-3 py-2 border-b border-border-soft mb-2"
-          >
-            <span className="text-sm font-medium text-ink">Menu</span>
-            <button
-              className="p-1 text-ink hover:text-brand"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close menu"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </motion.div>
-
           {navigationItems.map((item) => {
             const dropdown = item.dropdown ? navDropdowns[item.dropdown] : null;
             const isActiveItem = isActive(item.href);
