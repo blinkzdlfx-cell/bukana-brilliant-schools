@@ -45,7 +45,7 @@ const PAGE_META = {
   },
   '/admissions': {
     title: 'Admissions Enquiries | Bukana Brilliant Schools',
-    description: 'Contact Bukana Brilliant Schools for current admissions availability, requirements, fees, and next steps.',
+    description: 'Learn about the admissions process, prepare the required documents and contact Bukana Brilliant Schools for enrolment guidance.',
     canonicalPath: '/admissions',
   },
   '/school-life': {
