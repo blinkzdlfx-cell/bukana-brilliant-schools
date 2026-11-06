@@ -45,7 +45,7 @@ export function AdmissionsPage() {
           <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
             Make your first step an informed one.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
             Considering Bukana Brilliant Schools for Creche, Nursery or Primary? Start by speaking with the school. The admissions team can confirm current availability, requirements and how to proceed.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -122,7 +122,7 @@ export function AdmissionsPage() {
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#E8D28C]">Ready to ask?</p>
             <h2 className="mt-3 text-balance text-2xl font-bold text-white sm:text-3xl">Speak with the school.</h2>
-            <p className="mt-3 leading-7 text-white/75">Send an enquiry and ask for the latest admissions information for your child’s learning level.</p>
+            <p className="mt-3 leading-7 text-white">Send an enquiry and ask for the latest admissions information for your child’s learning level.</p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <Button variant="accent" href={contactDetails.whatsapp} className="min-h-12 px-6">
