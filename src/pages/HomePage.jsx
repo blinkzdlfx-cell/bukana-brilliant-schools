@@ -5,7 +5,6 @@ import {
   GraduationCap,
   MessageCircle,
   Sparkles,
-  Users,
   Compass,
   HeartHandshake,
 } from 'lucide-react';
