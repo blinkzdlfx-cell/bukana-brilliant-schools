@@ -25,6 +25,7 @@ const navigationPath = path.join(projectRoot, 'src/data/school.js');
 const sitemapPath = path.join(projectRoot, 'public/sitemap.xml');
 const buttonPath = path.join(projectRoot, 'src/components/ui/button.jsx');
 const workerPath = path.join(projectRoot, 'src/worker.js');
+const contactPagePath = path.join(projectRoot, 'src/pages/ContactPage.jsx');
 const footerPath = path.join(projectRoot, 'src/components/layout/SiteFooter.jsx');
 const headerPath = path.join(projectRoot, 'src/components/layout/SiteHeader.jsx');
 const distExists = fs.existsSync(dist);
