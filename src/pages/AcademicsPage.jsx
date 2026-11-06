@@ -4,7 +4,7 @@ import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
 import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
-import { educationLevels, pendingNote } from '@/data/academics.js';
+import { educationLevels } from '@/data/academics.js';
 import { admissionsCta, contactCta } from '@/data/school.js';
 
 const levelIcons = { creche: Users, nursery: Star, primary: GraduationCap };
