@@ -76,11 +76,11 @@ function OverviewSection() {
         <SectionHeading
           eyebrow="Overview &amp; history"
           title="About the school"
-          description="Bukana Brilliant Schools serves Creche, Nursery, and Primary education in Ijegun, Lagos. The school&rsquo;s founding story, history, and background details are pending owner confirmation and will be shared here once approved."
+          description="Bukana Brilliant Schools is committed to helping children build strong foundations for lifelong learning. Serving families in Ijegun, Lagos, the school brings together Creche, Nursery and Primary education under the belief that every child deserves the opportunity to learn, grow and shine."
         />
         <div className="mt-12 grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h3 className="mb-4 text-2xl font-bold text-ink-deep">What families can ask about</h3>
+            <h3 className="mb-4 text-2xl font-bold text-ink-deep">Our story and commitment</h3>
             <ul className="space-y-4 text-ink-muted leading-relaxed">
               <li className="flex items-start gap-3">
                 <HeartHandshake className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
@@ -96,7 +96,7 @@ function OverviewSection() {
               </li>
               <li className="flex items-start gap-3">
                 <Star className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                <span>Admission requirements, current fees, and key dates.</span>
+                <span>A partnership with families that places each child&rsquo;s development at the centre.</span>
               </li>
             </ul>
           </div>
@@ -148,35 +148,27 @@ function ValuesPhilosophySection() {
         <SectionHeading
           eyebrow="Philosophy &amp; values"
           title="Guiding principles"
-          description="The school&rsquo;s educational philosophy, vision, and core values are pending owner confirmation and will be published here once approved."
+          description="Our approach is guided by a simple belief: children learn best when they are supported, encouraged to ask questions and given room to develop at their own pace."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {[
             {
               title: 'Educational philosophy',
-              text: 'How the school approaches teaching and care at each level.',
-              pending: true,
+              text: 'A child-centred approach that values curiosity, active participation, purposeful play and clear learning foundations.',
             },
             {
               title: 'Vision',
-              text: 'The school&rsquo;s long-term aspirations for its pupils.',
-              pending: true,
+              text: 'To help every learner develop the knowledge, confidence and character to make a positive contribution to the world.',
             },
             {
               title: 'Core values',
-              text: 'The principles that guide staff, pupils, and families.',
-              pending: true,
+              text: 'Respect, responsibility, kindness, creativity, perseverance and a commitment to doing one’s best.',
             },
           ].map((item) => (
             <Card key={item.title}>
               <CardBody className="p-7">
                 <h3 className="mb-3 text-xl font-bold text-ink-deep">{item.title}</h3>
                 <p className="text-ink-muted">{item.text}</p>
-                {item.pending && (
-                  <p className="mt-4 text-xs font-semibold text-accent">
-                    Content pending owner confirmation.
-                  </p>
-                )}
               </CardBody>
             </Card>
           ))}
@@ -193,7 +185,7 @@ function LeadershipSection() {
         <SectionHeading
           eyebrow="Leadership"
           title="Director&rsquo;s welcome"
-          description="A formal welcome from the school&rsquo;s leadership, including the director&rsquo;s message and portrait, is pending owner confirmation and an approved biography and photograph."
+          description="A welcome to every family joining the Bukana Brilliant Schools community."
         />
         <div className="mt-12 grid lg:grid-cols-2 gap-10 items-center">
           <div className="relative h-[320px] w-full rounded-2xl overflow-hidden border border-border-soft bg-surface-warm">
@@ -206,14 +198,15 @@ function LeadershipSection() {
             />
           </div>
           <div>
-            <h3 className="mb-4 text-2xl font-bold text-ink-deep">A message from the school</h3>
-            <p className="text-ink-muted leading-relaxed mb-6">
-              The director&rsquo;s welcome note and leadership biographies will be published here once the school
-              supplies approved text and photographs.
-            </p>
-            <p className="text-xs font-semibold text-accent">
-              Leadership names and images require owner approval before publication.
-            </p>
+            <h3 className="mb-4 text-2xl font-bold text-ink-deep">Welcome to Bukana Brilliant Schools</h3>
+            <div className="space-y-4 text-ink-muted leading-relaxed">
+              <p>Dear Parents and Guardians,</p>
+              <p>It is a pleasure to welcome you to Bukana Brilliant Schools. Choosing a school is one of the most important decisions a family makes, and we recognise the trust that comes with allowing us to be part of your child’s early years and learning journey.</p>
+              <p>Our commitment is to provide a caring and purposeful learning experience where children are encouraged to be curious, build confidence, develop good character and discover their individual strengths. From Creche and Nursery through Primary, every stage is an opportunity to lay foundations for future growth.</p>
+              <p>We value the partnership between school and home. We encourage parents and guardians to ask questions, stay involved and work with us in supporting each child’s progress.</p>
+              <p>Thank you for considering Bukana Brilliant Schools. We look forward to welcoming your family and sharing the journey of helping every child become a star.</p>
+              <p className="font-semibold text-brand-deep">Warm regards,<br />The Director<br />Bukana Brilliant Schools</p>
+            </div>
           </div>
         </div>
       </div>
@@ -228,7 +221,7 @@ function FacilitiesSection() {
         <SectionHeading
           eyebrow="Facilities &amp; environment"
           title="Learning spaces"
-          description="Details about classrooms, play areas, and school facilities are pending owner confirmation and approved photography."
+          description="A positive learning environment brings together thoughtful teaching, purposeful activities and spaces that support children’s development. Families are encouraged to visit and see the school’s facilities first-hand."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {[
@@ -240,9 +233,6 @@ function FacilitiesSection() {
               <CardBody className="p-7">
                 <h3 className="mb-3 text-xl font-bold text-ink-deep">{item.title}</h3>
                 <p className="text-ink-muted">{item.text}</p>
-                <p className="mt-4 text-xs font-semibold text-accent">
-                  Details and images pending owner confirmation.
-                </p>
               </CardBody>
             </Card>
           ))}
