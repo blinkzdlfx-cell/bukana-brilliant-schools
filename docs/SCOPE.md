@@ -7,10 +7,12 @@ The initial release is a public-facing informational school website.
 ### Included
 - Responsive homepage.
 - About the School page.
-- Academics page covering Creche, Nursery, and Primary.
-- Admissions information page.
+- Academics page covering Creche, Nursery, and Primary (including Early Years and Primary subpages).
+- Admissions information page with a numbered enquiry process and required document checklist.
 - School Life / Gallery page.
-- Contact / Find Us page.
+- Contact / Find Us page with an email (mailto) enquiry form and WhatsApp contact link.
+- Career page (vacancy interest).
+- Optional News & Events page only if the school supplies maintainable content.
 - Optional News & Events page only if the school supplies maintainable content.
 - Responsive desktop and mobile navigation.
 - Reusable page sections and UI components.
@@ -26,9 +28,11 @@ The initial release is a public-facing informational school website.
 
 - Navigation routes to the correct pages.
 - Admissions CTAs lead to a verified contact or enquiry route.
+- Contact page includes an email enquiry form (mailto) pre-filled with visitor details, plus a WhatsApp link.
 - Contact links use confirmed official details.
 - Gallery images open or display in an accessible manner if a lightbox is implemented.
 - Mobile menu opens, closes, and supports Escape.
+- Desktop navigation includes dropdown menus for About Us and Academics, plus an EN language selector.
 - All interactive controls have clear feedback.
 - No false form-submission success states.
 - Direct route access and refresh work on the selected host.

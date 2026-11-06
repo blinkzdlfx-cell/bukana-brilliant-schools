@@ -1,82 +1,165 @@
-import { ClipboardList, MessageCircle, CalendarDays, FileCheck2, CircleHelp } from 'lucide-react';
+import { motion } from 'motion/react';
+import { ClipboardList, MessageCircle, CalendarDays, FileCheck2, CircleHelp, CheckCircle2 } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
-import { admissionsCta, contactCta } from '@/data/school.js';
-
-const enquiryTopics = [
-  { icon: ClipboardList, title: 'Available classes', text: 'Ask which Creche, Nursery, or Primary classes are currently available and which class may suit your child.' },
-  { icon: FileCheck2, title: 'Requirements', text: 'Confirm the age criteria, documents, forms, and any other items the school requires before you prepare them.' },
-  { icon: CalendarDays, title: 'School schedule', text: 'Ask about the school calendar, daily timings, visiting arrangements, and any relevant admission dates.' },
-  { icon: CircleHelp, title: 'Fees and policies', text: 'Request the current fee schedule and clarify payment arrangements and school policies directly with the school.' },
-];
+import { admissionsProcess, placementPolicies, requiredDocuments } from '@/data/academics.js';
+import { contactCta, admissionsCta } from '@/data/school.js';
 
 export function AdmissionsPage() {
   return (
     <>
-      <section className="bg-brand section-pad text-surface-white">
-        <div className="container-wide grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-accent">Admissions</p>
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight text-balance md:text-5xl">Make your first step an informed one.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#e8f3e9]">If you are considering Bukana Brilliant Schools for Creche, Nursery, or Primary, start by contacting the school. The school must confirm current availability, entry requirements, fees, and the official application process.</p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button variant="accent" href={contactCta.href}>Start an enquiry</Button>
-              <Button variant="secondary" href="/academics">Explore learning levels</Button>
-            </div>
-          </div>
-          <div className="rounded-card border border-white/15 bg-white/5 p-7 md:p-9">
-            <MessageCircle className="mb-5 h-9 w-9 text-accent" />
-            <h2 className="mb-3 text-2xl font-bold">Before you apply</h2>
-            <p className="leading-relaxed text-[#dbe8dc]">Please confirm details directly with the school. This website currently provides information for enquiries; it does not submit, reserve, or process an application.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surface-white section-pad">
-        <div className="container-wide">
-          <SectionHeading eyebrow="Prepare for your conversation" title="What to ask about" description="These are useful enquiry topics, not a statement of the school’s formal admission rules. Follow the instructions given directly by the school." />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {enquiryTopics.map(({ icon: Icon, title, text }, index) => (
-              <Card key={title} className="h-full overflow-hidden">
-                <CardBody className="flex gap-5 p-7 md:p-8">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand"><Icon className="h-6 w-6" /></div>
-                  <div><p className="mb-2 text-xs font-bold uppercase tracking-widest text-brand">Topic 0{index + 1}</p><h2 className="mb-3 text-xl font-bold text-ink-deep">{title}</h2><p className="leading-relaxed text-ink-muted">{text}</p></div>
-                </CardBody>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surface-warm section-pad">
-        <div className="container-wide">
-          <SectionHeading eyebrow="A simple starting point" title="How to begin an admissions enquiry" description="Use these practical steps to organise your questions. The school will explain its official process and any required forms." />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              ['01', 'Tell the school about your child', 'Share the child’s age and the level you are enquiring about, without sending sensitive documents through an unverified channel.'],
-              ['02', 'Ask for the official requirements', 'Confirm availability, age criteria, documents, fees, school timings, and any dates that apply.'],
-              ['03', 'Follow the school’s instructions', 'Arrange a visit or next conversation if offered, and use only the payment and application instructions confirmed by the school.'],
-            ].map(([number, title, text]) => (
-              <div key={number} className="rounded-card border border-border-soft bg-surface-white p-7">
-                <p className="mb-4 text-sm font-bold tracking-widest text-brand">{number}</p>
-                <h3 className="mb-3 text-xl font-bold text-ink-deep">{title}</h3>
-                <p className="leading-relaxed text-ink-muted">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-brand-deep section-pad text-surface-white">
-        <div className="container-wide text-center">
-          <SectionHeading eyebrow="Have questions?" title="Speak with the school" description="For current admission information, use the contact details published on this website and confirm that you are speaking with an official school representative." className="text-center" />
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button variant="accent" href={contactCta.href}>Contact the school</Button>
-            <Button variant="secondary" href={admissionsCta.href}>Review admissions</Button>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
+      <ProcessSection />
+      <PoliciesSection />
+      <DocumentsSection />
+      <ContactSection />
     </>
+  );
+}
+
+function HeroSection() {
+  return (
+    <section className="relative bg-brand overflow-hidden">
+      <div className="relative container-wide section-pad pt-24 md:pt-36 pb-24 md:pb-36">
+        <div>
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-accent">
+            <span className="h-2 w-2 rounded-full bg-accent" />
+            Admissions
+          </span>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 mb-6 text-4xl md:text-5xl font-bold leading-tight text-surface-white text-balance"
+          >
+            Make your first step an informed one.
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-10 max-w-xl text-lg leading-relaxed text-[#dbe8dc] md:text-xl"
+          >
+            If you are considering Bukana Brilliant Schools for Creche, Nursery, or Primary, start by contacting the
+            school. The school must confirm current availability, entry requirements, fees, and the official application
+            process.
+          </motion.p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button variant="accent" href="/contact" className="px-8 py-4">
+              Start an enquiry
+            </Button>
+            <Button variant="outline" href="/academics" className="px-8 py-4">
+              Explore learning levels
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProcessSection() {
+  return (
+    <section className="bg-surface-white section-pad">
+      <div className="container-wide">
+        <SectionHeading
+          eyebrow="Admissions process"
+          title="How to begin an enquiry"
+          description="Use these practical steps to organise your questions. The school will explain its official process and any required forms."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {admissionsProcess.map(({ step, title, detail }) => (
+            <Card key={step} className="h-full">
+              <CardBody className="p-7">
+                <div className="flex items-start gap-3 mb-5">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-surface-white">
+                    <span className="text-sm font-bold">{step}</span>
+                  </div>
+                  <div>
+                    <p className="mb-1 text-xs font-bold uppercase tracking-widest text-brand">
+                      Step {step}
+                    </p>
+                    <h3 className="text-lg font-bold text-ink-deep">{title}</h3>
+                  </div>
+                </div>
+                <p className="leading-relaxed text-ink-muted">{detail}</p>
+              </CardBody>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PoliciesSection() {
+  return (
+    <section className="bg-surface-warm section-pad border-t border-border-soft">
+      <div className="container-wide">
+        <SectionHeading
+          eyebrow="Placement policies"
+          title="How places are offered"
+          description="Placement and admission criteria are confirmed by the school at the time of enquiry."
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {placementPolicies.map((policy) => (
+            <Card key={policy}>
+              <CardBody className="p-7">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                  <p className="leading-relaxed text-ink-muted">{policy}</p>
+                </div>
+              </CardBody>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DocumentsSection() {
+  return (
+    <section className="bg-surface-white section-pad">
+      <div className="container-wide">
+        <SectionHeading
+          eyebrow="Required documents"
+          title="What to prepare"
+          description="The school will confirm the exact documents needed during your enquiry."
+        />
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {requiredDocuments.map((doc) => (
+            <Card key={doc} className="h-full">
+              <CardBody className="p-6 flex flex-col">
+                <FileCheck2 className="mb-4 h-6 w-6 text-brand" />
+                <p className="text-sm font-medium text-ink-deep leading-snug">{doc}</p>
+              </CardBody>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section className="bg-brand-deep section-pad text-surface-white">
+      <div className="container-wide text-center">
+        <SectionHeading
+          eyebrow="Have questions?"
+          title="Speak with the school"
+          description="For current admission information, use the contact details published on this website and confirm that you are speaking with an official school representative."
+        />
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <Button variant="accent" href="/contact" className="px-8 py-4">
+            Contact the school
+          </Button>
+          <Button variant="secondary" href="/academics" className="px-8 py-4">
+            Review academics
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 }

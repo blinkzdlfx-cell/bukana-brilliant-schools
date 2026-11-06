@@ -10,6 +10,9 @@
 | Domain | bukanabrilliantschools.com | Supplied |
 | Educational levels | Creche, Nursery, Primary | Supplied |
 | Address | Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos, Nigeria | Previously supplied; owner must reconfirm before production |
+| Mission | To nurture every child’s potential through caring, purposeful early-years and primary education | Owner-supplied |
+| Email | contact@bukanabrilliantschools.com | Owner-supplied |
+| WhatsApp | 07019779736 | Owner-supplied |
 
 All other school-specific facts must be treated as pending until confirmed.
 
@@ -18,7 +21,7 @@ All other school-specific facts must be treated as pending until confirmed.
 Never invent:
 - Founding year or school history.
 - Founder, proprietor, principal, teacher, or staff names.
-- Mission, vision, or values statements.
+- Vision or values statements (the mission statement above is owner-supplied; do not add to it).
 - Curriculum, teaching methodology, subjects, or examination details.
 - Age ranges, class structure, or class sizes.
 - Tuition, fees, discounts, or payment policies.
@@ -27,7 +30,7 @@ Never invent:
 - Accreditations, registrations, awards, rankings, or affiliations.
 - Student results, pass rates, or performance statistics.
 - Testimonials or parent reviews.
-- Contact information, opening hours, or social accounts.
+- Phone number, opening hours, or social accounts (beyond the owner-supplied WhatsApp and email).
 - News, events, announcements, or calendar dates.
 
 If a detail is not verified, omit it or mark it internally as pending. Do not publish internal placeholders as facts.

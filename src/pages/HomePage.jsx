@@ -1,64 +1,76 @@
 import { motion } from 'motion/react';
-import { Star, Users, GraduationCap, BookOpen, HeartHandshake, MapPin, MessageCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, GraduationCap, Building2, Play, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
-import { Card, CardBody, CardHeader } from '@/components/ui/card.jsx';
-import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
+import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
 import { schoolProfile, admissionsCta, academicsCta, contactCta } from '@/data/school.js';
-import { educationLevels } from '@/data/academics.js';
+import { contactDetails } from '@/data/contact.js';
 
 export function HomePage() {
   return (
     <>
       <HeroSection />
-      <SchoolIntroduction />
-      <EducationLevels />
-      <ParentQuestions />
-      <LearningJourney />
-      <AdmissionsInvitation />
-      <LocationContactStrip />
+      <AdmissionsBanner />
+      <AboutPreview />
+      <ProgramsGrid />
+      <FacilitiesShowcase />
+      <ContactInvitation />
     </>
   );
 }
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-brand">
-      <div className="container-wide section-pad relative py-20 md:py-28 lg:py-32">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-accent">
+    <section className="relative bg-brand-deep overflow-hidden">
+      <div className="absolute inset-0 opacity-15 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiNmZmYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGgzMnYyMEgweiIvPjwvc3ZnPg==')]"></div>
+      <div className="relative container-wide section-pad pt-24 md:pt-36 pb-24 md:pb-36">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="text-center lg:text-left">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-accent">
               <span className="h-2 w-2 rounded-full bg-accent" />
               Creche · Nursery · Primary
             </span>
             <motion.h1
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-6 text-4xl font-bold leading-tight text-surface-white text-balance md:text-5xl lg:text-6xl"
+              className="mt-6 mb-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-surface-white text-balance"
             >
               Every bright future begins with a first step.
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mb-8 max-w-xl text-lg leading-relaxed text-[#e8f3e9] md:text-xl"
+              className="mb-10 max-w-xl text-lg leading-relaxed text-[#dbe8dc] md:text-xl text-center lg:text-left"
             >
-              Discover Bukana Brilliant Schools, a school serving Creche, Nursery, and Primary education in Ijegun, Lagos.
-              <strong className="text-surface-white"> Be a star @ BBS.</strong>
+              {schoolProfile.description} <strong className="text-surface-white"> Be a star @ BBS.</strong>
             </motion.p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Button variant="accent" href={admissionsCta.href} className="px-6 py-4 text-base">
-                Enquire about admission <ArrowRight className="ml-2 inline h-4 w-4" />
-              </Button>
-              <Button variant="secondary" href={academicsCta.href} className="px-6 py-4 text-base">
-                Explore learning levels
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                asChild
+                className="w-full sm:w-auto"
+              >
+                <Button variant="accent" className="w-full px-8 py-4 text-base">
+                  Enquire about admission <ArrowRight className="ml-2 inline h-4 w-4" />
+                </Button>
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                asChild
+                className="w-full sm:w-auto"
+              >
+                <Button variant="outline" className="w-full px-8 py-4 text-base">
+                  Explore learning levels
+                </Button>
+              </motion.button>
             </div>
-            <p className="mt-5 text-sm text-[#e8f3e9]">Have questions? Contact the school before making an admission decision.</p>
           </div>
-          <div className="relative hidden h-[420px] lg:block">
-            <div className="absolute -left-5 -top-5 h-24 w-24 rounded-2xl border-2 border-accent/60" />
+          <div className="hidden lg:block relative h-[440px] w-full">
             <TemporaryImage
               alt="Approved school photograph to be supplied by Bukana Brilliant Schools"
               category="hero"
@@ -66,10 +78,36 @@ function HeroSection() {
               height="100%"
               className="absolute inset-0 h-full w-full"
             />
-            <div className="absolute -bottom-5 -right-5 rounded-2xl bg-surface-white p-5 shadow-xl">
-              <p className="text-xs font-bold uppercase tracking-widest text-brand">Our school</p>
-              <p className="mt-1 text-lg font-bold text-ink-deep">Bukana Brilliant Schools</p>
-              <p className="text-sm text-ink-muted">Be a star @ BBS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AdmissionsBanner() {
+  return (
+    <section className="bg-surface-warm section-pad border-t border-border-soft">
+      <div className="container-wide">
+        <div className="rounded-2xl bg-brand-deep p-8 md:p-12 text-surface-white">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-accent">
+                Admissions enquiries
+              </p>
+              <h2 className="mb-4 text-3xl font-bold">Open for Creche, Nursery &amp; Primary</h2>
+              <p className="leading-relaxed text-[#dbe8dc]">
+                Contact Bukana Brilliant Schools to learn about available classes, requirements, and how to arrange
+                a visit. Details are confirmed directly by the school.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <Button variant="accent" href={admissionsCta.href} className="w-full md:w-auto px-8 py-4">
+                Enquire about admission
+              </Button>
+              <Button variant="outline" href={contactCta.href} className="w-full md:w-auto px-8 py-4">
+                Contact the school
+              </Button>
             </div>
           </div>
         </div>
@@ -78,171 +116,225 @@ function HeroSection() {
   );
 }
 
-function SchoolIntroduction() {
+function AboutPreview() {
   return (
     <section className="bg-surface-white section-pad">
       <div className="container-wide">
         <SectionHeading
-          eyebrow="Welcome to BBS"
-          title="A school journey from the early years to primary"
-          description="Choosing a school is an important family decision. Bukana Brilliant Schools serves Creche, Nursery, and Primary levels, giving parents one place to begin their enquiries about their child's next stage of learning."
+          eyebrow="About Bukana Brilliant Schools"
+          title="A place to begin the journey of learning"
+          description="Bukana Brilliant Schools serves Creche, Nursery, and Primary education in Ijegun, Lagos. This preview helps families know what to ask as they explore whether BBS is right for their child."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            { icon: HeartHandshake, title: 'A family decision', text: 'Ask questions, understand the school’s approach, and decide whether it is the right fit for your child.' },
-            { icon: BookOpen, title: 'Three learning levels', text: 'Explore the different stages served by BBS and ask which class is appropriate for your child.' },
-            { icon: MessageCircle, title: 'Clear communication', text: 'Contact the school directly for current admissions information, requirements, and arrangements.' },
-          ].map(({ icon: Icon, title, text }) => (
-            <Card key={title} className="h-full">
-              <CardBody className="p-7">
-                <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand"><Icon className="h-6 w-6" /></span>
-                <h3 className="mb-3 text-xl font-bold text-ink-deep">{title}</h3>
-                <p className="leading-relaxed text-ink-muted">{text}</p>
-              </CardBody>
-            </Card>
-          ))}
+        <div className="mt-12 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="mb-5 text-2xl font-bold text-ink-deep">Why families explore BBS</h3>
+            <ul className="space-y-5 text-ink-muted leading-relaxed">
+              <li className="flex items-start gap-3">
+                <BookOpen className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                <span>Three learning levels &mdash; Creche, Nursery, and Primary &mdash; in one school.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Users className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                <span>A welcoming environment where every child can grow in confidence and curiosity.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Play className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                <span>Learning balanced with play, creativity, and outdoor activity.</span>
+              </li>
+            </ul>
+            <div className="mt-8">
+              <Button variant="outline" href="/about" className="px-7 py-3">
+                Learn more about the school
+              </Button>
+            </div>
+          </div>
+          <div className="relative h-[360px] w-full rounded-2xl overflow-hidden border border-border-soft bg-surface-warm grid grid-cols-2 gap-2">
+            <TemporaryImage
+              alt="Approved classroom photograph to be supplied"
+              category="classroom"
+              width="100%"
+              height="50%"
+              className="h-full w-full"
+            />
+            <TemporaryImage
+              alt="Approved outdoor play photograph to be supplied"
+              category="play"
+              width="100%"
+              height="100%"
+              className="h-full w-full"
+            />
+            <TemporaryImage
+              alt="Approved facilities photograph to be supplied"
+              category="facilities"
+              width="100%"
+              height="50%"
+              className="h-full w-full"
+            />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function EducationLevels() {
-  const icons = { creche: Users, nursery: Star, primary: GraduationCap };
-  const descriptions = {
-    creche: 'Learn about the school’s early-years care arrangements, daily routine, age requirements, and how families are kept informed.',
-    nursery: 'Ask about class groups, early learning activities, communication with parents, and how children are supported as they develop.',
-    primary: 'Ask about class structure, subjects, learning resources, assessment, and how progress is communicated to families.',
-  };
+function ProgramsGrid() {
+  const programs = [
+    {
+      id: 'creche-nursery',
+      title: 'Creche &amp; Nursery',
+      icon: Users,
+      description:
+        'Early years care and learning. Ask the school about age ranges, daily routines, and how children are supported.',
+    },
+    {
+      id: 'primary',
+      title: 'Primary School',
+      icon: GraduationCap,
+      description:
+        'Primary classes and subjects. Ask the school about class structure, curriculum, and progress tracking.',
+    },
+    {
+      id: 'admissions',
+      title: 'Admissions',
+      icon: BookOpen,
+      description:
+        'Start your enquiry. Contact the school for current availability, requirements, and next steps.',
+    },
+  ];
 
   return (
-    <section className="bg-surface-warm section-pad">
+    <section className="bg-surface-warm section-pad border-t border-border-soft">
       <div className="container-wide">
         <SectionHeading
-          eyebrow="Learning levels"
-          title="Find the right starting point"
-          description="Each stage raises different questions for parents. Use these introductions as a guide for your conversation with the school; confirm age ranges, class placement, and programme details directly with BBS."
+          eyebrow="Programs"
+          title="One school, endless opportunities"
+          description="Explore the educational stages offered at Bukana Brilliant Schools and find the right starting point for your child."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {educationLevels.map((level) => {
-            const Icon = icons[level.id] || BookOpen;
+          {programs.map((program) => {
+            const Icon = program.icon;
+            const link =
+              program.id === 'admissions'
+                ? admissionsCta.href
+                : program.id === 'creche-nursery'
+                ? '/early-years'
+                : '/primary';
             return (
-              <Card key={level.id} className="h-full overflow-hidden">
-                <div className="h-2 bg-brand" />
-                <CardHeader className="pb-3">
-                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/25 text-brand-deep"><Icon className="h-6 w-6" /></div>
-                  <h3 className="text-2xl font-bold text-ink-deep">{level.name}</h3>
-                </CardHeader>
-                <CardBody>
-                  <p className="mb-5 leading-relaxed text-ink-muted">{descriptions[level.id]}</p>
-                  <Button variant="outline" href="/academics" className="w-full">Explore academics</Button>
-                </CardBody>
-              </Card>
+              <motion.div
+                key={program.id}
+                whileHover={{ y: -4 }}
+                className="group relative overflow-hidden"
+              >
+                <div className="bg-surface-white border border-border-soft rounded-xl p-7 h-full">
+                  <div className="mb-5 flex h-13 w-13 items-center justify-center rounded-xl bg-brand/10 text-brand group-hover:bg-brand group-hover:text-surface-white transition-colors">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-ink-deep group-hover:text-brand transition-colors">
+                    {program.title}
+                  </h3>
+                  <p className="leading-relaxed text-ink-muted">{program.description}</p>
+                  <Button
+                    variant="outline"
+                    href={link}
+                    className="mt-6 w-full text-sm"
+                  >
+                    Explore {program.title}
+                  </Button>
+                </div>
+              </motion.div>
             );
           })}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function ParentQuestions() {
-  return (
-    <section className="bg-surface-white section-pad">
-      <div className="container-wide grid items-center gap-12 lg:grid-cols-2">
-        <div>
-          <SectionHeading
-            eyebrow="For parents and guardians"
-            title="The right questions help you choose confidently"
-            description="Before choosing a school, families often want to understand the day-to-day experience—not just the name of a class. We encourage you to contact BBS and ask about the details that matter to your family."
-            className="mx-0 text-left"
-          />
-          <ul className="mt-8 space-y-4">
-            {[
-              'Which class is suitable for my child’s age and previous experience?',
-              'What does a normal school day look like?',
-              'What learning materials or documents should we prepare?',
-              'How does the school communicate with parents and guardians?',
-              'What are the current fees, schedule, and admission requirements?',
-            ].map((question) => (
-              <li key={question} className="flex items-start gap-3 text-ink">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                <span className="leading-relaxed">{question}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="relative min-h-[340px] overflow-hidden rounded-card bg-surface-warm">
-          <TemporaryImage alt="Approved photograph of the school environment to be supplied" category="learning" width="100%" height="100%" />
+        <div className="mt-10 flex justify-center lg:justify-end">
+          <Button variant="primary" href={admissionsCta.href} className="px-8 py-3">
+            Start an admissions enquiry
+          </Button>
         </div>
       </div>
     </section>
   );
 }
 
-function LearningJourney() {
-  return (
-    <section className="bg-brand-deep section-pad text-surface-white">
-      <div className="container-wide">
-        <SectionHeading
-          eyebrow="Your next step"
-          title="Get to know the school before you decide"
-          description="A conversation with the school can help you understand its current programmes, expectations, and whether it meets your family's needs."
-          className="text-center"
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            ['01', 'Explore', 'Read about the school and the three education levels available.'],
-            ['02', 'Ask', 'Contact the school for accurate information about classes, fees, and admission.'],
-            ['03', 'Plan', 'Confirm the next steps directly with the school before preparing documents or making payments.'],
-          ].map(([number, title, text]) => (
-            <div key={number} className="rounded-card border border-white/15 bg-white/5 p-7">
-              <p className="mb-4 text-sm font-bold tracking-widest text-accent">{number}</p>
-              <h3 className="mb-3 text-xl font-bold">{title}</h3>
-              <p className="leading-relaxed text-[#dbe8dc]">{text}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Button variant="accent" href={contactCta.href} className="px-8 py-4">Contact Bukana Brilliant Schools</Button>
-        </div>
-      </div>
-    </section>
-  );
-}
+function FacilitiesShowcase() {
+  const facilities = [
+    { id: 'classrooms', label: 'Classrooms', icon: BookOpen },
+    { id: 'play', label: 'Play &amp; outdoor learning', icon: Play },
+    { id: 'creative', label: 'Creative activities', icon: Palette },
+    { id: 'building', label: 'School facilities', icon: Building2 },
+  ];
 
-function AdmissionsInvitation() {
-  return (
-    <section className="bg-surface-warm section-pad">
-      <div className="container-wide">
-        <div className="grid items-center gap-8 rounded-card border border-border-soft bg-surface-white p-8 md:p-12 lg:grid-cols-2">
-          <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand">Admissions enquiries</p>
-            <h2 className="mb-4 text-3xl font-bold text-ink-deep md:text-4xl">Start with a conversation.</h2>
-            <p className="max-w-xl leading-relaxed text-ink-muted">Admission availability, entry requirements, fees, and required documents must be confirmed by the school. The admissions page explains how to make an enquiry.</p>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
-            <Button variant="primary" href={admissionsCta.href} className="px-7 py-4">Admissions information</Button>
-            <Button variant="outline" href={contactCta.href} className="px-7 py-4">Contact us</Button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function LocationContactStrip() {
   return (
     <section className="bg-surface-white section-pad border-t border-border-soft">
       <div className="container-wide">
-        <div className="flex flex-col items-start gap-6 rounded-card bg-surface-warm p-8 md:flex-row md:items-center md:p-10">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand text-surface-white"><MapPin className="h-6 w-6" /></div>
-          <div className="flex-1">
-            <h3 className="mb-2 text-xl font-bold text-ink-deep">Find Bukana Brilliant Schools</h3>
-            <p className="leading-relaxed text-ink-muted">{schoolProfile.address}</p>
-            <p className="mt-2 text-sm text-ink-muted">Please confirm the address and directions with the school before travelling.</p>
-          </div>
-          <Button variant="primary" href={contactCta.href} className="w-full px-7 py-4 md:w-auto">Contact the school</Button>
+        <SectionHeading
+          eyebrow="Facilities &amp; media"
+          title="See the learning environment"
+          description="Approved photographs of classrooms, play areas, and facilities will be displayed here once supplied by the school."
+        />
+        <div className="mt-10 flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory sm:no-overflow-x sm:pb-0 sm:snap-none">
+          {facilities.map((facility) => {
+            const Icon = facility.icon;
+            return (
+              <div
+                key={facility.id}
+                className="flex-none shrink-0 w-64 sm:w-80 rounded-xl border border-border-soft bg-surface-warm overflow-hidden snap-start sm:snap-none group"
+              >
+                <div className="h-40 bg-surface-warm flex items-center justify-center group-hover:bg-brand/50 transition-colors">
+                  <TemporaryImage
+                    alt={`Approved ${facility.label.toLowerCase()} photograph to be supplied`}
+                    category={facility.id}
+                    width="100%"
+                    height="100%"
+                    className="h-full w-full opacity-0 group-hover:opacity-100 transition-opacity"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Icon className="w-10 h-10 text-brand" />
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-ink-deep">{facility.label}</h3>
+                  <p className="text-sm text-ink-muted mt-1">
+                    Photograph pending school approval.
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <p className="mt-6 text-xs text-ink-muted text-center">
+          Horizontal showcase on mobile &mdash; swipe to view. All images pending approved school photography.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function ContactInvitation() {
+  return (
+    <section className="bg-brand section-pad text-surface-white">
+      <div className="container-wide text-center">
+        <SectionHeading
+          eyebrow="Ready to get in touch?"
+          title="Contact Bukana Brilliant Schools"
+          description="Reach us by email or WhatsApp to ask about admissions, arrange a visit, or learn more about Creche, Nursery, and Primary."
+        />
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`mailto:${contactDetails.email}`}
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-accent text-ink-deep font-semibold hover:bg-brand-deep transition-colors focus-visible:outline-accent focus-visible:outline-2"
+          >
+            <Mail className="w-5 h-5" />
+            Email the school
+          </a>
+          <a
+            href={contactDetails.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand text-surface-white font-semibold hover:bg-brand-deep transition-colors focus-visible:outline-accent focus-visible:outline-2"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Message on WhatsApp
+          </a>
         </div>
       </div>
     </section>

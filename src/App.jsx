@@ -5,9 +5,12 @@ import { navigate } from '@/app/router.jsx';
 import { HomePage } from '@/pages/HomePage.jsx';
 import { AboutPage } from '@/pages/AboutPage.jsx';
 import { AcademicsPage } from '@/pages/AcademicsPage.jsx';
+import { EarlyYearsPage } from '@/pages/EarlyYearsPage.jsx';
+import { PrimaryPage } from '@/pages/PrimaryPage.jsx';
 import { AdmissionsPage } from '@/pages/AdmissionsPage.jsx';
 import { SchoolLifePage } from '@/pages/SchoolLifePage.jsx';
 import { ContactPage } from '@/pages/ContactPage.jsx';
+import { CareerPage } from '@/pages/CareerPage.jsx';
 import { NotFoundPage } from '@/pages/NotFoundPage.jsx';
 
 const SITE_URL = 'https://bukanabrilliantschools.com';
@@ -29,6 +32,16 @@ const PAGE_META = {
     title: 'Academics: Creche, Nursery & Primary | BBS',
     description: 'Explore Creche, Nursery, and Primary learning levels at Bukana Brilliant Schools and find useful questions to ask before enrolment.',
     canonicalPath: '/academics',
+  },
+  '/early-years': {
+    title: 'Early Years (Pre-School & Nursery) | BBS',
+    description: 'Early years care and learning at Bukana Brilliant Schools. Ask about age range, daily routine, and how children are supported.',
+    canonicalPath: '/early-years',
+  },
+  '/primary': {
+    title: 'Primary School | BBS',
+    description: 'Primary classes and subjects at Bukana Brilliant Schools. Ask about class structure, curriculum, and progress.',
+    canonicalPath: '/primary',
   },
   '/admissions': {
     title: 'Admissions Enquiries | Bukana Brilliant Schools',
@@ -95,10 +108,13 @@ const ROUTES = [
   { path: '/', element: <HomePage /> },
   { path: '/about', element: <AboutPage /> },
   { path: '/academics', element: <AcademicsPage /> },
+  { path: '/early-years', element: <EarlyYearsPage /> },
+  { path: '/primary', element: <PrimaryPage /> },
   { path: '/admissions', element: <AdmissionsPage /> },
   { path: '/school-life', element: <SchoolLifePage /> },
   { path: '/gallery', element: <SchoolLifePage /> },
   { path: '/contact', element: <ContactPage /> },
+  { path: '/career', element: <CareerPage /> },
 ];
 
 export function App() {
