@@ -9,8 +9,8 @@ import { EarlyYearsPage } from '@/pages/EarlyYearsPage.jsx';
 import { PrimaryPage } from '@/pages/PrimaryPage.jsx';
 import { AdmissionsPage } from '@/pages/AdmissionsPage.jsx';
 import { SchoolLifePage } from '@/pages/SchoolLifePage.jsx';
+import { GalleryPage } from '@/pages/GalleryPage.jsx';
 import { ContactPage } from '@/pages/ContactPage.jsx';
-import { CareerPage } from '@/pages/CareerPage.jsx';
 import { NotFoundPage } from '@/pages/NotFoundPage.jsx';
 
 const SITE_URL = 'https://bukanabrilliantschools.com';
@@ -54,9 +54,9 @@ const PAGE_META = {
     canonicalPath: '/school-life',
   },
   '/gallery': {
-    title: 'School Life | Bukana Brilliant Schools',
-    description: 'Explore school-life topics and contact Bukana Brilliant Schools for information about its learning environment.',
-    canonicalPath: '/school-life',
+    title: 'Photo Gallery | Bukana Brilliant Schools',
+    description: 'Explore a visual collection of learning, creativity, play and school environments at Bukana Brilliant Schools.',
+    canonicalPath: '/gallery',
   },
   '/contact': {
     title: 'Contact Bukana Brilliant Schools | BBS',
@@ -112,9 +112,8 @@ const ROUTES = [
   { path: '/primary', element: <PrimaryPage /> },
   { path: '/admissions', element: <AdmissionsPage /> },
   { path: '/school-life', element: <SchoolLifePage /> },
-  { path: '/gallery', element: <SchoolLifePage /> },
+  { path: '/gallery', element: <GalleryPage /> },
   { path: '/contact', element: <ContactPage /> },
-  { path: '/career', element: <CareerPage /> },
 ];
 
 export function App() {
