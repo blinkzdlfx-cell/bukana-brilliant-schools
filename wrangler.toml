@@ -1,0 +1,10 @@
+name = "bukana-brilliant-schools"
+main = "src/worker.js"
+compatibility_date = "2026-11-06"
+
+[assets]
+directory = "dist"
+
+[[routes]]
+pattern = "bukanabrilliantschools.com/*"
+custom_domain = true

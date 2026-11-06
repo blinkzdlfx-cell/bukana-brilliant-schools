@@ -2,7 +2,7 @@
 
 ## 1. Current status
 
-The site is a Vite-built React single-page application (SPA). The owner is preparing to connect the repository to Cloudflare Pages and test the generated deployment. Do not assume that a live deployment has been verified.
+The site is a Vite-built React single-page application (SPA) deployed to **Cloudflare Workers** using `wrangler`. The owner is preparing to connect the repository and test the generated deployment. Do not assume that a live deployment has been verified.
 
 Planned domain:
 - `bukanabrilliantschools.com`
@@ -11,12 +11,14 @@ Do not assume DNS access, hosting configuration, environment variables, or deplo
 
 ## 2. Build settings
 
-Use these settings for a standard Cloudflare Pages Git deployment:
+Use these settings for a Cloudflare Workers deployment:
 
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Root directory: repository root
 - Install command: `npm ci` (when a package lockfile is present)
+- Wrangler config: `wrangler.toml`
+- Worker entry: `src/worker.js`
 
 The stylesheet at `src/styles/index.css` must be imported by `src/main.jsx`. Vite then bundles the stylesheet and adds its generated CSS asset to the built HTML. If the stylesheet is not imported, Tailwind utilities and the project's global design tokens will not be included in the production page.
 
@@ -24,17 +26,34 @@ Do not assume a successful build proves the site works after deployment. Confirm
 
 ## 3. Single-page application routes
 
-The app selects pages from `window.location.pathname`. The hosting platform must support SPA fallback to `index.html` for direct visits and refreshes on routes such as:
+The app selects pages from `window.location.pathname`. The Worker (`src/worker.js`) serves static assets from `dist/` and falls back to `/index.html` for any 404, so direct visits and refreshes work on routes such as:
 
 - `/about`
 - `/academics`
+- `/early-years`
+- `/primary`
 - `/admissions`
 - `/school-life`
+- `/gallery`
 - `/contact`
+- `/career`
 
-For Cloudflare Pages, verify its default SPA fallback behavior and ensure there is no top-level `404.html` unintentionally disabling that behavior. Do not add platform-specific routing files unless a deployment test demonstrates they are needed.
+The `wrangler.toml` `[assets]` directory points to `dist`, and `env.ASSETS.fetch` serves built assets with the SPA fallback in `src/worker.js`.
 
-## 4. Blank-screen troubleshooting
+## 4. Deploy command
+
+Deploy to Cloudflare Workers:
+
+```bash
+npm run build
+npx wrangler deploy
+```
+
+`wrangler` is installed on-demand by `npx` at deploy time; it is not a committed project dependency.
+
+Do not run `wrangler deploy` at the repo root without a `wrangler.toml` that references the correct asset directory and Worker entry point.
+
+## 5. Blank-screen troubleshooting
 
 ### Confirmed source defect fixed in the runtime-rendering patch
 
@@ -44,20 +63,19 @@ The same patch adds missing imports for `Button` in `src/pages/AcademicsPage.jsx
 
 These source defects explain a credible blank-screen failure path, but the deployed browser must still be retested to confirm the issue is resolved.
 
-
 If a deployed URL shows a blank page:
 
 1. Open the browser developer tools and inspect **Console** for JavaScript errors.
 2. Inspect **Network** and reload. Confirm the HTML, generated JavaScript bundle, and generated CSS bundle return successful responses; check for 404s, MIME-type errors, or blocked requests.
 3. Confirm the built `dist/index.html` references the generated JS and CSS assets.
 4. Run `npm ci`, `npm run build`, and `npm run test:smoke` against the current commit.
-5. Verify the Cloudflare deployment is building the expected branch and latest commit, with `dist` as the output directory.
-6. Test the Cloudflare-provided deployment URL before troubleshooting custom-domain DNS or SSL.
-7. Test both the home page and a nested route directly.
+5. Verify the Worker is deployed from the expected branch and latest commit.
+6. Test both the home page and a nested route directly.
+7. Check the Cloudflare Workers deployment logs for `wrangler deploy` errors (e.g., `Error parsing file` indicates an invalid `wrangler.toml` or missing `src/worker.js`).
 
 Do not guess the root cause from a white screen alone. Record the actual console/network error and deployment build log before making further changes.
 
-## 5. Node and npm
+## 6. Node and npm
 
 Owner-reported local environment:
 - Node.js: `24.21.0`
@@ -72,7 +90,7 @@ npm --version
 
 Do not downgrade or globally replace Node/npm as part of routine deployment.
 
-## 6. Environment variables
+## 7. Environment variables
 
 The initial informational website should not require secrets.
 
@@ -83,7 +101,7 @@ If an enquiry integration or external service is later approved:
 - Never expose private keys through `VITE_*` variables.
 - Provide a safe example environment file without real credentials.
 
-## 7. Release checklist
+## 8. Release checklist
 
 - [ ] Owner has approved all public copy.
 - [ ] Address and map destination are verified.
@@ -97,12 +115,12 @@ If an enquiry integration or external service is later approved:
 - [ ] Direct route access and refresh work.
 - [ ] Mobile and desktop browser checks pass.
 - [ ] No critical console or network errors.
-- [ ] Cloudflare deployment URL loads correctly.
+- [ ] `wrangler deploy` completes without errors.
 - [ ] Domain DNS points to the approved host.
 - [ ] HTTPS works.
 - [ ] Final production review is approved by the owner.
 
-## 8. Deployment safety
+## 9. Deployment safety
 
 Do not:
 - Deploy to a production domain without approval.
