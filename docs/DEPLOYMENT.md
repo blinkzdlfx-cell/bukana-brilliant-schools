@@ -51,7 +51,13 @@ npx wrangler deploy
 
 `wrangler` is installed on-demand by `npx` at deploy time; it is not a committed project dependency.
 
-Do not run `wrangler deploy` at the repo root without a `wrangler.toml` that references the correct asset directory and Worker entry point.
+Custom domain (`bukanabrilliantschools.com`) is configured separately via the Cloudflare dashboard or:
+
+```bash
+npx wrangler custom-domain add bukanabrilliantschools.com
+```
+
+Do not add wildcard/path route patterns for custom domains to `wrangler.toml` — they are rejected by wrangler.
 
 ## 5. Blank-screen troubleshooting
 

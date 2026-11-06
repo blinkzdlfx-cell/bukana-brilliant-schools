@@ -5,6 +5,6 @@ compatibility_date = "2026-11-06"
 [assets]
 directory = "dist"
 
-[[routes]]
-pattern = "bukanabrilliantschools.com/*"
-custom_domain = true
+# Custom domain (bukanabrilliantschools.com) is configured separately via the
+# Cloudflare dashboard or `wrangler custom-domain add` once DNS is approved.
+# Do not add wildcard/path route patterns for custom domains here.
