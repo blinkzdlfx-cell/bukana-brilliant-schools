@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
@@ -8,12 +8,15 @@ import { navigationItems, navDropdowns, admissionsCta } from '@/data/school.js';
 export function SiteHeader({ currentPath, onLinkClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const menuButtonRef = useRef(null);
 
   useEffect(() => {
-    const onKeydown = (e) => {
-      if (e.key === 'Escape') {
+    const onKeydown = (event) => {
+      if (event.key === 'Escape') {
+        const mobileMenuWasOpen = menuButtonRef.current?.getAttribute('aria-expanded') === 'true';
         setIsOpen(false);
         setOpenDropdown(null);
+        if (mobileMenuWasOpen) menuButtonRef.current?.focus();
       }
     };
     window.addEventListener('keydown', onKeydown);
@@ -27,30 +30,40 @@ export function SiteHeader({ currentPath, onLinkClick }) {
   };
 
   const isActive = (href) => currentPath === href || currentPath.startsWith(href + '#');
-
-  const headerClasses =
-    'sticky top-0 z-50 bg-surface-white border-b border-border-soft shadow-sm';
+  const headerClasses = 'sticky top-0 z-50 border-b border-border-soft bg-surface-white/95 shadow-sm backdrop-blur-md';
 
   return (
     <header className={headerClasses}>
-      <div className="container-wide flex items-center justify-between h-16 px-4 md:px-0">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-surface-white">
-            <span className="text-xl font-bold tracking-tight">BBS</span>
-          </div>
-          <span className="hidden sm:block text-xs font-bold uppercase tracking-widest text-ink-deep">
+      <div className="container-wide flex h-[4.5rem] items-center justify-between gap-4">
+        <a
+          href="/"
+          onClick={(event) => {
+            event.preventDefault();
+            handleLink('/');
+          }}
+          className="flex min-w-0 items-center gap-3 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+          aria-label="Bukana Brilliant Schools home"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-lg font-bold tracking-tight text-white shadow-sm">
+            BBS
+          </span>
+          <span className="hidden max-w-[12rem] text-xs font-bold uppercase leading-snug tracking-[0.14em] text-ink-deep sm:block">
             Bukana Brilliant Schools
           </span>
-        </div>
+        </a>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
           {navigationItems.map((item) => {
             const dropdown = item.dropdown ? navDropdowns[item.dropdown] : null;
-            const isActiveItem = isActive(item.href);
+            const isActiveItem =
+              isActive(item.href) ||
+              Boolean(dropdown?.some((sub) => currentPath === sub.href.split('#')[0]));
+            const submenuId = 'desktop-submenu-' + (item.dropdown || item.label.toLowerCase());
+
             return (
               <div
                 key={item.href}
-                className="relative group"
+                className="group relative"
                 onMouseEnter={() => dropdown && setOpenDropdown(item.href)}
                 onMouseLeave={() => dropdown && setOpenDropdown(null)}
                 onFocus={() => dropdown && setOpenDropdown(item.href)}
@@ -60,27 +73,49 @@ export function SiteHeader({ currentPath, onLinkClick }) {
               >
                 <a
                   href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
+                  onClick={(event) => {
+                    event.preventDefault();
                     handleLink(item.href);
                   }}
                   className={cn(
-                    'flex items-center gap-2 px-3 py-2 rounded-md transition-colors',
+                    'flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors',
                     isActiveItem
-                      ? 'bg-surface-warm text-brand-deep'
-                      : 'text-ink hover:text-brand'
+                      ? 'bg-brand/8 text-brand-deep'
+                      : 'text-ink hover:bg-surface-warm hover:text-brand'
                   )}
                   aria-current={isActiveItem ? 'page' : undefined}
+                  aria-haspopup={dropdown ? 'true' : undefined}
+                  aria-expanded={dropdown ? openDropdown === item.href : undefined}
+                  aria-controls={dropdown ? submenuId : undefined}
                 >
                   {item.label}
-                  {dropdown && <ChevronDown className="w-4 h-4 ml-1 text-ink-muted transition-transform group-hover:text-brand duration-200" />}
+                  {dropdown && (
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={cn(
+                        'h-4 w-4 text-ink-muted transition-transform duration-200',
+                        openDropdown === item.href && 'rotate-180'
+                      )}
+                    />
+                  )}
                 </a>
+
                 {dropdown && (
                   <motion.div
-                    initial={{ opacity: 0, y: -4, scale: 0.95 }}
-                    animate={openDropdown === item.href ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -4, scale: 0.95 }}
-                    exit={{ opacity: 0, y: -4, scale: 0.95 }}
-                    className="absolute left-0 top-full mt-2 w-56 rounded-lg border border-border-soft bg-surface-white shadow-lg py-2 z-50"
+                    id={submenuId}
+                    initial={false}
+                    animate={
+                      openDropdown === item.href
+                        ? { opacity: 1, y: 0, scale: 1 }
+                        : { opacity: 0, y: -5, scale: 0.98 }
+                    }
+                    transition={{ duration: 0.16, ease: 'easeOut' }}
+                    aria-hidden={openDropdown !== item.href}
+                    inert={openDropdown !== item.href}
+                    className={cn(
+                      'absolute left-0 top-full z-50 mt-2 w-64 origin-top-left rounded-xl border border-border-soft bg-white p-2 shadow-xl',
+                      openDropdown === item.href ? 'pointer-events-auto' : 'pointer-events-none'
+                    )}
                   >
                     {dropdown.map((sub) => {
                       const isActiveSub = isActive(sub.href);
@@ -88,20 +123,20 @@ export function SiteHeader({ currentPath, onLinkClick }) {
                         <a
                           key={sub.href}
                           href={sub.href}
-                          onClick={(e) => {
-                            e.preventDefault();
+                          onClick={(event) => {
+                            event.preventDefault();
                             handleLink(sub.href);
                           }}
                           className={cn(
-                            'flex w-full items-center gap-3 px-4 py-2.5 text-sm transition-colors rounded-md',
+                            'flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-colors',
                             isActiveSub
-                              ? 'bg-brand text-surface-white'
+                              ? 'bg-brand/8 text-brand-deep'
                               : 'text-ink-muted hover:bg-surface-warm hover:text-brand-deep'
                           )}
                           aria-current={isActiveSub ? 'page' : undefined}
                         >
                           {sub.label}
-                          <ChevronRight className="w-3 h-3 ms-auto text-ink-muted" />
+                          <ChevronRight aria-hidden="true" className="ml-auto h-4 w-4 opacity-60" />
                         </a>
                       );
                     })}
@@ -112,97 +147,139 @@ export function SiteHeader({ currentPath, onLinkClick }) {
           })}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <Button variant="outline" size="sm" href={admissionsCta.href}>
-            {admissionsCta.label}
+        <div className="hidden items-center lg:flex">
+          <Button
+            variant="primary"
+            href={admissionsCta.href}
+            onClick={(event) => {
+              event.preventDefault();
+              handleLink(admissionsCta.href);
+            }}
+            className="min-h-11 px-5 text-sm"
+          >
+            Enquire about admission
           </Button>
-
         </div>
 
         <button
-          className="md:hidden p-2 text-ink hover:text-brand"
+          ref={menuButtonRef}
+          type="button"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-soft bg-white text-ink transition-colors hover:border-brand/30 hover:bg-surface-warm hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:hidden"
           onClick={() => {
-            setIsOpen(!isOpen);
+            setIsOpen((open) => !open);
             setOpenDropdown(null);
           }}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? <X aria-hidden="true" className="h-5 w-5" /> : <Menu aria-hidden="true" className="h-5 w-5" />}
         </button>
       </div>
 
       <motion.nav
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="md:hidden overflow-hidden border-t border-border-soft bg-surface-white"
-        style={{ overflow: 'hidden' }}
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
+        initial={false}
+        animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="overflow-hidden border-t border-border-soft bg-white lg:hidden"
       >
-        <div className="container-wide px-4 py-4 space-y-4">
+        <div className="container-wide space-y-2 py-4">
           {navigationItems.map((item) => {
             const dropdown = item.dropdown ? navDropdowns[item.dropdown] : null;
-            const isActiveItem = isActive(item.href);
+            const isActiveItem =
+              isActive(item.href) ||
+              Boolean(dropdown?.some((sub) => currentPath === sub.href.split('#')[0]));
+            const submenuId = 'mobile-submenu-' + (item.dropdown || item.label.toLowerCase());
+
             return (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, x: -10 }}
-                animate={isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                transition={{ delay: 0.12 }}
-                className="group border-b border-border-soft pb-2 mb-2"
-              >
-                <button
-                  onClick={() => {
-                    if (dropdown) {
-                      setOpenDropdown(openDropdown === item.href ? null : item.href);
-                    } else {
+              <div key={item.href} className="border-b border-border-soft pb-2 last:border-b-0">
+                {dropdown ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => setOpenDropdown(openDropdown === item.href ? null : item.href)}
+                      className={cn(
+                        'flex min-h-12 w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm font-semibold transition-colors',
+                        isActiveItem ? 'bg-brand/8 text-brand-deep' : 'text-ink hover:bg-surface-warm'
+                      )}
+                      aria-expanded={openDropdown === item.href}
+                      aria-controls={submenuId}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        aria-hidden="true"
+                        className={cn(
+                          'h-4 w-4 text-ink-muted transition-transform duration-200',
+                          openDropdown === item.href && 'rotate-180'
+                        )}
+                      />
+                    </button>
+                    <div
+                      id={submenuId}
+                      hidden={openDropdown !== item.href}
+                      className="ml-3 space-y-1 border-l-2 border-brand/15 py-2 pl-3"
+                    >
+                      {dropdown.map((sub) => {
+                        const isActiveSub = isActive(sub.href);
+                        return (
+                          <a
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              handleLink(sub.href);
+                            }}
+                            className={cn(
+                              'block rounded-lg px-3 py-3 text-sm transition-colors',
+                              isActiveSub
+                                ? 'bg-brand/8 font-semibold text-brand-deep'
+                                : 'text-ink-muted hover:bg-surface-warm hover:text-brand-deep'
+                            )}
+                            aria-current={isActiveSub ? 'page' : undefined}
+                          >
+                            {sub.label}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={(event) => {
+                      event.preventDefault();
                       handleLink(item.href);
-                    }
-                  }}
-                  className={cn(
-                    'flex w-full items-center justify-between px-3 py-3 text-sm font-medium transition-colors',
-                    isActiveItem
-                      ? 'bg-brand/10 text-brand-deep'
-                      : 'text-ink hover:bg-surface-warm hover:text-brand'
-                  )}
-                >
-                  {item.label}
-                  {dropdown && (
-                    <ChevronDown
-                      className={cn('w-4 h-4 text-ink-muted transition-transform duration-200', openDropdown === item.href && 'rotate-180')}
-                    />
-                  )}
-                </button>
-                {openDropdown === item.href && dropdown && (
-                  <div className="ml-4 space-y-2 border-l border-brand/20 pl-4 pt-2 pb-2">
-                    {dropdown.map((sub) => {
-                      const isActiveSub = isActive(sub.href);
-                      return (
-                        <a
-                          key={sub.href}
-                          href={sub.href}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            handleLink(sub.href);
-                          }}
-                          className={cn(
-                            'block px-3 py-2 rounded-md text-sm transition-colors',
-                            isActiveSub ? 'bg-brand text-surface-white font-medium' : 'text-ink-muted hover:bg-surface-warm hover:text-brand-deep'
-                          )}
-                          aria-current={isActiveSub ? 'page' : undefined}
-                        >
-                          {sub.label}
-                        </a>
-                      );
-                    })}
-                  </div>
+                    }}
+                    className={cn(
+                      'flex min-h-12 items-center rounded-lg px-3 py-3 text-sm font-semibold transition-colors',
+                      isActiveItem ? 'bg-brand/8 text-brand-deep' : 'text-ink hover:bg-surface-warm'
+                    )}
+                    aria-current={isActiveItem ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
                 )}
-              </motion.div>
+              </div>
             );
           })}
 
-
+          <div className="pt-2">
+            <Button
+              variant="primary"
+              href={admissionsCta.href}
+              onClick={(event) => {
+                event.preventDefault();
+                handleLink(admissionsCta.href);
+              }}
+              className="min-h-12 w-full"
+            >
+              Enquire about admission
+            </Button>
+          </div>
         </div>
       </motion.nav>
     </header>
