@@ -17,7 +17,7 @@ The initial product is a frontend informational website. Do not add backend infr
 - Node.js 24.21.0 is the owner's reported runtime.
 - npm version is reported as 12.2.1; verify with `npm --version`.
 - React 19.
-- Vite 7.
+- Vite (use the version pinned in `package.json` and `package-lock.json`).
 - JavaScript / JSX.
 - Tailwind CSS 4 via `@tailwindcss/vite`.
 

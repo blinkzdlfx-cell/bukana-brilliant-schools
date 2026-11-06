@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.resolve(__dirname, '..', 'dist');
@@ -15,25 +15,38 @@ function check(condition, message) {
   }
 }
 
-check(fs.existsSync(dist), 'dist directory exists');
-check(fs.existsSync(path.join(dist, 'index.html')), 'dist/index.html exists');
-
+const indexPath = path.join(dist, 'index.html');
 const assetsDir = path.join(dist, 'assets');
-if (fs.existsSync(assetsDir)) {
-  const jsFiles = fs.readdirSync(assetsDir).filter((f) => f.endsWith('.js'));
-  check(jsFiles.length > 0, 'at least one JS bundle emitted in dist/assets');
-}
+const distExists = fs.existsSync(dist);
+const indexExists = fs.existsSync(indexPath);
+const assetsExists = fs.existsSync(assetsDir);
 
-const html = fs.existsSync(path.join(dist, 'index.html'))
-  ? fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
-  : '';
+check(distExists, 'dist directory exists');
+check(indexExists, 'dist/index.html exists');
+check(assetsExists, 'dist/assets directory exists');
 
+const html = indexExists ? fs.readFileSync(indexPath, 'utf8') : '';
 check(html.includes('Bukana Brilliant Schools'), 'index.html contains school name');
 check(html.includes('Be a star @ BBS'), 'index.html contains tagline');
-check(html.includes('description'), 'index.html contains meta description');
+check(/<meta[^>]+name=["']description["']/i.test(html), 'index.html contains meta description');
+
+if (assetsExists) {
+  const assetFiles = fs.readdirSync(assetsDir);
+  const jsFiles = assetFiles.filter((file) => file.endsWith('.js'));
+  const cssFiles = assetFiles.filter((file) => file.endsWith('.css'));
+
+  check(jsFiles.length > 0, 'at least one JavaScript bundle is emitted');
+  check(cssFiles.length > 0, 'at least one CSS bundle is emitted');
+
+  const referencedJs = jsFiles.some((file) => html.includes(file));
+  const referencedCss = cssFiles.some((file) => html.includes(file));
+  check(referencedJs, 'index.html references a generated JavaScript bundle');
+  check(referencedCss, 'index.html references a generated CSS bundle');
+}
 
 if (failed > 0) {
   console.error(`\n${failed} smoke check(s) failed.`);
   process.exit(1);
 }
+
 console.log('\nAll smoke checks passed.');

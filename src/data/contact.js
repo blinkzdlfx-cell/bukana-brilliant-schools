@@ -3,8 +3,9 @@ export const contactDetails = {
   addressPending: true,
   phone: null,
   phonePending: true,
-  whatsapp: null,
-  whatsappPending: true,
+  whatsapp: 'https://wa.me/2347019779736',
+  whatsappDisplay: '07019779736',
+  whatsappPending: false,
   email: null,
   emailPending: true,
   openingHours: null,
@@ -15,4 +16,4 @@ export const contactDetails = {
 };
 
 export const contactIntro =
-  'Get in touch with Bukana Brilliant Schools to learn more about Creche, Nursery, and Primary admissions or to arrange a visit.';
+  'Contact Bukana Brilliant Schools to ask about Creche, Nursery, and Primary admissions, current requirements, or arranging a visit.';
