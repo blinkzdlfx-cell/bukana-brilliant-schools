@@ -41,7 +41,7 @@ export function PrimaryPage() {
           <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
             Building strong foundations for what comes next.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
             Learn what to ask about primary class placement, curriculum, subjects and the way children’s progress is supported at Bukana Brilliant Schools.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -114,7 +114,7 @@ export function PrimaryPage() {
               <Users aria-hidden="true" className="h-5 w-5" />
             </span>
             <h2 className="mt-5 text-balance text-2xl font-bold text-white sm:text-3xl">Want to know more about Primary?</h2>
-            <p className="mt-3 leading-7 text-white/75">Contact the school to confirm current classes, requirements and next steps.</p>
+            <p className="mt-3 leading-7 text-white">Contact the school to confirm current classes, requirements and next steps.</p>
           </div>
           <Button variant="accent" href="/contact" className="min-h-12 w-full px-6 sm:w-auto">
             Contact the school <ArrowRight aria-hidden="true" className="h-4 w-4" />
