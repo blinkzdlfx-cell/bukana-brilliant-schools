@@ -81,7 +81,7 @@ export const admissionsProcess = [
 export const placementPolicies = [
   'Class placement is based on age and the school&rsquo;s assessment of the child&rsquo;s readiness.',
   'Available places are confirmed by the school at the time of enquiry.',
-  'Parents should confirm current fees, schedules, and requirements directly with the school.',
+  'Parents should confirm the school calendar, class availability, required documents and practical arrangements directly with the admissions team.',
 ];
 
 export const requiredDocuments = [
