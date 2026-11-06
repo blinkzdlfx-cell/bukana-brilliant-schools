@@ -46,28 +46,26 @@ function HeroSection() {
               {schoolProfile.description} <strong className="text-surface-white"> Be a star @ BBS.</strong>
             </motion.p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.button
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                asChild
                 className="w-full sm:w-auto"
               >
-                <Button variant="accent" className="w-full px-8 py-4 text-base">
+                <Button variant="accent" href={admissionsCta.href} className="w-full px-8 py-4 text-base">
                   Enquire about admission <ArrowRight className="ml-2 inline h-4 w-4" />
                 </Button>
-              </motion.button>
-              <motion.button
+              </motion.div>
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                asChild
                 className="w-full sm:w-auto"
               >
-                <Button variant="outline" className="w-full px-8 py-4 text-base">
+                <Button variant="outline" href={academicsCta.href} className="w-full px-8 py-4 text-base">
                   Explore learning levels
                 </Button>
-              </motion.button>
+              </motion.div>
             </div>
           </div>
           <div className="hidden lg:block relative h-[440px] w-full">
