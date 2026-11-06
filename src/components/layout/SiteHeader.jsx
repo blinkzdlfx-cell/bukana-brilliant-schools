@@ -49,7 +49,16 @@ export function SiteHeader({ currentPath, onLinkClick }) {
             const dropdown = item.dropdown ? navDropdowns[item.dropdown] : null;
             const isActiveItem = isActive(item.href);
             return (
-              <div key={item.href} className="relative group">
+              <div
+                key={item.href}
+                className="relative group"
+                onMouseEnter={() => dropdown && setOpenDropdown(item.href)}
+                onMouseLeave={() => dropdown && setOpenDropdown(null)}
+                onFocus={() => dropdown && setOpenDropdown(item.href)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) setOpenDropdown(null);
+                }}
+              >
                 <a
                   href={item.href}
                   onClick={(e) => {
