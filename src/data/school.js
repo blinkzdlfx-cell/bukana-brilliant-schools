@@ -21,7 +21,6 @@ export const navigationItems = [
   { label: 'Admissions', href: '/admissions' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Career', href: '/career' },
 ];
 
 export const navDropdowns = {
