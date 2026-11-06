@@ -270,7 +270,7 @@ function AdmissionsSection() {
               <h2 className="text-balance text-2xl font-bold tracking-tight text-white sm:text-3xl">
                 Take the next step for your child.
               </h2>
-              <p className="mt-4 leading-7 text-white/75">
+              <p className="mt-4 leading-7 text-white">
                 Contact the school to ask about available classes, admission requirements and how to arrange a visit. The school will confirm the current details with you.
               </p>
             </div>
