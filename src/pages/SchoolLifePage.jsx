@@ -1,68 +1,104 @@
-import { BookOpen, Palette, Trees, Building2, ShieldCheck } from 'lucide-react';
-import { SectionHeading } from '@/components/ui/section-heading.jsx';
-import { Card, CardBody } from '@/components/ui/card.jsx';
-import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
+import { ArrowRight, BookOpen, Building2, Palette, ShieldCheck, Trees, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
-import { contactCta } from '@/data/school.js';
+import { Card, CardBody } from '@/components/ui/card.jsx';
+import { SectionHeading } from '@/components/ui/section-heading.jsx';
 
 const experiences = [
-  { id: 'learning', label: 'Learning & classrooms', icon: BookOpen, description: 'Ask about classroom routines, learning materials, class sizes, and how teaching is organised at each level.' },
-  { id: 'creative', label: 'Creative activities', icon: Palette, description: 'Find out which creative, practical, or enrichment activities are included in the school programme.' },
-  { id: 'play', label: 'Play & outdoor learning', icon: Trees, description: 'Ask what play or outdoor opportunities are available and how they fit into the school day.' },
-  { id: 'facilities', label: 'Facilities & environment', icon: Building2, description: 'When you contact or visit the school, ask to see the facilities relevant to your child’s level.' },
+  {
+    label: 'Learning and classrooms',
+    icon: BookOpen,
+    description: 'Ask how lessons are organised, what learning materials are used and how classroom routines differ by age group.',
+  },
+  {
+    label: 'Creative activities',
+    icon: Palette,
+    description: 'Find out which art, music, practical or enrichment activities form part of the school programme.',
+  },
+  {
+    label: 'Play and movement',
+    icon: Trees,
+    description: 'Ask about play opportunities, outdoor time and how physical activity is included in the school day.',
+  },
+  {
+    label: 'School environment',
+    icon: Building2,
+    description: 'During an arranged visit, ask to see the spaces and facilities relevant to your child’s learning level.',
+  },
 ];
 
 export function SchoolLifePage() {
   return (
     <>
-      <section className="bg-brand section-pad text-surface-white">
-        <div className="container-wide grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-accent">School life</p>
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight text-balance md:text-5xl">See beyond the classroom.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#e8f3e9]">A school’s environment and daily routines are important parts of the family decision. Explore the areas parents may want to learn about at Bukana Brilliant Schools, then contact the school for accurate details.</p>
-          </div>
-          <div className="relative h-[300px] md:h-[380px]">
-            <TemporaryImage alt="Approved school-life photograph to be supplied by Bukana Brilliant Schools" category="school-life" width="100%" height="100%" />
+      <section className="relative isolate overflow-hidden bg-brand-deep text-white">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full border border-white/10" />
+        <div className="container-wide relative py-16 md:py-20 lg:py-24">
+          <p className="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D28C]">
+            <span className="h-2 w-2 rounded-full bg-accent" />
+            School life
+          </p>
+          <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
+            Learning happens in the little moments, too.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+            A child’s school experience includes lessons, play, relationships and the spaces where each day unfolds. Explore what you may want to ask about at Bukana Brilliant Schools.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button variant="accent" href="/contact" className="min-h-12 px-6">
+              Ask about a school visit <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </Button>
+            <Button variant="secondary" href="/gallery" className="min-h-12 border-white/50 bg-white/8 px-6 text-white shadow-none hover:bg-white hover:text-brand-deep">
+              School gallery
+            </Button>
           </div>
         </div>
       </section>
 
-      <section className="bg-surface-white section-pad">
+      <section className="section-pad bg-surface-white">
         <div className="container-wide">
-          <SectionHeading eyebrow="Explore school life" title="The experience is more than a timetable" description="Use these areas as a guide to what you may want to see or ask about. Descriptions below are enquiry prompts, not claims that a particular facility or activity is available." />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {experiences.map(({ id, label, icon: Icon, description }) => (
-              <Card key={id} className="h-full overflow-hidden">
-                <div className="grid sm:grid-cols-[0.85fr_1.15fr]">
-                  <div className="min-h-[220px] bg-surface-warm p-4">
-                    <TemporaryImage alt={`Approved photograph for ${label.toLowerCase()} to be supplied`} category={id} width="100%" height="100%" />
+          <SectionHeading
+            eyebrow="Explore school life"
+            title="What would you like to know?"
+            description="Use these topics to guide a conversation with the school. They are questions for families to explore, not claims about facilities or activities that have not yet been confirmed."
+          />
+          <div className="mt-11 grid gap-5 md:grid-cols-2">
+            {experiences.map(({ label, icon: Icon, description }, index) => (
+              <Card key={label} className="h-full">
+                <CardBody className="flex h-full gap-5 p-6 sm:p-8">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                    <Icon aria-hidden="true" className="h-6 w-6" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold tracking-[0.16em] text-brand">0{index + 1}</p>
+                    <h2 className="mt-2 text-xl font-bold text-ink-deep">{label}</h2>
+                    <p className="mt-3 leading-7 text-ink-muted">{description}</p>
                   </div>
-                  <CardBody className="p-6 md:p-7">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand"><Icon className="h-5 w-5" /></div>
-                    <h2 className="mb-3 text-xl font-bold text-ink-deep">{label}</h2>
-                    <p className="leading-relaxed text-ink-muted">{description}</p>
-                  </CardBody>
-                </div>
+                </CardBody>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-surface-warm section-pad">
-        <div className="container-wide grid items-center gap-10 lg:grid-cols-2">
+      <section className="section-pad border-y border-border-soft bg-surface-warm">
+        <div className="container-wide grid items-center gap-8 lg:grid-cols-[1fr_0.8fr]">
           <div>
-            <SectionHeading eyebrow="Plan a visit" title="Ask to see the environment for yourself" description="If the school offers visits, ask how to arrange one and which areas you may view. A visit can help you understand the setting, routines, and practical arrangements relevant to your child." className="mx-0 text-left" />
-            <div className="mt-7 flex flex-col gap-4 sm:flex-row">
-              <Button variant="primary" href={contactCta.href}>Ask about a visit</Button>
-              <Button variant="outline" href="/academics">Explore learning levels</Button>
-            </div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">Plan a visit</p>
+            <h2 className="max-w-xl text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">
+              Seeing the environment can help you make an informed choice.
+            </h2>
+            <p className="mt-5 max-w-xl leading-8 text-ink-muted">
+              Contact the school to ask whether a visit can be arranged, when families may come and which areas they can see.
+            </p>
+            <Button variant="primary" href="/contact" className="mt-7 min-h-12 px-6">
+              Ask about a visit <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </Button>
           </div>
-          <div className="rounded-card border border-border-soft bg-surface-white p-7 md:p-9">
-            <ShieldCheck className="mb-4 h-8 w-8 text-brand" />
-            <h2 className="mb-3 text-xl font-bold text-ink-deep">Student privacy matters</h2>
-            <p className="leading-relaxed text-ink-muted">Photographs showing identifiable children should be published only after the school has confirmed the necessary permissions and parent or guardian consent. Avoid including student names, private records, or other identifying information in public gallery captions.</p>
+          <div className="rounded-[1.5rem] border border-brand/10 bg-white p-7 sm:p-9">
+            <ShieldCheck aria-hidden="true" className="h-8 w-8 text-brand" />
+            <h3 className="mt-5 text-xl font-bold text-ink-deep">Pupil privacy matters</h3>
+            <p className="mt-3 leading-7 text-ink-muted">
+              Images showing identifiable children should only be published after the school confirms the necessary permissions and parent or guardian consent.
+            </p>
           </div>
         </div>
       </section>
