@@ -139,6 +139,58 @@ export function App() {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    const main = document.querySelector('main');
+    if (!main) return undefined;
+
+    let observer;
+    let frame = window.requestAnimationFrame(() => {
+      const targets = new Set(
+        main.querySelectorAll(
+          'section > .container-wide, section > .container-wide > .grid > *, section > .container-wide > .mt-12.grid > *, section > .container-wide > .mt-10.grid > *, section > .container-wide > .mt-8.grid > *, section > .container-wide > .mt-12.space-y-10 > *'
+        )
+      );
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach((target) => target.classList.add('is-visible'));
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach((target) => target.classList.add('is-visible'));
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -36px 0px' }
+      );
+
+      targets.forEach((target, index) => {
+        target.classList.add('scroll-reveal');
+        if (target.parentElement?.classList.contains('grid')) {
+          target.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 75}ms`);
+        }
+        observer.observe(target);
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+      main.querySelectorAll('.scroll-reveal').forEach((target) => {
+        target.classList.remove('scroll-reveal', 'is-visible');
+        target.style.removeProperty('--reveal-delay');
+      });
+    };
+  }, [pathname]);
+
   const handleLinkClick = useCallback((nextPathname) => {
     const target = new URL(nextPathname, window.location.origin);
     const currentPathname = window.location.pathname;
