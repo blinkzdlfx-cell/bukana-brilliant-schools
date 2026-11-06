@@ -19,7 +19,7 @@ All other school-specific facts must be treated as pending until confirmed.
 ## 2. Content integrity
 
 Never invent:
-- Founding year or school history.
+- Founding year, named historical events, or specific school milestones.
 - Founder, proprietor, principal, teacher, or staff names.
 - Vision or values statements (the mission statement above is owner-supplied; do not add to it).
 - Curriculum, teaching methodology, subjects, or examination details.
@@ -101,9 +101,9 @@ Every contact value requires owner confirmation.
 
 ## 4. Placeholder and image policy
 
-- Temporary imagery must be treated as design-only.
-- Do not imply stock photographs depict the actual school.
-- Prefer owner-provided photographs.
+- The 30 royalty-free images in the gallery are temporary illustrative references only; they must never be presented as photographs of Bukana Brilliant Schools.
+- Clearly identify stock photographs as illustrative references and do not imply they depict the actual school.
+- Replace the temporary gallery images with owner-provided photographs when the school supplies approved assets.
 - Obtain approval for photographs before production use.
 - Identifiable student photographs require appropriate school approval and parent/guardian consent.
 - Do not expose student names, class lists, personal details, or image metadata.
@@ -138,3 +138,12 @@ Before launch, the owner must review:
 - Social links and opening hours.
 
 No unverified placeholder may remain in a production-facing page.
+
+
+## 7. Current gallery implementation
+
+- The dedicated `/gallery` route uses `src/pages/GalleryPage.jsx` and the central `src/data/gallery.js` image manifest.
+- The gallery currently contains 30 temporary royalty-free image references across six filter options.
+- The page supports responsive image cards, full-screen viewing, previous/next controls, keyboard navigation, swipe navigation, lazy loading and asynchronous decoding.
+- Replace image entries in `src/data/gallery.js` with owner-approved school image URLs and accurate alt text/captions. Keep image permission status confirmed before publishing identifiable pupils.
+- Careers have been removed from the website. There is no News page or News route in the public navigation or sitemap.
