@@ -83,6 +83,11 @@ check(appSource.includes('const currentPathname = window.location.pathname') && 
 check(buttonSource.includes('inline-flex items-center justify-center'), 'shared buttons render as aligned flex controls');
 check(homePage.includes('sm:flex-1 sm:min-w-0') && homePage.includes('min-h-14 whitespace-normal'), 'homepage hero actions have separated responsive widths');
 check(wranglerSource.includes('binding = "ASSETS"'), 'Cloudflare Worker has an explicit static assets binding');
+const stylesPath = path.join(projectRoot, 'src/styles/index.css');
+const stylesSource = fs.existsSync(stylesPath) ? fs.readFileSync(stylesPath, 'utf8') : '';
+check(stylesSource.includes('--color-brand: #176B3A') && stylesSource.includes('--color-accent: #D8B85B'), 'site uses the restrained evergreen and muted-gold design palette');
+check(stylesSource.includes('.scroll-reveal.is-visible') && stylesSource.includes('prefers-reduced-motion: reduce'), 'scroll reveal animations support reduced-motion preferences');
+check(appSource.includes('new IntersectionObserver') && appSource.includes('scroll-reveal'), 'page sections and content groups reveal smoothly on scroll');
 check(routerSource.includes('window.history.pushState'), 'router updates browser history for internal navigation');
 check((galleryData.match(/gallery-[0-9]{2}/g) || []).length === 30, 'gallery contains 30 image entries');
 const galleryPhotoIds = [...galleryData.matchAll(/'photo-([a-zA-Z0-9-]+)'/g)].map((match) => match[1]);
