@@ -3,7 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dist = path.resolve(__dirname, '..', 'dist');
+const projectRoot = path.resolve(__dirname, '..');
+const dist = path.join(projectRoot, 'dist');
 let failed = 0;
 
 function check(condition, message) {
@@ -17,6 +18,7 @@ function check(condition, message) {
 
 const indexPath = path.join(dist, 'index.html');
 const assetsDir = path.join(dist, 'assets');
+const homePagePath = path.join(projectRoot, 'src/pages/HomePage.jsx');
 const distExists = fs.existsSync(dist);
 const indexExists = fs.existsSync(indexPath);
 const assetsExists = fs.existsSync(assetsDir);
@@ -29,6 +31,16 @@ const html = indexExists ? fs.readFileSync(indexPath, 'utf8') : '';
 check(html.includes('Bukana Brilliant Schools'), 'index.html contains school name');
 check(html.includes('Be a star @ BBS'), 'index.html contains tagline');
 check(/<meta[^>]+name=["']description["']/i.test(html), 'index.html contains meta description');
+
+// The homepage renders these icons in its always-visible contact section.
+// Missing imports cause a runtime ReferenceError and a completely blank page.
+const homePage = fs.existsSync(homePagePath)
+  ? fs.readFileSync(homePagePath, 'utf8')
+  : '';
+const lucideImport = homePage.match(/import\s*\{([^}]+)\}\s*from\s*['"]lucide-react['"]/);
+const importedIcons = lucideImport ? lucideImport[1].split(',').map((name) => name.trim()) : [];
+check(importedIcons.includes('Mail'), 'homepage imports the Mail icon used by its contact section');
+check(importedIcons.includes('MessageCircle'), 'homepage imports the MessageCircle icon used by its contact section');
 
 if (assetsExists) {
   const assetFiles = fs.readdirSync(assetsDir);
