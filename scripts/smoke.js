@@ -71,6 +71,10 @@ check(workerSource.includes("url.pathname === '/favicon.ico'") && workerSource.i
 check(workerSource.includes('SPA document fallback failed') && workerSource.includes('status: 503'), 'worker catches static asset and SPA fallback exceptions');
 check(contactSource.includes('id="contact-form"') && contactSource.includes('encodeURIComponent(buildMailtoBody())'), 'contact form has an anchor target and safely encoded email body');
 check(headerSource.includes('onMouseEnter={() => dropdown && setOpenDropdown(item.href)}'), 'desktop navigation dropdowns open on hover');
+check(headerSource.includes("aria-label={isOpen ? 'Close menu' : 'Open menu'}") && !headerSource.includes('aria-label="Close menu"'), 'mobile navigation uses only the header toggle to open and close the menu');
+check(!headerSource.includes('>Menu</span>'), 'mobile navigation does not render a duplicate Menu heading or close control');
+check(homePage.includes('handleHeroNavigation(event, admissionsCta.href)') && homePage.includes('handleHeroNavigation(event, academicsCta.href)'), 'homepage hero actions navigate to their configured internal routes');
+check(homePage.includes('!text-surface-white') && homePage.includes('!border-surface-white'), 'homepage secondary hero action has visible contrast on the dark hero background');
 check(!headerSource.includes('activeLang') && !headerSource.includes('languageOptions'), 'header does not expose a non-functional language switcher');
 
 check(appSource.includes("{ path: '/gallery', element: <GalleryPage /> }"), 'gallery route renders the dedicated gallery page');
