@@ -13,7 +13,7 @@ export const buttonVariants = {
 };
 
 export function Button({ variant = 'primary', className, disabled, asChild = false, href, children, ...props }) {
-  const classes = cn(buttonVariants[variant], className);
+  const classes = cn('inline-flex items-center justify-center gap-2 text-center align-middle', buttonVariants[variant], className);
 
   if (asChild) {
     if (!isValidElement(children)) {

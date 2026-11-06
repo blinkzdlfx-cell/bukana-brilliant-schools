@@ -32,6 +32,20 @@ const distExists = fs.existsSync(dist);
 const indexExists = fs.existsSync(indexPath);
 const assetsExists = fs.existsSync(assetsDir);
 
+const appSource = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf8') : '';
+const galleryData = fs.existsSync(galleryDataPath) ? fs.readFileSync(galleryDataPath, 'utf8') : '';
+const galleryPage = fs.existsSync(galleryPagePath) ? fs.readFileSync(galleryPagePath, 'utf8') : '';
+const navigation = fs.existsSync(navigationPath) ? fs.readFileSync(navigationPath, 'utf8') : '';
+const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
+const buttonSource = fs.existsSync(buttonPath) ? fs.readFileSync(buttonPath, 'utf8') : '';
+const workerSource = fs.existsSync(workerPath) ? fs.readFileSync(workerPath, 'utf8') : '';
+const contactSource = fs.existsSync(contactPagePath) ? fs.readFileSync(contactPagePath, 'utf8') : '';
+const headerSource = fs.existsSync(headerPath) ? fs.readFileSync(headerPath, 'utf8') : '';
+const routerPath = path.join(projectRoot, 'src/app/router.jsx');
+const routerSource = fs.existsSync(routerPath) ? fs.readFileSync(routerPath, 'utf8') : '';
+const wranglerPath = path.join(projectRoot, 'wrangler.toml');
+const wranglerSource = fs.existsSync(wranglerPath) ? fs.readFileSync(wranglerPath, 'utf8') : '';
+
 check(distExists, 'dist directory exists');
 check(indexExists, 'dist/index.html exists');
 check(assetsExists, 'dist/assets directory exists');
@@ -59,17 +73,13 @@ check(contactSource.includes('id="contact-form"') && contactSource.includes('enc
 check(headerSource.includes('onMouseEnter={() => dropdown && setOpenDropdown(item.href)}'), 'desktop navigation dropdowns open on hover');
 check(!headerSource.includes('activeLang') && !headerSource.includes('languageOptions'), 'header does not expose a non-functional language switcher');
 
-const appSource = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf8') : '';
-const galleryData = fs.existsSync(galleryDataPath) ? fs.readFileSync(galleryDataPath, 'utf8') : '';
-const galleryPage = fs.existsSync(galleryPagePath) ? fs.readFileSync(galleryPagePath, 'utf8') : '';
-const navigation = fs.existsSync(navigationPath) ? fs.readFileSync(navigationPath, 'utf8') : '';
-const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
-const buttonSource = fs.existsSync(buttonPath) ? fs.readFileSync(buttonPath, 'utf8') : '';
-const workerSource = fs.existsSync(workerPath) ? fs.readFileSync(workerPath, 'utf8') : '';
-const contactSource = fs.existsSync(contactPagePath) ? fs.readFileSync(contactPagePath, 'utf8') : '';
-const headerSource = fs.existsSync(headerPath) ? fs.readFileSync(headerPath, 'utf8') : '';
 check(appSource.includes("{ path: '/gallery', element: <GalleryPage /> }"), 'gallery route renders the dedicated gallery page');
 check(appSource.includes('new URL(nextPathname, window.location.origin)') && appSource.includes('target.hash'), 'SPA navigation supports dropdown section anchors');
+check(appSource.includes('const currentPathname = window.location.pathname') && appSource.includes('target.pathname !== currentPathname'), 'SPA navigation compares the destination against the pre-navigation route');
+check(buttonSource.includes('inline-flex items-center justify-center'), 'shared buttons render as aligned flex controls');
+check(homePage.includes('sm:flex-1 sm:min-w-0') && homePage.includes('min-h-14 whitespace-normal'), 'homepage hero actions have separated responsive widths');
+check(wranglerSource.includes('binding = "ASSETS"'), 'Cloudflare Worker has an explicit static assets binding');
+check(routerSource.includes('window.history.pushState'), 'router updates browser history for internal navigation');
 check((galleryData.match(/gallery-[0-9]{2}/g) || []).length === 30, 'gallery contains 30 image entries');
 const galleryPhotoIds = [...galleryData.matchAll(/'photo-([a-zA-Z0-9-]+)'/g)].map((match) => match[1]);
 check(new Set(galleryPhotoIds).size === 30, 'gallery entries use 30 distinct image sources');

@@ -45,14 +45,14 @@ function HeroSection() {
             >
               {schoolProfile.description} <strong className="text-surface-white"> Be a star @ BBS.</strong>
             </motion.p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center lg:justify-start">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="w-full sm:w-auto"
+                className="w-full sm:flex-1 sm:min-w-0"
               >
-                <Button variant="accent" href={admissionsCta.href} className="w-full px-8 py-4 text-base">
+                <Button variant="accent" href={admissionsCta.href} className="flex w-full min-h-14 whitespace-normal px-5 py-4 text-base leading-snug">
                   Enquire about admission <ArrowRight className="ml-2 inline h-4 w-4" />
                 </Button>
               </motion.div>
@@ -60,9 +60,9 @@ function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="w-full sm:w-auto"
+                className="w-full sm:flex-1 sm:min-w-0"
               >
-                <Button variant="outline" href={academicsCta.href} className="w-full px-8 py-4 text-base">
+                <Button variant="outline" href={academicsCta.href} className="flex w-full min-h-14 whitespace-normal px-5 py-4 text-base leading-snug">
                   Explore learning levels
                 </Button>
               </motion.div>

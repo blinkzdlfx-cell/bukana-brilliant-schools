@@ -141,12 +141,13 @@ export function App() {
 
   const handleLinkClick = useCallback((nextPathname) => {
     const target = new URL(nextPathname, window.location.origin);
-    const nextUrl = target.pathname + target.search + target.hash;
+    const currentPathname = window.location.pathname;
     const currentUrl = window.location.pathname + window.location.search + window.location.hash;
+    const nextUrl = target.pathname + target.search + target.hash;
     if (nextUrl === currentUrl) return;
 
     navigate(nextUrl);
-    if (target.pathname !== window.location.pathname) {
+    if (target.pathname !== currentPathname) {
       setPathname(target.pathname);
     } else if (target.hash) {
       const targetId = decodeURIComponent(target.hash.slice(1));
