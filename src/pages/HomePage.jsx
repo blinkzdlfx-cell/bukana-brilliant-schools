@@ -62,7 +62,7 @@ function HeroSection() {
                 transition={{ delay: 0.25 }}
                 className="w-full sm:flex-1 sm:min-w-0"
               >
-                <Button variant="outline" href={academicsCta.href} className="w-full px-8 py-4 text-base">
+                <Button variant="outline" href={academicsCta.href} className="flex w-full min-h-14 whitespace-normal px-5 py-4 text-base leading-snug">
                   Explore learning levels
                 </Button>
               </motion.div>
