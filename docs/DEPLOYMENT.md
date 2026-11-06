@@ -61,13 +61,13 @@ Do not add wildcard/path route patterns for custom domains to `wrangler.toml` â€
 
 ## 5. Blank-screen troubleshooting
 
-### Confirmed source defect fixed in the runtime-rendering patch
+### Confirmed homepage blank-screen defect fixed
 
-The shared footer rendered on every route but referenced `cn(...)` without importing the utility. This can throw a JavaScript `ReferenceError` while React renders the footer and leave the entire page white. The footer must import `cn` from `@/lib/utils.js`.
+`src/pages/HomePage.jsx` rendered the `ContactInvitation` section on the homepage using the Lucide `Mail` and `MessageCircle` components, but neither icon was imported from `lucide-react`. React therefore encountered a `ReferenceError` while rendering the homepage, which could leave the entire screen blank even though Vite successfully built the bundle. Both icons are now explicitly imported.
 
-The same patch adds missing imports for `Button` in `src/pages/AcademicsPage.jsx` and `TemporaryImage` in `src/pages/ContactPage.jsx`, preventing errors when those routes render. It also adds the required Tailwind CSS 4 import to `src/styles/index.css`.
+The smoke test now checks that both icons remain imported, so this specific runtime regression is caught before release. Other route-level safeguards remain in place: `SiteFooter.jsx` imports `cn`, `AcademicsPage.jsx` imports `Button`, `ContactPage.jsx` imports `TemporaryImage`, and `src/styles/index.css` includes the required Tailwind CSS 4 import.
 
-These source defects explain a credible blank-screen failure path, but the deployed browser must still be retested to confirm the issue is resolved.
+The source fix is committed to `main`. A production browser retest is still required to confirm the live deployment is serving the updated commit.
 
 If a deployed URL shows a blank page:
 
