@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
-import { contactDetails, contactIntro } from '@/data/contact.js';
+import { contactDetails } from '@/data/contact.js';
 
 const CATEGORIES = [
   { label: 'Admissions enquiry', value: 'admissions' },
@@ -78,8 +78,8 @@ export function ContactPage() {
           <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
             Let’s talk about your child’s next step.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-            {contactIntro}
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
+            Reach us by email or WhatsApp to ask about admissions, arrange a visit, or learn more about Creche, Nursery, and Primary.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
