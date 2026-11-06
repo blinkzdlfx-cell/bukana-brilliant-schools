@@ -115,7 +115,7 @@ function LevelsSection() {
 
 function CurriculumSection() {
   return (
-    <section className="bg-surface-warm section-pad border-t border-border-soft">
+    <section id="curriculum" className="bg-surface-warm section-pad border-t border-border-soft">
       <div className="container-wide">
         <SectionHeading
           eyebrow="Curriculum &amp; learning areas"
