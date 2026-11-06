@@ -92,13 +92,7 @@ For **each** level, please provide:
 
 ## Priority 3 — Optional content and final approval
 
-### 8. News and events
-- [ ] Confirm whether the school wants a News & Events page/section.
-- [ ] Supply approved announcements, event dates, captions, and photos.
-- [ ] Name the person responsible for sending future updates.
-- [ ] Confirm who should approve and remove outdated announcements.
-
-### 9. Final sign-off
+### 8. Final sign-off
 - [ ] Review the Home, About, Academics, Admissions, School Life, and Contact pages.
 - [ ] Approve all wording, photographs, and captions.
 - [ ] Verify contact links, WhatsApp, address, map pin, and opening hours.
