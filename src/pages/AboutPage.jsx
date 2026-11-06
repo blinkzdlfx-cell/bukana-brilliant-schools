@@ -100,7 +100,7 @@ function HeroSection() {
 
 function OurPurposeSection() {
   return (
-    <section className="section-pad bg-surface-white">
+    <section id="overview" className="section-pad bg-surface-white">
       <div className="container-wide grid items-start gap-12 lg:grid-cols-[0.78fr_1.22fr]">
         <div>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">Our purpose</p>
@@ -126,7 +126,7 @@ function OurPurposeSection() {
 
 function FoundationsSection() {
   return (
-    <section className="section-pad border-y border-border-soft bg-surface-warm">
+    <section id="purpose" className="section-pad border-y border-border-soft bg-surface-warm">
       <div className="container-wide">
         <SectionHeading
           eyebrow="The BBS outlook"
