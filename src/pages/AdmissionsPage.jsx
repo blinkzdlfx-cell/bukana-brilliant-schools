@@ -44,7 +44,7 @@ function HeroSection() {
             school. The admissions team will guide families through class placement, the application process and the documents required for enrolment.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="accent" href="/contact" className="px-8 py-4">
+            <Button variant="accent" href="/contact#contact-form" className="px-8 py-4">
               Start an enquiry
             </Button>
             <Button variant="outline" href="/academics" className="px-8 py-4">
