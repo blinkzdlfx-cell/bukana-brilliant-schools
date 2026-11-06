@@ -127,13 +127,35 @@ export function App() {
 
   useEffect(() => {
     updatePageMetadata(pathname);
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    if (window.location.hash) {
+      const targetId = decodeURIComponent(window.location.hash.slice(1));
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
   }, [pathname]);
 
   const handleLinkClick = useCallback((nextPathname) => {
-    if (nextPathname === window.location.pathname) return;
-    navigate(nextPathname);
-    setPathname(nextPathname);
+    const target = new URL(nextPathname, window.location.origin);
+    const nextUrl = target.pathname + target.search + target.hash;
+    const currentUrl = window.location.pathname + window.location.search + window.location.hash;
+    if (nextUrl === currentUrl) return;
+
+    navigate(nextUrl);
+    if (target.pathname !== window.location.pathname) {
+      setPathname(target.pathname);
+    } else if (target.hash) {
+      const targetId = decodeURIComponent(target.hash.slice(1));
+      requestAnimationFrame(() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, []);
 
   const route = ROUTES.find((item) => item.path === pathname) || {
