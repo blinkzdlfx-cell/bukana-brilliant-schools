@@ -43,7 +43,7 @@ export function EarlyYearsPage() {
           <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
             A thoughtful start for the youngest learners.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
             Exploring Creche and Nursery? Speak with Bukana Brilliant Schools about age requirements, class availability, early learning and how children are supported as they settle in.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -119,7 +119,7 @@ export function EarlyYearsPage() {
               <MessageCircle aria-hidden="true" className="h-5 w-5" />
             </span>
             <h2 className="mt-5 text-balance text-2xl font-bold text-white sm:text-3xl">Have questions about Creche or Nursery?</h2>
-            <p className="mt-3 leading-7 text-white/75">Ask about age range, class availability, daily arrangements and how to begin an enquiry.</p>
+            <p className="mt-3 leading-7 text-white">Ask about age range, class availability, daily arrangements and how to begin an enquiry.</p>
           </div>
           <Button variant="accent" href="/contact" className="min-h-12 w-full px-6 sm:w-auto">
             Contact the school <ArrowRight aria-hidden="true" className="h-4 w-4" />
