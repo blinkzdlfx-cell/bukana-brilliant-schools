@@ -5,6 +5,7 @@ import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
 import { schoolProfile, admissionsCta, academicsCta, contactCta } from '@/data/school.js';
 import { contactDetails } from '@/data/contact.js';
+import { navigate } from '@/app/router.jsx';
 
 export function HomePage() {
   return (
@@ -20,6 +21,12 @@ export function HomePage() {
 }
 
 function HeroSection() {
+  const handleHeroNavigation = (event, href) => {
+    event.preventDefault();
+    navigate(href);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+
   return (
     <section className="relative bg-brand-deep overflow-hidden">
       <div className="absolute inset-0 opacity-15 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiNmZmYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGgzMnYyMEgweiIvPjwvc3ZnPg==')]"></div>
@@ -52,7 +59,12 @@ function HeroSection() {
                 transition={{ delay: 0.2 }}
                 className="w-full sm:flex-1 sm:min-w-0"
               >
-                <Button variant="accent" href={admissionsCta.href} className="flex w-full min-h-14 whitespace-normal px-5 py-4 text-base leading-snug">
+                <Button
+                  variant="accent"
+                  href={admissionsCta.href}
+                  onClick={(event) => handleHeroNavigation(event, admissionsCta.href)}
+                  className="flex w-full min-h-14 whitespace-normal px-5 py-4 text-base leading-snug"
+                >
                   Enquire about admission <ArrowRight className="ml-2 inline h-4 w-4" />
                 </Button>
               </motion.div>
@@ -62,7 +74,12 @@ function HeroSection() {
                 transition={{ delay: 0.25 }}
                 className="w-full sm:flex-1 sm:min-w-0"
               >
-                <Button variant="outline" href={academicsCta.href} className="flex w-full min-h-14 whitespace-normal px-5 py-4 text-base leading-snug">
+                <Button
+                  variant="outline"
+                  href={academicsCta.href}
+                  onClick={(event) => handleHeroNavigation(event, academicsCta.href)}
+                  className="flex w-full min-h-14 whitespace-normal px-5 py-4 text-base leading-snug !border-surface-white !text-surface-white hover:!bg-surface-white hover:!text-brand-deep"
+                >
                   Explore learning levels
                 </Button>
               </motion.div>
