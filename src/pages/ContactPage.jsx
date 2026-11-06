@@ -7,7 +7,6 @@ import {
   MessageCircle,
   ShieldCheck,
 } from 'lucide-react';
-import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
 import { contactDetails, contactIntro } from '@/data/contact.js';
