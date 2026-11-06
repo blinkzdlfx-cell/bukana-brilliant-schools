@@ -53,7 +53,7 @@ const galleryPage = fs.existsSync(galleryPagePath) ? fs.readFileSync(galleryPage
 const navigation = fs.existsSync(navigationPath) ? fs.readFileSync(navigationPath, 'utf8') : '';
 const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
 check(appSource.includes("{ path: '/gallery', element: <GalleryPage /> }"), 'gallery route renders the dedicated gallery page');
-check((galleryData.match(/image\\('gallery-/g) || []).length === 30, 'gallery contains 30 image entries');
+check((galleryData.match(/gallery-[0-9]{2}/g) || []).length === 30, 'gallery contains 30 image entries');
 check(galleryPage.includes('role="dialog"') && galleryPage.includes('aria-modal="true"'), 'gallery includes an accessible full-screen image viewer');
 check(galleryPage.includes('loading={index < 4 ? \'eager\' : \'lazy\'}') && galleryPage.includes('decoding="async"'), 'gallery uses lazy loading and asynchronous image decoding');
 check(!appSource.includes("'/career'") && !appSource.includes('CareerPage'), 'careers route and page import are removed');
