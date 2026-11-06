@@ -7,6 +7,8 @@ const runtimeGlobals = {
   Buffer: 'readonly',
   IntersectionObserver: 'readonly',
   ResizeObserver: 'readonly',
+  Request: 'readonly',
+  Response: 'readonly',
   URL: 'readonly',
   URLSearchParams: 'readonly',
   cancelAnimationFrame: 'readonly',
