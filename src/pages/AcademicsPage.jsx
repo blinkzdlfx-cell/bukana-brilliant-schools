@@ -107,7 +107,7 @@ function LevelsSection() {
             );
           })}
         </div>
-        <p className="mt-10 text-sm text-ink-muted text-center">{pendingNote}</p>
+        <p className="mt-10 text-sm text-ink-muted text-center">The school should confirm its current scheme of work, subject timetable, approved learning materials and assessment approach for each class.</p>
       </div>
     </section>
   );
@@ -120,17 +120,18 @@ function CurriculumSection() {
         <SectionHeading
           eyebrow="Curriculum &amp; learning areas"
           title="What children learn"
-          description="Curriculum pillars, subjects, and assessment details are pending owner confirmation. The prompts below are useful areas to discuss with the school."
+          description="The learning framework below reflects widely used areas of Nigerian early-years and basic education. Class-by-class subject allocation, approved textbooks and assessment schedules should be confirmed with the school before enrolment."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            ['Communication &amp; language', 'Speaking, listening, and early literacy development.'],
-            ['Personal, social &amp; emotional', 'Confidence, relationships, and managing feelings.'],
-            ['Physical development', 'Movement, coordination, and health.'],
-            ['Literacy', 'Reading, writing, and phonics foundations.'],
-            ['Numeracy', 'Counting, shapes, and early mathematics.'],
-            ['Understanding the world', 'Community, nature, and how things work.'],
-            ['Expressive arts &amp; design', 'Art, music, role-play, and creativity.'],
+            ['Language & literacy', 'Listening, speaking, vocabulary, phonological awareness, reading readiness and early writing.'],
+            ['Numeracy & mathematical thinking', 'Number sense, counting, patterns, shapes, measurement and problem-solving.'],
+            ['Personal, social & emotional development', 'Confidence, self-awareness, cooperation, relationships and responsible behaviour.'],
+            ['Physical development & health', 'Movement, coordination, fine-motor skills, hygiene and healthy habits.'],
+            ['Basic science & discovery', 'Observation, questioning, nature, the environment and simple investigation.'],
+            ['Social studies & civic learning', 'Family, community, culture, citizenship, safety and respect for others.'],
+            ['Creative & cultural arts', 'Drawing, craft, music, rhythm, drama, imagination and creative expression.'],
+            ['Digital awareness & practical skills', 'Age-appropriate technology awareness, practical activities and independent learning habits.'],
           ].map(([title, detail], index) => (
             <Card key={title} className="h-full">
               <CardBody className="p-6">
@@ -139,9 +140,6 @@ function CurriculumSection() {
                 </div>
                 <h3 className="mb-2 text-lg font-bold text-ink-deep">{title}</h3>
                 <p className="text-sm text-ink-muted">{detail}</p>
-                <p className="mt-3 text-xs text-ink-muted">
-                  Curriculum detail pending owner confirmation.
-                </p>
               </CardBody>
             </Card>
           ))}
