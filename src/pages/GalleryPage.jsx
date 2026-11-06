@@ -16,7 +16,7 @@ export function GalleryPage() {
             <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
               A real picture of school life starts with real moments.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
               We are preparing this space for approved photographs from Bukana Brilliant Schools. We will not present stock images as pictures of the school, its pupils or facilities.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -41,7 +41,7 @@ export function GalleryPage() {
               <div className="mt-8 grid grid-cols-3 gap-3" aria-hidden="true">
                 <div className="flex aspect-square items-center justify-center rounded-2xl bg-white/10"><BookIcon /></div>
                 <div className="flex aspect-square items-center justify-center rounded-2xl bg-accent/15 text-[#E8D28C]"><Sparkles className="h-7 w-7" /></div>
-                <div className="flex aspect-square items-center justify-center rounded-2xl bg-white/10"><Images className="h-7 w-7 text-white/75" /></div>
+                <div className="flex aspect-square items-center justify-center rounded-2xl bg-white/10"><Images className="h-7 w-7 text-white" /></div>
               </div>
               <p className="mt-6 text-lg font-semibold text-white">Official BBS photography</p>
               <p className="mt-2 text-sm leading-6 text-white/65">Shared here when the school has approved the images for publication.</p>
@@ -73,5 +73,5 @@ export function GalleryPage() {
 }
 
 function BookIcon() {
-  return <Images className="h-7 w-7 text-white/75" />;
+  return <Images className="h-7 w-7 text-white" />;
 }
