@@ -1,19 +1,43 @@
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
 
-    // Serve static assets from dist/ (built by Vite)
-    try {
-      const asset = await env.ASSETS.fetch(request);
-      if (asset.status !== 404) {
-        return asset;
-      }
-    } catch {
-      // fall through to SPA fallback
+    // Browsers and some crawlers request /favicon.ico automatically.
+    // Redirect to the existing SVG instead of sending a missing asset
+    // through the SPA fallback.
+    if (url.pathname === '/favicon.ico') {
+      return Response.redirect(new URL('/favicon.svg', url), 301);
     }
 
-    // Single-page app fallback: serve index.html so client-side routing
-    // works on direct visits and refreshes of any route.
-    return env.ASSETS.fetch(new URL('/index.html', request.url));
+    // Serve built static assets first.
+    try {
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status !== 404) return asset;
+    } catch (error) {
+      console.error('Static asset lookup failed:', error);
+    }
+
+    // Only document navigations should receive the SPA entry point.
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+      return new Response('Not found', { status: 404 });
+    }
+
+    try {
+      const fallbackUrl = new URL('/index.html', url);
+      const fallbackRequest = new Request(fallbackUrl, {
+        method: request.method,
+        headers: request.headers,
+      });
+      return await env.ASSETS.fetch(fallbackRequest);
+    } catch (error) {
+      console.error('SPA document fallback failed:', error);
+      return new Response('The website is temporarily unavailable.', {
+        status: 503,
+        headers: {
+          'content-type': 'text/plain; charset=utf-8',
+          'cache-control': 'no-store',
+        },
+      });
+    }
   },
 };
