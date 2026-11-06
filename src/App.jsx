@@ -218,8 +218,9 @@ export function App() {
 
   return (
     <div className="text-ink antialiased">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <SiteHeader currentPath={pathname} onLinkClick={handleLinkClick} />
-      <main className="relative overflow-hidden">{route.element}</main>
+      <main id="main-content" tabIndex={-1} className="relative overflow-hidden">{route.element}</main>
       <SiteFooter currentPath={pathname} onLinkClick={handleLinkClick} />
     </div>
   );
