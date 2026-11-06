@@ -61,7 +61,7 @@ function HeroSection() {
           >
             Helping every child find room to grow and shine.
           </motion.h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
             {schoolProfile.description}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -166,7 +166,7 @@ function FamilyPartnershipSection() {
             <h2 className="mt-5 text-balance text-2xl font-bold tracking-tight text-white sm:text-3xl">
               A school choice is a family decision.
             </h2>
-            <p className="mt-4 leading-7 text-white/75">
+            <p className="mt-4 leading-7 text-white">
               We encourage parents and guardians to speak with the school, ask questions and learn more about the learning levels and current arrangements before making a decision.
             </p>
           </div>
