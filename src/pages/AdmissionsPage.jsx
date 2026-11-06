@@ -41,8 +41,7 @@ function HeroSection() {
             className="mb-10 max-w-xl text-lg leading-relaxed text-[#dbe8dc] md:text-xl"
           >
             If you are considering Bukana Brilliant Schools for Creche, Nursery, or Primary, start by contacting the
-            school. The school must confirm current availability, entry requirements, fees, and the official application
-            process.
+            school. The admissions team will guide families through class placement, the application process and the documents required for enrolment.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button variant="accent" href="/contact" className="px-8 py-4">
@@ -125,7 +124,7 @@ function DocumentsSection() {
         <SectionHeading
           eyebrow="Required documents"
           title="What to prepare"
-          description="The school will confirm the exact documents needed during your enquiry."
+          description="Prepare these commonly requested records. The admissions team will confirm which documents apply to your child and whether anything else is needed."
         />
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {requiredDocuments.map((doc) => (
