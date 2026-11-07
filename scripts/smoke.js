@@ -69,8 +69,8 @@ const importedIcons = lucideImport ? lucideImport[1].split(',').map((name) => na
 check(importedIcons.includes('ArrowRight'), 'homepage imports the ArrowRight icon used by its calls to action');
 check(importedIcons.includes('MessageCircle'), 'homepage imports the MessageCircle icon used by its contact section');
 check(homePage.includes('href={admissionsCta.href}') && homePage.includes('href={academicsCta.href}'), 'homepage hero actions have working destinations');
-check(homePage.includes('<LearningImageMarquee') && homePage.includes('learning in motion'), 'homepage includes the continuous learning image strip');
-check(galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('illustrative stock photographs'), 'gallery includes the continuous image strip with an illustrative-only notice');
+check(homePage.includes('<LearningImageMarquee') && homePage.includes('Learning in motion'), 'homepage includes the continuous learning image strip');
+check(galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('These stock photographs illustrate'), 'gallery includes the continuous image strip with an illustrative-only notice');
 check(imageMarqueeSource.includes('bbs-image-marquee__track') && imageMarqueeSource.includes('aria-hidden={isDuplicate || undefined}'), 'image marquee duplicates its image set for a seamless screen-reader-safe loop');
 check(imageMarqueeSource.includes('loading=') && imageMarqueeSource.includes('decoding="async"'), 'marquee images use browser loading and decoding hints');
 check(learningImagesSource.includes('images.pexels.com') && learningImagesSource.includes('creditUrl'), 'illustrative image sources include Pexels photographer credit links');
