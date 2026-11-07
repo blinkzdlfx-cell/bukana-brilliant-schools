@@ -101,46 +101,50 @@ export function SiteHeader({ currentPath, onLinkClick }) {
                 </a>
 
                 {dropdown && (
-                  <motion.div
-                    id={submenuId}
-                    initial={false}
-                    animate={
-                      openDropdown === item.href
-                        ? { opacity: 1, y: 0, scale: 1 }
-                        : { opacity: 0, y: -5, scale: 0.98 }
-                    }
-                    transition={{ duration: 0.16, ease: 'easeOut' }}
-                    aria-hidden={openDropdown !== item.href}
-                    inert={openDropdown !== item.href}
+                  <div
                     className={cn(
-                      'absolute left-0 top-full z-50 mt-2 w-64 origin-top-left rounded-xl border border-border-soft bg-white p-2 shadow-xl',
+                      'absolute left-0 top-full z-50 pt-2',
                       openDropdown === item.href ? 'pointer-events-auto' : 'pointer-events-none'
                     )}
                   >
-                    {dropdown.map((sub) => {
-                      const isActiveSub = isActive(sub.href);
-                      return (
-                        <a
-                          key={sub.href}
-                          href={sub.href}
-                          onClick={(event) => {
-                            event.preventDefault();
-                            handleLink(sub.href);
-                          }}
-                          className={cn(
-                            'flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-colors',
-                            isActiveSub
-                              ? 'bg-brand/8 text-brand-deep'
-                              : 'text-ink-muted hover:bg-surface-warm hover:text-brand-deep'
-                          )}
-                          aria-current={isActiveSub ? 'page' : undefined}
-                        >
-                          {sub.label}
-                          <ChevronRight aria-hidden="true" className="ml-auto h-4 w-4 opacity-60" />
-                        </a>
-                      );
-                    })}
-                  </motion.div>
+                    <motion.div
+                      id={submenuId}
+                      initial={false}
+                      animate={
+                        openDropdown === item.href
+                          ? { opacity: 1, y: 0, scale: 1 }
+                          : { opacity: 0, y: -5, scale: 0.98 }
+                      }
+                      transition={{ duration: 0.16, ease: 'easeOut' }}
+                      aria-hidden={openDropdown !== item.href}
+                      inert={openDropdown !== item.href}
+                      className="w-64 origin-top-left rounded-xl border border-border-soft bg-white p-2 shadow-xl"
+                    >
+                      {dropdown.map((sub) => {
+                        const isActiveSub = isActive(sub.href);
+                        return (
+                          <a
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              handleLink(sub.href);
+                            }}
+                            className={cn(
+                              'flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-colors',
+                              isActiveSub
+                                ? 'bg-brand/8 text-brand-deep'
+                                : 'text-ink-muted hover:bg-surface-warm hover:text-brand-deep'
+                            )}
+                            aria-current={isActiveSub ? 'page' : undefined}
+                          >
+                            {sub.label}
+                            <ChevronRight aria-hidden="true" className="ml-auto h-4 w-4 opacity-60" />
+                          </a>
+                        );
+                      })}
+                    </motion.div>
+                  </div>
                 )}
               </div>
             );
