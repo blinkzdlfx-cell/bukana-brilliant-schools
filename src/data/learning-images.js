@@ -1,0 +1,42 @@
+export const learningImages = [
+  {
+    id: 'story-time',
+    src: 'https://images.pexels.com/photos/8535173/pexels-photo-8535173.jpeg?auto=compress&cs=tinysrgb&w=1100',
+    alt: 'A teacher sharing a picture book with young children in a classroom.',
+    caption: 'Stories and reading',
+    photographer: 'Ksenia Chernaya',
+    creditUrl: 'https://www.pexels.com/photo/kids-reading-book-in-the-school-8535173/',
+  },
+  {
+    id: 'creative-class',
+    src: 'https://images.pexels.com/photos/8466706/pexels-photo-8466706.jpeg?auto=compress&cs=tinysrgb&w=1100',
+    alt: 'Young children drawing together with a teacher nearby.',
+    caption: 'Creative learning',
+    photographer: 'Anastasia Shuraeva',
+    creditUrl: 'https://www.pexels.com/photo/kids-in-school-8466706/',
+  },
+  {
+    id: 'drawing',
+    src: 'https://images.pexels.com/photos/6990586/pexels-photo-6990586.jpeg?auto=compress&cs=tinysrgb&w=1100',
+    alt: 'Two children using coloured pencils to draw at a table.',
+    caption: 'Art and expression',
+    photographer: 'Artem Podrez',
+    creditUrl: 'https://www.pexels.com/photo/kids-drawing-on-paper-6990586/',
+  },
+  {
+    id: 'classroom-discovery',
+    src: 'https://images.pexels.com/photos/8363745/pexels-photo-8363745.jpeg?auto=compress&cs=tinysrgb&w=1100',
+    alt: 'Young students taking part in a classroom learning activity.',
+    caption: 'Learning together',
+    photographer: 'RDNE Stock project',
+    creditUrl: 'https://www.pexels.com/photo/kids-inside-a-classroom-8363745/',
+  },
+  {
+    id: 'shared-activity',
+    src: 'https://images.pexels.com/photos/6990594/pexels-photo-6990594.jpeg?auto=compress&cs=tinysrgb&w=1100',
+    alt: 'Two children concentrating on a drawing activity at a table.',
+    caption: 'Curiosity in action',
+    photographer: 'Artem Podrez',
+    creditUrl: 'https://www.pexels.com/photo/kids-drawing-on-paper-6990594/',
+  },
+];
