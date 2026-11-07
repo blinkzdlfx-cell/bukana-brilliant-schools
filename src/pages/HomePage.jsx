@@ -13,6 +13,7 @@ import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { schoolProfile, admissionsCta, academicsCta, contactCta } from '@/data/school.js';
 import { contactDetails } from '@/data/contact.js';
+import { LearningImageMarquee } from '@/components/ui/learning-image-marquee.jsx';
 
 const learningStages = [
   {
@@ -45,6 +46,11 @@ export function HomePage() {
   return (
     <>
       <HeroSection />
+      <LearningImageMarquee
+        eyebrow="Learning in motion"
+        title="Every little discovery deserves a moment."
+        description="A visual celebration of reading, creativity and the joy of learning."
+      />
       <LearningPathSection />
       <FamilySection />
       <AdmissionsSection />
