@@ -140,10 +140,12 @@ Before launch, the owner must review:
 No unverified placeholder may remain in a production-facing page.
 
 
-## 7. Current gallery implementation
+## 7. Current image-strip implementation
 
-- The dedicated `/gallery` route uses `src/pages/GalleryPage.jsx` and the central `src/data/gallery.js` image manifest.
-- The gallery currently contains 30 temporary royalty-free image references across six filter options.
-- The page supports responsive image cards, full-screen viewing, previous/next controls, keyboard navigation, swipe navigation, lazy loading and asynchronous decoding.
-- Replace image entries in `src/data/gallery.js` with owner-approved school image URLs and accurate alt text/captions. Keep image permission status confirmed before publishing identifiable pupils.
+- The homepage and dedicated `/gallery` route share `src/components/ui/learning-image-marquee.jsx`.
+- The image manifest is centralized in `src/data/learning-images.js`; the current Pexels photographs are illustrative stock imagery only, not photos of Bukana Brilliant Schools.
+- Both pages identify the strip as illustrative. The component includes descriptive alt text, photographer/source links, lazy loading for later images, and a seamless right-to-left loop.
+- The animation pauses on hover or keyboard focus and becomes a manually scrollable static strip when reduced motion is preferred.
+- Replace these illustrative references with owner-approved BBS photographs when supplied. Confirm school approval and the required parent/guardian consent before publishing identifiable pupils.
+- Do not relabel stock photos as official school images. Keep the distinction clear until genuine school photographs are approved.
 - Careers have been removed from the website. There is no News page or News route in the public navigation or sitemap.
