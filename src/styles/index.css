@@ -172,6 +172,34 @@
   transform: translate3d(0, 0, 0);
 }
 
+/* Seamless right-to-left image marquee shared by the homepage and gallery. */
+.bbs-image-marquee__viewport {
+  overflow: hidden;
+}
+
+.bbs-image-marquee__viewport:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 4px;
+  border-radius: 1.25rem;
+}
+
+.bbs-image-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: bbs-image-marquee 48s linear infinite;
+  will-change: transform;
+}
+
+.bbs-image-marquee__viewport:hover .bbs-image-marquee__track,
+.bbs-image-marquee__viewport:focus-visible .bbs-image-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes bbs-image-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .card-elevated {
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
@@ -191,6 +219,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+
+  .bbs-image-marquee__viewport {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .bbs-image-marquee__track {
+    animation: none;
+    will-change: auto;
+  }
 
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
