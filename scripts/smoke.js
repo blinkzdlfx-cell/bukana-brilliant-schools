@@ -21,6 +21,8 @@ const assetsDir = path.join(dist, 'assets');
 const homePagePath = path.join(projectRoot, 'src/pages/HomePage.jsx');
 const appPath = path.join(projectRoot, 'src/App.jsx');
 const galleryPagePath = path.join(projectRoot, 'src/pages/GalleryPage.jsx');
+const imageMarqueePath = path.join(projectRoot, 'src/components/ui/learning-image-marquee.jsx');
+const learningImagesPath = path.join(projectRoot, 'src/data/learning-images.js');
 const navigationPath = path.join(projectRoot, 'src/data/school.js');
 const sitemapPath = path.join(projectRoot, 'public/sitemap.xml');
 const buttonPath = path.join(projectRoot, 'src/components/ui/button.jsx');
@@ -34,6 +36,8 @@ const assetsExists = fs.existsSync(assetsDir);
 
 const appSource = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf8') : '';
 const galleryPage = fs.existsSync(galleryPagePath) ? fs.readFileSync(galleryPagePath, 'utf8') : '';
+const imageMarqueeSource = fs.existsSync(imageMarqueePath) ? fs.readFileSync(imageMarqueePath, 'utf8') : '';
+const learningImagesSource = fs.existsSync(learningImagesPath) ? fs.readFileSync(learningImagesPath, 'utf8') : '';
 const navigation = fs.existsSync(navigationPath) ? fs.readFileSync(navigationPath, 'utf8') : '';
 const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
 const buttonSource = fs.existsSync(buttonPath) ? fs.readFileSync(buttonPath, 'utf8') : '';
@@ -65,6 +69,14 @@ const importedIcons = lucideImport ? lucideImport[1].split(',').map((name) => na
 check(importedIcons.includes('ArrowRight'), 'homepage imports the ArrowRight icon used by its calls to action');
 check(importedIcons.includes('MessageCircle'), 'homepage imports the MessageCircle icon used by its contact section');
 check(homePage.includes('href={admissionsCta.href}') && homePage.includes('href={academicsCta.href}'), 'homepage hero actions have working destinations');
+check(homePage.includes('<LearningImageMarquee') && homePage.includes('learning in motion'), 'homepage includes the continuous learning image strip');
+check(galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('illustrative stock photographs'), 'gallery includes the continuous image strip with an illustrative-only notice');
+check(imageMarqueeSource.includes('bbs-image-marquee__track') && imageMarqueeSource.includes('aria-hidden={isDuplicate || undefined}'), 'image marquee duplicates its image set for a seamless screen-reader-safe loop');
+check(imageMarqueeSource.includes('loading=') && imageMarqueeSource.includes('decoding="async"'), 'marquee images use browser loading and decoding hints');
+check(learningImagesSource.includes('images.pexels.com') && learningImagesSource.includes('creditUrl'), 'illustrative image sources include Pexels photographer credit links');
+check(stylesSource.includes('@keyframes bbs-image-marquee') && stylesSource.includes('animation-play-state: paused'), 'marquee scrolls continuously and pauses on hover or keyboard focus');
+check(stylesSource.includes('.bbs-image-marquee__track {') && stylesSource.includes('animation: none;'), 'marquee motion has a reduced-motion fallback');
+
 check(!homePage.includes('<motion.button') && !homePage.includes('asChild'), 'homepage hero actions do not use invalid nested button composition');
 check(buttonSource.includes('cloneElement') && buttonSource.includes('asChild requires exactly one valid child'), 'Button asChild correctly forwards styling and behavior to its child');
 check(workerSource.includes("url.pathname === '/favicon.ico'") && workerSource.includes("'/favicon.svg'"), 'worker redirects automatic favicon.ico requests to the existing SVG');
