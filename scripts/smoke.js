@@ -49,6 +49,8 @@ const routerPath = path.join(projectRoot, 'src/app/router.jsx');
 const routerSource = fs.existsSync(routerPath) ? fs.readFileSync(routerPath, 'utf8') : '';
 const wranglerPath = path.join(projectRoot, 'wrangler.toml');
 const wranglerSource = fs.existsSync(wranglerPath) ? fs.readFileSync(wranglerPath, 'utf8') : '';
+const stylesPath = path.join(projectRoot, 'src/styles/index.css');
+const stylesSource = fs.existsSync(stylesPath) ? fs.readFileSync(stylesPath, 'utf8') : '';
 
 check(distExists, 'dist directory exists');
 check(indexExists, 'dist/index.html exists');
@@ -95,8 +97,6 @@ check(appSource.includes('const currentPathname = window.location.pathname') && 
 check(buttonSource.includes('inline-flex items-center justify-center'), 'shared buttons render as aligned flex controls');
 check(homePage.includes('min-h-14 px-7') && homePage.includes('flex-col gap-3 sm:flex-row'), 'homepage hero actions use readable mobile-first sizing');
 check(wranglerSource.includes('binding = "ASSETS"'), 'Cloudflare Worker has an explicit static assets binding');
-const stylesPath = path.join(projectRoot, 'src/styles/index.css');
-const stylesSource = fs.existsSync(stylesPath) ? fs.readFileSync(stylesPath, 'utf8') : '';
 check(stylesSource.includes('--color-brand: #176B3A') && stylesSource.includes('--color-accent: #D8B85B'), 'site uses the restrained evergreen and muted-gold design palette');
 check(stylesSource.includes('.scroll-reveal.is-visible') && stylesSource.includes('prefers-reduced-motion: reduce'), 'scroll reveal animations support reduced-motion preferences');
 check(appSource.includes('new IntersectionObserver') && appSource.includes('scroll-reveal'), 'page sections and content groups reveal smoothly on scroll');
