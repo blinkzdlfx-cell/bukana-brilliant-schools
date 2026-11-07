@@ -1,5 +1,6 @@
 import { Camera, Images, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
+import { LearningImageMarquee } from '@/components/ui/learning-image-marquee.jsx';
 
 export function GalleryPage() {
   return (
@@ -50,6 +51,12 @@ export function GalleryPage() {
         </div>
       </section>
 
+      <LearningImageMarquee
+        eyebrow="Illustrative learning moments"
+        title="A moving glimpse into the world of learning."
+        description="These stock photographs illustrate learning themes only. They are not photographs of BBS pupils, staff, classrooms or facilities."
+      />
+
       <section className="section-pad bg-surface-white">
         <div className="container-wide">
           <div className="mx-auto max-w-3xl text-center">
@@ -60,7 +67,7 @@ export function GalleryPage() {
               Authenticity and pupil privacy come first.
             </h2>
             <p className="mt-4 leading-7 text-ink-muted">
-              Photographs of identifiable children should only be published after the school confirms the required permissions and parent or guardian consent. Until then, this page remains a clear notice rather than a gallery of unrelated stock photos.
+              The moving strip above uses illustrative stock photographs and does not depict Bukana Brilliant Schools. Official school images will only be added after approval, with the required permissions and parent or guardian consent for identifiable children.
             </p>
             <a href="/contact" className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-brand hover:text-brand-deep">
               Contact the school <MessageCircle aria-hidden="true" className="h-4 w-4" />
