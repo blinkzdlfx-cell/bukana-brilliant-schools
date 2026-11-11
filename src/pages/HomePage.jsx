@@ -14,6 +14,7 @@ import { Card, CardBody } from '@/components/ui/card.jsx';
 import { schoolProfile, admissionsCta, academicsCta, contactCta } from '@/data/school.js';
 import { contactDetails } from '@/data/contact.js';
 import { HeroRopeStrip } from '@/components/ui/hero-rope-strip.jsx';
+import { schoolImages } from '@/data/learning-images.js';
 
 const learningStages = [
   {
@@ -64,8 +65,16 @@ function HomeLifeSection() {
           <h2 className="text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">Real moments from our school community.</h2>
           <p className="mt-4 max-w-2xl leading-7 text-ink-muted">A small selection of everyday moments from our classrooms and school environment. Visit the gallery to explore more photographs.</p>
         </div>
-        <div className="mt-7 rounded-2xl border border-border-soft bg-brand-deep px-3 py-5 shadow-sm sm:px-5">
-          </div>
+        <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+          {schoolImages.slice(0, 6).map((image) => (
+            <figure key={image.id} className="overflow-hidden rounded-xl border border-border-soft bg-white shadow-sm">
+              <div className="aspect-[4/3] overflow-hidden bg-brand/5">
+                <img src={image.enhanced} alt={image.alt} width="640" height="480" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+              </div>
+              <figcaption className="px-3 py-2 text-xs font-semibold text-ink-deep sm:text-sm">{image.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
         <div className="mt-5 flex justify-end">
           <a href="/gallery" className="inline-flex min-h-10 items-center gap-2 text-sm font-bold text-brand hover:text-brand-deep">Explore the full gallery <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
         </div>
