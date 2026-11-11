@@ -2,6 +2,8 @@ import { ArrowRight, Baby, BookOpen, HeartHandshake, MessageCircle, Sparkles } f
 import { Button } from '@/components/ui/button.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
+import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 const discussionTopics = [
   {
@@ -57,6 +59,19 @@ export function EarlyYearsPage() {
         </div>
       </section>
 
+      <section className="section-pad bg-surface-warm">
+        <div className="container-wide grid items-center gap-7 md:grid-cols-2">
+          {[schoolImages[12], schoolImages[6]].map((image) => (
+            <figure key={image.id} className="overflow-hidden rounded-2xl bg-white shadow-sm">
+              <div className="aspect-[16/10] overflow-hidden">
+                <OptimizedImage src={image.enhanced} optimized={image.optimized.enhanced} alt={image.alt} sizes="(max-width: 768px) 100vw, 50vw" className="h-full w-full object-cover" />
+              </div>
+              <figcaption className="px-4 py-3 text-sm font-semibold text-ink-deep">{image.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="section-pad bg-surface-white">
         <div className="container-wide">
           <SectionHeading
@@ -106,7 +121,7 @@ export function EarlyYearsPage() {
               ))}
             </div>
             <p className="mt-5 text-xs leading-6 text-ink-muted">
-              General discussion topics only. The school should confirm its actual curriculum, class structure and daily routine.
+              For current class details and daily arrangements, contact the school.
             </p>
           </div>
         </div>
