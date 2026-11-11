@@ -173,7 +173,7 @@ function LearningPathSection() {
           {learningStages.map(({ name, description, icon: Icon, number, image }) => (
             <Card key={name} className="h-full overflow-hidden">
               <CardBody className="flex h-full flex-col p-5 md:p-6">
-                <div className="flex items-center justify-between">
+                <div className="mb-5 aspect-[16/9] overflow-hidden rounded-xl bg-brand/5">\n                  <OptimizedImage src={image.enhanced} optimized={image.optimized.enhanced} alt={image.alt} sizes="(max-width: 768px) 100vw, 33vw" className="h-full w-full object-cover" />\n                </div>\n                <div className="flex items-center justify-between">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
                     <Icon aria-hidden="true" className="h-6 w-6" />
                   </span>
