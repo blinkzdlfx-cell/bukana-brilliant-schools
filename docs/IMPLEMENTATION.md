@@ -26,7 +26,8 @@ Exit checks:
 - Build header and responsive mobile navigation.
 - Build footer.
 - Establish page container and reusable section heading.
-- Configure shadcn/ui through `components.json` and use its shared Button/Card primitives.
+- Configure shadcn/ui through `components.json` and maintain the adopted Button, Card, Input, Label, Textarea, Badge and Separator primitives in `src/components/ui/`.
+- Compose those primitives into real page features (currently the contact enquiry form and gallery label); add further registry components only when needed by a real interaction.
 - Keep project-specific variants inside shadcn component variants; do not maintain a separate custom UI kit.
 - Add route handling and 404 page.
 - Add page-specific title and description handling.
