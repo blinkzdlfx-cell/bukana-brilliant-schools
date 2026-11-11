@@ -4,6 +4,8 @@ import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
 import { educationLevels } from '@/data/academics.js';
+import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 const levelIcons = { creche: Users, nursery: Star, primary: GraduationCap };
 
@@ -64,15 +66,17 @@ function LevelsSection() {
         <SectionHeading
           eyebrow="Learning levels"
           title="Three stages to explore"
-          description="The information below is a guide to the questions parents may want answered. It is not a substitute for the school&rsquo;s confirmed curriculum, class structure, or admission criteria."
+          description="Explore each learning stage and the key questions to discuss with the school when considering the right class for your child."
         />
         <div className="mt-12 space-y-10">
           {educationLevels.map((level, index) => {
             const Icon = levelIcons[level.id] || BookOpen;
+            const levelPhoto = [schoolImages[6], schoolImages[12], schoolImages[1]][index] || schoolImages[0];
             return (
               <Card key={level.id} className="overflow-hidden">
                 <div className={index % 2 === 0 ? 'grid md:grid-cols-[1.25fr_0.75fr]' : 'grid md:grid-cols-[0.75fr_1.25fr]'}>
                   <div className={index % 2 === 0 ? 'bg-surface-white p-7 md:p-10' : 'order-2 bg-surface-white p-7 md:p-10'}>
+                    <div className="mb-6 aspect-[16/9] overflow-hidden rounded-xl"><OptimizedImage src={levelPhoto.enhanced} optimized={levelPhoto.optimized.enhanced} alt={levelPhoto.alt} sizes="(max-width: 768px) 100vw, 50vw" className="h-full w-full object-cover" /></div>
                     <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand">
                       <Icon className="h-7 w-7" />
                     </div>
@@ -108,7 +112,7 @@ function LevelsSection() {
             );
           })}
         </div>
-        <p className="mt-10 text-sm text-ink-muted text-center">The school should confirm its current scheme of work, subject timetable, approved learning materials and assessment approach for each class.</p>
+        <p className="mt-10 text-sm text-ink-muted text-center">For current subject lists, class timetables and assessment details, contact the school.</p>
       </div>
     </section>
   );
@@ -121,7 +125,7 @@ function CurriculumSection() {
         <SectionHeading
           eyebrow="Curriculum &amp; learning areas"
           title="What children learn"
-          description="The learning framework below reflects widely used areas of Nigerian early-years and basic education. Class-by-class subject allocation, approved textbooks and assessment schedules should be confirmed with the school before enrolment."
+          description="These learning areas offer a helpful overview of the skills children develop through early-years and primary education. Contact the school for its current class-by-class curriculum."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
@@ -158,8 +162,7 @@ function EnquirySection() {
           <MessageCircle className="mb-4 h-8 w-8 text-accent" />
           <h2 className="mb-3 text-3xl font-bold">Need details for your child?</h2>
           <p className="leading-relaxed text-[#dbe8dc]">
-            Contact the school to confirm the available classes, requirements, and next steps for an admissions
-            enquiry.
+            Speak with the school about current class availability, admission requirements and the next steps.
           </p>
         </div>
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
