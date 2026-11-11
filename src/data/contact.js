@@ -1,6 +1,6 @@
 export const contactDetails = {
   address: 'Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos, Nigeria',
-  addressPending: true,
+  addressPending: false,
   phone: null,
   phonePending: true,
   whatsapp: 'https://wa.me/2347019779736',

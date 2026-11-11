@@ -4,7 +4,7 @@ export const schoolProfile = {
   tagline: 'Be a star @ BBS',
   domain: 'bukanabrilliantschools.com',
   address: 'Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos, Nigeria',
-  addressPendingConfirmation: true,
+  addressPendingConfirmation: false,
   description:
     'Bukana Brilliant Schools serves Creche, Nursery, and Primary education in Ijegun, Lagos, helping every child grow in confidence, curiosity, and character.',
   mission:

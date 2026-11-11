@@ -120,6 +120,25 @@ export function ContactPage() {
             </p>
 
             <div className="mt-8 space-y-4">
+              {contactDetails.address && (
+                <div className="flex items-start gap-4 rounded-2xl bg-surface-warm p-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                    <MapPin aria-hidden="true" className="h-5 w-5" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-bold text-ink-deep">School address</p>
+                    <p className="mt-1 text-sm leading-6 text-ink-muted">{contactDetails.address}</p>
+                    <a
+                      href={'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(contactDetails.address)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex min-h-8 items-center font-semibold text-brand underline underline-offset-4"
+                    >
+                      View on Google Maps
+                    </a>
+                  </div>
+                </div>
+              )}
               <div className="flex items-start gap-4 rounded-2xl bg-surface-warm p-5">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
                   <MessageCircle aria-hidden="true" className="h-5 w-5" />
@@ -245,6 +264,15 @@ export function ContactPage() {
             <p className="mt-5 max-w-xl leading-8 text-ink-muted">
               Planning a visit? Send us a message first so we can confirm the best time to come and share the latest directions.
             </p>
+            {contactDetails.address && (
+              <div className="mt-5 flex items-start gap-3 rounded-xl border border-border-soft bg-white p-4">
+                <MapPin aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                <div>
+                  <p className="text-sm font-semibold text-ink-deep">Find the school</p>
+                  <p className="mt-1 text-sm leading-6 text-ink-muted">{contactDetails.address}</p>
+                </div>
+              </div>
+            )}
             <Button
               variant="primary"
               href={contactDetails.whatsapp}
