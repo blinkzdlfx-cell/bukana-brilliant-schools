@@ -1,10 +1,11 @@
 import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 function ImageCard({ image }) {
   return (
     <figure className="w-[min(76vw,19rem)] shrink-0 overflow-hidden rounded-2xl border border-border-soft bg-white shadow-sm sm:w-[22rem]">
       <div className="aspect-video overflow-hidden bg-brand/5">
-        <img src={image.enhanced} alt={image.alt} width="1280" height="720" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+        <OptimizedImage src={image.enhanced} optimized={image.optimized.enhanced} alt={image.alt} width={1280} height={720} sizes="(max-width: 640px) 85vw, 24rem" loading="lazy" className="h-full w-full object-cover" />
       </div>
       <figcaption className="px-4 py-3 text-sm font-semibold text-ink-deep">{image.caption}</figcaption>
     </figure>
