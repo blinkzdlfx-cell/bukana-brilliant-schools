@@ -98,7 +98,7 @@ function LevelsSection() {
                       {[
                         `What age range does the school accept for ${level.name.toLowerCase()}?`,
                         `What does a typical day look like in ${level.name.toLowerCase()}?`,
-                        `How are parents updated about a child&rsquo;s progress?`,
+                        `How are parents updated about a child’s progress?`,
                       ].map((question) => (
                         <li key={question} className="flex items-start gap-3 text-ink-muted">
                           <BookOpen className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
