@@ -44,9 +44,7 @@ export function SiteHeader({ currentPath, onLinkClick }) {
           className="flex min-w-0 items-center gap-3 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
           aria-label="Bukana Brilliant Schools home"
         >
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-lg font-bold tracking-tight text-white shadow-sm">
-            BBS
-          </span>
+          <img src={new URL('../../images/bukana-logo.jpeg', import.meta.url).href} alt="" width="48" height="40" className="h-10 w-12 shrink-0 object-contain" />
           <span className="hidden max-w-[12rem] text-xs font-bold uppercase leading-snug tracking-[0.14em] text-ink-deep sm:block">
             Bukana Brilliant Schools
           </span>
