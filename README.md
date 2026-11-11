@@ -27,6 +27,8 @@ Shared UI primitives live in `src/components/ui/` and follow shadcn/ui conventio
 
 The homepage hero includes a moving photographic rope strip built from approved local school images. It pauses on hover/focus and respects reduced-motion preferences.
 
+Current shadcn/ui primitives: Button, Card, Input, Label, Textarea, Badge and Separator. The contact enquiry form uses the form primitives, and the gallery uses Badge. Components are copied into the project and themed with the school tokens; add new components only when a page needs them.
+
 ## Setup
 
 ```bash
