@@ -245,6 +245,6 @@ Use the official shadcn component patterns and registry documentation as the imp
 
 The homepage hero retains its photographic rope-strip animation. Do not remove or relocate its existing hero photographs. The separate **Life at Bukana Brilliant Schools** section below the hero presents a deliberately limited selection of six photographs, with a direct link to the full gallery.
 
-The dedicated Gallery page displays the complete approved school-photo collection in a continuous right-to-left horizontal image slider. The duplicated image sequence creates a seamless loop. Movement is deliberately slow (84 seconds per loop) and pauses on hover or keyboard focus; reduced-motion preferences disable autoplay and leave the images accessible through horizontal scrolling.
+The dedicated Gallery page uses a static responsive masonry-style layout with varied image proportions, consistent gutters, rounded cards, and no automatic movement. Each card pairs an enhanced landscape image with a zoomed inset of its original portrait frame. Category filters and an accessible fullscreen viewer provide browsing and previous/next navigation without turning the page into a carousel.
 
-The homepage section and full gallery have different purposes: keep the homepage selection concise and let the gallery showcase the wider collection.
+Keep the homepage image motion and dedicated gallery behavior separate: the homepage may retain its approved moving image treatments, while the full gallery remains still and user-controlled.

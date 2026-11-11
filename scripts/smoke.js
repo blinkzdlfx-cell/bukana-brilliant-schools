@@ -91,7 +91,10 @@ check(homePage.includes('<HomeLifeSection />') && homePage.includes('<HeroRopeSt
 check(heroRopeSource.includes('schoolImages') && heroRopeSource.includes('photo.enhanced'), 'hero rope uses approved enhanced school photographs');
 check(stylesSource.includes('@keyframes bbs-rope-travel') && stylesSource.includes('@keyframes bbs-rope-sway') && stylesSource.includes('var(--rope-duration,84s)'), 'homepage rope travels slowly with a natural sway');
 check(stylesSource.includes('.bbs-hero-rope:hover .bbs-rope-track') && stylesSource.includes('prefers-reduced-motion: reduce'), 'hero rope pauses on interaction and respects reduced motion');
-check(galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('Real moments. Real learning.'), 'gallery includes the continuous official school image strip');
+check(!galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('columns-1') && galleryPage.includes('Real moments. Real learning.'), 'dedicated gallery uses a static responsive masonry layout');
+check(galleryPage.includes('aria-pressed={isActive}') && galleryPage.includes('setActiveCategory'), 'gallery category filters expose their active state and update the visible collection');
+check(galleryPage.includes('role="dialog"') && galleryPage.includes('ArrowLeft') && galleryPage.includes('ArrowRight') && galleryPage.includes('Escape'), 'gallery lightbox supports accessible viewing and keyboard navigation');
+check(galleryPage.includes('image.original') && galleryPage.includes('image.enhanced'), 'gallery pairs original portrait photographs with enhanced landscape versions');
 check(imageMarqueeSource.includes('bbs-image-marquee__track') && imageMarqueeSource.includes('repeatedImages') && imageMarqueeSource.includes('aria-hidden={index >= schoolImages.length || undefined}'), 'gallery slider duplicates its image set for a seamless screen-reader-safe loop');
 check(imageMarqueeSource.includes('loading=') && imageMarqueeSource.includes('decoding="async"'), 'marquee images use browser loading and decoding hints');
 check(learningImagesSource.includes('enhanced-16x9-images') && learningImagesSource.includes('original:'), 'image data maps original and enhanced school photographs');
@@ -154,7 +157,8 @@ if (assetsExists) {
 }
 
 check(heroRopeSource.includes('schoolImages.slice(0, 6)') && heroRopeSource.includes('duration={84}') && heroRopeSource.includes('duration={92}'), 'hero image strip remains intact and moves slowly');
-check(imageMarqueeSource.includes('bbs-image-marquee__track') && stylesSource.includes('animation: bbs-image-marquee 84s linear infinite;'), 'gallery uses a slow continuous right-to-left image slider');
+check(imageMarqueeSource.includes('bbs-image-marquee__track') && stylesSource.includes('animation: bbs-image-marquee 84s linear infinite;'), 'legacy marquee component retains its own looping styles');
+check(appSource.includes("if (pathname === '/gallery') return undefined;"), 'static gallery is excluded from automatic scroll-reveal movement');
 
 if (failed > 0) {
   console.error(`\n${failed} smoke check(s) failed.`);

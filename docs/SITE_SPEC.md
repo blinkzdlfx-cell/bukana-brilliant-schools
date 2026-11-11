@@ -135,7 +135,7 @@ Potential categories:
 
 Use actual school photographs supplied or approved by the owner. Do not imply generic stock photos depict this specific school. If temporary imagery is needed during design, clearly treat it as temporary and replace it before production.
 
-The homepage and gallery use the supplied official school photographs. Each available photograph is displayed as a paired composition: its enhanced 16:9 version and its original portrait version. Portrait originals use a restrained zoomed object-cover crop; the enhanced landscape image remains uncropped by the display component. The strip moves continuously from right to left, pauses on hover/focus, and respects reduced-motion preferences. Do not describe these supplied school photographs as stock imagery.
+The homepage retains its existing photographic motion strip. The dedicated `/gallery` page uses a static, responsive masonry-style column layout with varied image proportions, clean spacing, and rounded cards. It displays the complete available collection as paired imagery: the enhanced landscape version is the primary card image, with the original portrait frame shown as a zoomed inset. Category filters let visitors narrow the collection, and selecting a card opens an accessible fullscreen viewer with both image versions, previous/next controls, and Escape/arrow-key support. The gallery does not autoplay, slide, or apply automatic scroll-reveal movement. Do not describe these supplied school photographs as stock imagery.
 
 Do not publish identifiable student photos without documented owner approval and appropriate parent/guardian consent. Do not expose student names, sensitive details, or metadata.
 

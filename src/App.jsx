@@ -142,6 +142,7 @@ export function App() {
   useEffect(() => {
     const main = document.querySelector('main');
     if (!main) return undefined;
+    if (pathname === '/gallery') return undefined;
 
     let observer;
     let frame = window.requestAnimationFrame(() => {
