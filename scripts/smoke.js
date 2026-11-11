@@ -98,7 +98,7 @@ check(galleryPage.includes('aria-pressed={isActive}') && galleryPage.includes('s
 check(galleryPage.includes('role="dialog"') && galleryPage.includes('ArrowLeft') && galleryPage.includes('ArrowRight') && galleryPage.includes('Escape'), 'gallery lightbox supports accessible viewing and keyboard navigation');
 check(galleryPage.includes('image.original') && galleryPage.includes('image.enhanced'), 'gallery pairs original portrait photographs with enhanced landscape versions');
 check(imageMarqueeSource.includes('bbs-image-marquee__track') && imageMarqueeSource.includes('repeatedImages') && imageMarqueeSource.includes('aria-hidden={index >= schoolImages.length || undefined}'), 'gallery slider duplicates its image set for a seamless screen-reader-safe loop');
-check(imageMarqueeSource.includes('loading=') && imageMarqueeSource.includes('decoding="async"'), 'marquee images use browser loading and decoding hints');
+check(imageMarqueeSource.includes('loading="lazy"') && fs.existsSync(path.join(projectRoot, 'src/components/ui/optimized-image.jsx')), 'marquee images use the shared loading and decoding component');
 check(learningImagesSource.includes('enhanced-16x9-images') && learningImagesSource.includes('original:') && learningImagesSource.includes('optimizedImageMap'), 'image data maps original, enhanced and optimized school photographs');
 check(stylesSource.includes('@keyframes bbs-image-marquee') && stylesSource.includes('animation-play-state: paused'), 'marquee scrolls continuously and pauses on hover or keyboard focus');
 check(stylesSource.includes('.bbs-image-marquee__track {') && stylesSource.includes('animation: none;'), 'marquee motion has a reduced-motion fallback');
