@@ -13,7 +13,6 @@ import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { schoolProfile, admissionsCta, academicsCta, contactCta } from '@/data/school.js';
 import { contactDetails } from '@/data/contact.js';
-import { LearningImageMarquee } from '@/components/ui/learning-image-marquee.jsx';
 import { HeroRopeStrip } from '@/components/ui/hero-rope-strip.jsx';
 
 const learningStages = [
@@ -47,16 +46,31 @@ export function HomePage() {
   return (
     <>
       <HeroSection />
-      <LearningImageMarquee
-        eyebrow="Life at Bukana Brilliant Schools"
-        title="Real moments from our school community."
-        description="Explore authentic photographs of our learning spaces, teachers, students and school environment."
-      />
+      <HomeLifeSection />
       <LearningPathSection />
       <FamilySection />
       <AdmissionsSection />
       <ContactSection />
     </>
+  );
+}
+
+function HomeLifeSection() {
+  return (
+    <section className="section-pad overflow-hidden border-y border-border-soft bg-surface-warm">
+      <div className="container-wide">
+        <div className="max-w-3xl">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">Life at Bukana Brilliant Schools</p>
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">Real moments from our school community.</h2>
+          <p className="mt-4 max-w-2xl leading-7 text-ink-muted">A small selection of everyday moments from our classrooms and school environment. Visit the gallery to explore more photographs.</p>
+        </div>
+        <div className="mt-7 rounded-2xl border border-border-soft bg-brand-deep px-3 py-5 shadow-sm sm:px-5">
+          </div>
+        <div className="mt-5 flex justify-end">
+          <a href="/gallery" className="inline-flex min-h-10 items-center gap-2 text-sm font-bold text-brand hover:text-brand-deep">Explore the full gallery <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+        </div>
+      </div>
+    </section>
   );
 }
 
