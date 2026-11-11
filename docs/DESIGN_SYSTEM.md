@@ -243,7 +243,7 @@ Use the official shadcn component patterns and registry documentation as the imp
 
 ## Homepage, admissions, and gallery image motion
 
-The homepage hero retains its photographic rope-strip animation. Do not remove or relocate its existing hero photographs. The Admissions hero uses the owner-supplied `back-to-school.png` as a small, decorative particle burst; it must remain subtle, contained within the hero, and static when reduced motion is requested. The separate **Life at Bukana Brilliant Schools** section below the hero presents a deliberately limited selection of six photographs, with a direct link to the full gallery.
+The homepage hero retains its photographic rope-strip animation. Do not remove or relocate its existing hero photographs. The Admissions hero uses the owner-supplied `back-to-school.png` as a visible, decorative 32-particle eruption that spreads upward and outward from a low central origin; keep it contained within the hero and static when reduced motion is requested. The separate **Life at Bukana Brilliant Schools** section below the hero presents a deliberately limited selection of six photographs, with a direct link to the full gallery.
 
 The dedicated Gallery page uses a static responsive masonry-style layout with varied image proportions, consistent gutters, rounded cards, and no automatic movement. Each card pairs an enhanced landscape image with a zoomed inset of its original portrait frame. Category filters and an accessible fullscreen viewer provide browsing and previous/next navigation without turning the page into a carousel.
 
