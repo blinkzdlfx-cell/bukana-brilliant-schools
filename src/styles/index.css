@@ -244,3 +244,27 @@
     will-change: auto;
   }
 }
+
+/* Photographic rope strip in the homepage hero */
+.bbs-hero-rope{position:relative;width:100%;max-width:38rem;margin-inline:auto;padding:1.25rem 0 .5rem;overflow:hidden;isolation:isolate;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.bbs-hero-rope__heading{display:flex;align-items:center;gap:.6rem;margin:0 1rem 1rem;color:rgba(255,255,255,.82);font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.bbs-hero-rope__dot{width:.45rem;height:.45rem;flex:0 0 auto;border-radius:50%;background:var(--color-accent)}
+.bbs-hero-rope__rule{height:1px;flex:1;background:rgba(255,255,255,.2)}
+.bbs-hero-rope__count{color:rgba(255,255,255,.55);font-size:.58rem;letter-spacing:.08em}
+.bbs-rope-lane{position:relative;height:11.8rem;overflow:hidden;margin-block:.15rem}
+.bbs-rope-lane--reverse{margin-left:-1.6rem}
+.bbs-rope-line{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.bbs-rope-line path{fill:none;stroke:rgba(226,210,155,.72);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:5 5}
+.bbs-rope-track{position:absolute;inset:0 auto 0 0;display:flex;align-items:center;width:max-content;gap:1.15rem;animation:bbs-rope-travel var(--rope-duration,42s) linear infinite;will-change:transform}
+.bbs-rope-lane--reverse .bbs-rope-track{animation-direction:reverse}
+.bbs-rope-photo{position:relative;width:clamp(7.8rem,17vw,10.5rem);height:8.3rem;flex:0 0 auto;padding:.28rem;border:1px solid rgba(255,255,255,.72);border-radius:.38rem;background:#f8faf6;box-shadow:0 9px 24px rgba(0,0,0,.22);transform:rotate(calc((var(--photo-index) - 4)*1.15deg));animation:bbs-rope-sway 3.8s ease-in-out infinite;animation-delay:calc(var(--photo-index)*-.31s)}
+.bbs-rope-photo:nth-child(3n){margin-top:1.35rem}.bbs-rope-photo:nth-child(4n){margin-top:-.9rem}
+.bbs-rope-photo img{width:100%;height:100%;object-fit:cover;border-radius:.16rem}
+.bbs-rope-photo figcaption{position:absolute;right:.35rem;bottom:.35rem;left:.35rem;overflow:hidden;padding:.28rem .38rem;border-radius:.12rem;background:rgba(11,43,25,.78);color:white;font-size:.55rem;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+.bbs-hero-rope__note{margin:.6rem 1rem 0;color:rgba(255,255,255,.55);font-size:.72rem;letter-spacing:.015em}
+@keyframes bbs-rope-travel{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes bbs-rope-sway{0%,100%{translate:0 -2px}50%{translate:0 3px}}
+.bbs-hero-rope:hover .bbs-rope-track,.bbs-hero-rope:focus-within .bbs-rope-track{animation-play-state:paused}
+@media(max-width:1023px){.bbs-hero-rope{max-width:42rem}.bbs-rope-lane{height:10.5rem}}
+@media(max-width:639px){.bbs-hero-rope{margin-inline:-1rem;width:calc(100% + 2rem)}.bbs-rope-photo{width:7.4rem;height:6.4rem}.bbs-rope-lane{height:8.7rem}.bbs-hero-rope__count{display:none}}
+@media(prefers-reduced-motion:reduce){.bbs-rope-track,.bbs-rope-photo{animation:none!important}.bbs-rope-lane{overflow-x:auto}}
