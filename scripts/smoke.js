@@ -18,6 +18,7 @@ function check(condition, message) {
 
 const indexPath = path.join(dist, 'index.html');
 const assetsDir = path.join(dist, 'assets');
+const optimizedImagesDir = path.join(dist, 'optimized-images');
 const homePagePath = path.join(projectRoot, 'src/pages/HomePage.jsx');
 const appPath = path.join(projectRoot, 'src/App.jsx');
 const galleryPagePath = path.join(projectRoot, 'src/pages/GalleryPage.jsx');
@@ -71,6 +72,8 @@ const stylesSource = fs.existsSync(stylesPath) ? fs.readFileSync(stylesPath, 'ut
 check(distExists, 'dist directory exists');
 check(indexExists, 'dist/index.html exists');
 check(assetsExists, 'dist/assets directory exists');
+check(fs.existsSync(optimizedImagesDir), 'responsive WebP image output directory exists');
+if (fs.existsSync(optimizedImagesDir)) {\n  const optimizedFiles = fs.readdirSync(optimizedImagesDir).filter((file) => file.endsWith('.webp'));\n  check(optimizedFiles.length >= 30, 'responsive WebP variants were generated for the school photo library');\n}
 
 const html = indexExists ? fs.readFileSync(indexPath, 'utf8') : '';
 check(html.includes('Bukana Brilliant Schools'), 'index.html contains school name');
