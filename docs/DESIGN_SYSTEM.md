@@ -239,3 +239,10 @@ Currently maintained primitives:
 | Separator | Visual grouping within the contact enquiry form |
 
 Use the official shadcn component patterns and registry documentation as the implementation reference. Keep custom variants limited to BBS brand needs. Add interaction-heavy primitives only when a page needs them and include their required Radix dependencies at the same time. Do not add unused catalogue components or introduce a second UI library.
+
+
+## Homepage and gallery image motion
+
+The homepage hero is reserved for the school's message and admission calls to action. The small photographic rope strip belongs in the **Life at Bukana Brilliant Schools** section below the hero, using a maximum of six selected school images. Its horizontal movement is deliberately slow (84–92 seconds per loop) and pauses on hover or keyboard focus; reduced-motion preferences disable the animation.
+
+The dedicated Gallery page uses a static responsive image grid. It must not reuse the homepage's moving rope strip or any automatic right-to-left marquee. This keeps the homepage visual section concise while allowing the gallery to serve as the complete photo collection.
