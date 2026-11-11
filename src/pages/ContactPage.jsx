@@ -14,6 +14,8 @@ import { Input } from '@/components/ui/input.jsx';
 import { Textarea } from '@/components/ui/textarea.jsx';
 import { Label } from '@/components/ui/label.jsx';
 import { Separator } from '@/components/ui/separator.jsx';
+import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 const CATEGORIES = [
   { label: 'Admissions enquiry', value: 'admissions' },
@@ -241,7 +243,7 @@ export function ContactPage() {
               Confirm the details before travelling.
             </h2>
             <p className="mt-5 max-w-xl leading-8 text-ink-muted">
-              The school’s exact visitor directions, entrance and opening hours have not yet been verified for publication. Please contact the school first so you can plan your visit using the latest information.
+              Planning a visit? Send us a message first so we can confirm the best time to come and share the latest directions.
             </p>
             <Button
               variant="primary"
@@ -254,23 +256,23 @@ export function ContactPage() {
             </Button>
           </div>
 
-          <div className="rounded-[1.5rem] border border-border-soft bg-white p-7 shadow-sm sm:p-9">
+          <div className="overflow-hidden rounded-[1.5rem] border border-border-soft bg-white p-5 shadow-sm sm:p-7">\n            <div className="mb-6 aspect-[16/9] overflow-hidden rounded-xl">\n              <OptimizedImage src={schoolImages[0].enhanced} optimized={schoolImages[0].optimized.enhanced} alt={schoolImages[0].alt} sizes="(max-width: 1024px) 100vw, 40vw" className="h-full w-full object-cover" />\n            </div>
             <div className="flex items-center gap-3">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
                 <MapPin aria-hidden="true" className="h-5 w-5" />
               </span>
-              <h3 className="text-lg font-bold text-ink-deep">Location and visitor information</h3>
+              <h3 className="text-lg font-bold text-ink-deep">Plan your visit</h3>
             </div>
             <p className="mt-4 leading-7 text-ink-muted">
-              Request the confirmed address, directions, suitable visiting times and any arrangements you should know before arriving.
+              Contact the school for directions, suitable visiting times and any arrangements to know before you arrive.
             </p>
             <div className="mt-6 flex items-start gap-3 border-t border-border-soft pt-5">
               <Clock3 aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-              <p className="text-sm leading-6 text-ink-muted">Opening days and hours should be confirmed directly with the school.</p>
+              <p className="text-sm leading-6 text-ink-muted">Ask about the school’s current visiting hours before setting out.</p>
             </div>
             <div className="mt-5 flex items-start gap-3 border-t border-border-soft pt-5">
               <ShieldCheck aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-              <p className="text-sm leading-6 text-ink-muted">Only verified contact and location information is presented as confirmed on this page.</p>
+              <p className="text-sm leading-6 text-ink-muted">A quick message ahead of your visit helps the school prepare for your arrival.</p>
             </div>
           </div>
         </div>
