@@ -25,6 +25,11 @@ const imageMarqueePath = path.join(projectRoot, 'src/components/ui/learning-imag
 const heroRopePath = path.join(projectRoot, 'src/components/ui/hero-rope-strip.jsx');
 const shadcnConfigPath = path.join(projectRoot, 'components.json');
 const cardPath = path.join(projectRoot, 'src/components/ui/card.jsx');
+const inputPath = path.join(projectRoot, 'src/components/ui/input.jsx');
+const textareaPath = path.join(projectRoot, 'src/components/ui/textarea.jsx');
+const labelPath = path.join(projectRoot, 'src/components/ui/label.jsx');
+const badgePath = path.join(projectRoot, 'src/components/ui/badge.jsx');
+const separatorPath = path.join(projectRoot, 'src/components/ui/separator.jsx');
 const learningImagesPath = path.join(projectRoot, 'src/data/learning-images.js');
 const navigationPath = path.join(projectRoot, 'src/data/school.js');
 const sitemapPath = path.join(projectRoot, 'public/sitemap.xml');
@@ -43,6 +48,11 @@ const imageMarqueeSource = fs.existsSync(imageMarqueePath) ? fs.readFileSync(ima
 const heroRopeSource = fs.existsSync(heroRopePath) ? fs.readFileSync(heroRopePath, 'utf8') : '';
 const shadcnConfig = fs.existsSync(shadcnConfigPath) ? fs.readFileSync(shadcnConfigPath, 'utf8') : '';
 const cardSource = fs.existsSync(cardPath) ? fs.readFileSync(cardPath, 'utf8') : '';
+const inputSource = fs.existsSync(inputPath) ? fs.readFileSync(inputPath, 'utf8') : '';
+const textareaSource = fs.existsSync(textareaPath) ? fs.readFileSync(textareaPath, 'utf8') : '';
+const labelSource = fs.existsSync(labelPath) ? fs.readFileSync(labelPath, 'utf8') : '';
+const badgeSource = fs.existsSync(badgePath) ? fs.readFileSync(badgePath, 'utf8') : '';
+const separatorSource = fs.existsSync(separatorPath) ? fs.readFileSync(separatorPath, 'utf8') : '';
 const learningImagesSource = fs.existsSync(learningImagesPath) ? fs.readFileSync(learningImagesPath, 'utf8') : '';
 const navigation = fs.existsSync(navigationPath) ? fs.readFileSync(navigationPath, 'utf8') : '';
 const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
@@ -91,7 +101,12 @@ check(stylesSource.includes('.bbs-image-marquee__track {') && stylesSource.inclu
 check(!homePage.includes('<motion.button') && !homePage.includes('asChild'), 'homepage hero actions do not use invalid nested button composition');
 check(buttonSource.includes('cloneElement') && buttonSource.includes('asChild requires exactly one valid child'), 'Button asChild correctly forwards styling and behavior to its child');
 check(buttonSource.includes("from 'class-variance-authority'") && buttonSource.includes('buttonVariants = cva'), 'Button uses shadcn-style CVA variants');
-check(cardSource.includes('data-slot="card"') && cardSource.includes('CardContent'), 'Card uses shadcn card primitives');
+check(cardSource.includes('data-slot="card"') && cardSource.includes('CardContent') && cardSource.includes('CardAction'), 'Card uses shadcn card primitives');
+check(inputSource.includes('data-slot="input"') && textareaSource.includes('data-slot="textarea"'), 'Input and Textarea shadcn primitives exist');
+check(labelSource.includes('data-slot="label"') && separatorSource.includes('data-slot="separator"'), 'Label and Separator shadcn primitives exist');
+check(badgeSource.includes('badgeVariants') && badgeSource.includes('data-slot="badge"'), 'Badge uses shadcn variant styling');
+check(contactSource.includes('<Input') && contactSource.includes('<Textarea') && contactSource.includes('<Label'), 'contact form composes shadcn form primitives');
+check(galleryPage.includes('<Badge') && galleryPage.includes('Official school gallery'), 'gallery uses the shadcn Badge primitive');
 check(shadcnConfig.includes('ui.shadcn.com/schema.json') && shadcnConfig.includes('"style": "new-york"'), 'shadcn CLI configuration is present');
 check(workerSource.includes("url.pathname === '/favicon.ico'") && workerSource.includes("'/favicon.svg'"), 'worker redirects automatic favicon.ico requests to the existing SVG');
 check(workerSource.includes('SPA document fallback failed') && workerSource.includes('status: 503'), 'worker catches static asset and SPA fallback exceptions');
