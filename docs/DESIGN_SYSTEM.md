@@ -220,3 +220,22 @@ A page meets this design system when:
 - Spacing and card styles are consistent.
 - Mobile and desktop compositions feel intentionally designed.
 - Motion is restrained and accessible.
+
+
+## 10. shadcn/ui component standards
+
+The project uses the shadcn/ui New York visual system with JavaScript/JSX and Tailwind CSS 4. Components are owned by the repository in `src/components/ui/`; they are composed into pages and styled with the approved BBS tokens rather than imported as a runtime component library.
+
+Currently maintained primitives:
+
+| Component | Intended use |
+|---|---|
+| Button | Primary, secondary, outline and link actions |
+| Card | Structured content panels and admissions steps |
+| Input | Contact form text, email and telephone fields |
+| Label | Explicit accessible labels for form controls |
+| Textarea | Longer contact enquiry messages |
+| Badge | Compact labels such as the official school gallery marker |
+| Separator | Visual grouping within the contact enquiry form |
+
+Use the official shadcn component patterns and registry documentation as the implementation reference. Keep custom variants limited to BBS brand needs. Add interaction-heavy primitives only when a page needs them and include their required Radix dependencies at the same time. Do not add unused catalogue components or introduce a second UI library.
