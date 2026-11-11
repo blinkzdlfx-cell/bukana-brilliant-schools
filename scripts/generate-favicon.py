@@ -23,6 +23,9 @@ right = int(width * 0.765)
 bottom = int(height * 0.805)
 mark = image.crop((left, top, right, bottom))
 
+if mark.width == 0 or mark.height == 0:
+    raise SystemExit("The logo emblem crop is empty; check the source logo dimensions.")
+
 pixels = mark.load()
 for y in range(mark.height):
     for x in range(mark.width):
