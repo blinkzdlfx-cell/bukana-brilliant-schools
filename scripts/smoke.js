@@ -121,7 +121,7 @@ check(!headerSource.includes('activeLang') && !headerSource.includes('languageOp
 check(appSource.includes("{ path: '/gallery', element: <GalleryPage /> }"), 'gallery route renders the dedicated gallery page');
 check(appSource.includes('new URL(nextPathname, window.location.origin)') && appSource.includes('target.hash'), 'SPA navigation supports dropdown section anchors');
 check(appSource.includes('const currentPathname = window.location.pathname') && appSource.includes('target.pathname !== currentPathname'), 'SPA navigation compares the destination against the pre-navigation route');
-check(buttonSource.includes('inline-flex items-center justify-center'), 'shared buttons render as aligned flex controls');
+check(buttonSource.includes('inline-flex shrink-0 items-center justify-center'), 'shared buttons render as aligned, non-shrinking flex controls');
 check(homePage.includes('min-h-14 px-7') && homePage.includes('flex-col gap-3 sm:flex-row'), 'homepage hero actions use readable mobile-first sizing');
 check(wranglerSource.includes('binding = "ASSETS"'), 'Cloudflare Worker has an explicit static assets binding');
 check(stylesSource.includes('--color-brand: #176B3A') && stylesSource.includes('--color-accent: #D8B85B'), 'site uses the restrained evergreen and muted-gold design palette');
