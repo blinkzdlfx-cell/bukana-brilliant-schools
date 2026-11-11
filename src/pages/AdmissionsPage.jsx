@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { contactDetails } from '@/data/contact.js';
+import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 import admissionsBurstImage from '@/images/back-to-school.png';
 
 const enquirySteps = [
@@ -121,7 +123,7 @@ export function AdmissionsPage() {
           <SectionHeading
             eyebrow="A simple place to start"
             title="Your admissions enquiry"
-            description="Every family’s questions are different. These three steps help you organise the conversation; the school will confirm its official process."
+            description="Use these three steps to prepare for a clear, helpful conversation with the admissions team."
           />
           <div className="mt-11 grid gap-5 md:grid-cols-3">
             {enquirySteps.map(({ number, title, detail, icon: Icon }) => (
@@ -142,6 +144,20 @@ export function AdmissionsPage() {
         </div>
       </section>
 
+      <section className="section-pad bg-surface-white">
+        <div className="container-wide grid items-center gap-8 md:grid-cols-2">
+          <div className="overflow-hidden rounded-2xl shadow-sm">
+            <OptimizedImage src={schoolImages[7].enhanced} optimized={schoolImages[7].optimized.enhanced} alt={schoolImages[7].alt} sizes="(max-width: 768px) 100vw, 50vw" className="aspect-[16/10] h-full w-full object-cover" />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand">A glimpse of school life</p>
+            <h2 className="mt-3 text-2xl font-bold text-ink-deep">Get to know the school community.</h2>
+            <p className="mt-3 leading-7 text-ink-muted">Explore the school photographs and arrange a visit to learn more about the environment your child could join.</p>
+            <Button variant="outline" href="/gallery" className="mt-5 min-h-11 px-5">View the gallery <ArrowRight aria-hidden="true" className="h-4 w-4" /></Button>
+          </div>
+        </div>
+      </section>
+
       <section className="section-pad border-y border-border-soft bg-surface-warm">
         <div className="container-wide grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
@@ -150,7 +166,7 @@ export function AdmissionsPage() {
               A few useful questions to bring along.
             </h2>
             <p className="mt-5 leading-8 text-ink-muted">
-              Ask the school to confirm the details that matter to your family. Requirements and availability can change, so use the school’s latest guidance rather than relying on a general checklist.
+              Prepare your questions about class availability, age requirements, fees and the documents needed to apply.
             </p>
           </div>
           <div className="rounded-[1.5rem] border border-border-soft bg-white p-6 shadow-sm sm:p-8">
@@ -167,7 +183,7 @@ export function AdmissionsPage() {
             <div className="mt-7 flex items-start gap-3 rounded-xl bg-surface-warm p-4">
               <ShieldCheck aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
               <p className="text-sm leading-6 text-ink-muted">
-                Application documents, fees, class availability and admission dates must be confirmed directly with Bukana Brilliant Schools.
+                The admissions team will guide you through the current requirements and next steps.
               </p>
             </div>
           </div>
