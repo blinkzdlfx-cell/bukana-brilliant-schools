@@ -188,7 +188,7 @@
 .bbs-image-marquee__track {
   display: flex;
   width: max-content;
-  animation: bbs-image-marquee 48s linear infinite;
+  animation: bbs-image-marquee 84s linear infinite;
   will-change: transform;
 }
 
