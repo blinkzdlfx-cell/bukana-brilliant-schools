@@ -106,10 +106,12 @@ const imagePairs = [
   ]
 ];
 
+const imageAssets = import.meta.glob('../images/**/*.{jpg,jpeg,webp}', { eager: true, query: '?url', import: 'default' });
+
 export const schoolImages = imagePairs.map(([originalName, enhancedName, caption], index) => ({
   id: 'bbs-photo-' + (index + 1),
-  original: new URL('../images/' + originalName, import.meta.url).href,
-  enhanced: new URL('../images/enhanced-16x9-images/' + enhancedName, import.meta.url).href,
+  original: imageAssets['../images/' + originalName],
+  enhanced: imageAssets['../images/enhanced-16x9-images/' + enhancedName],
   alt: caption + ' at Bukana Brilliant Schools',
   caption,
 }));
