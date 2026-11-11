@@ -73,7 +73,10 @@ check(distExists, 'dist directory exists');
 check(indexExists, 'dist/index.html exists');
 check(assetsExists, 'dist/assets directory exists');
 check(fs.existsSync(optimizedImagesDir), 'responsive WebP image output directory exists');
-if (fs.existsSync(optimizedImagesDir)) {\n  const optimizedFiles = fs.readdirSync(optimizedImagesDir).filter((file) => file.endsWith('.webp'));\n  check(optimizedFiles.length >= 30, 'responsive WebP variants were generated for the school photo library');\n}
+if (fs.existsSync(optimizedImagesDir)) {
+  const optimizedFiles = fs.readdirSync(optimizedImagesDir).filter((file) => file.endsWith('.webp'));
+  check(optimizedFiles.length >= 30, 'responsive WebP variants were generated for the school photo library');
+}
 
 const html = indexExists ? fs.readFileSync(indexPath, 'utf8') : '';
 check(html.includes('Bukana Brilliant Schools'), 'index.html contains school name');
