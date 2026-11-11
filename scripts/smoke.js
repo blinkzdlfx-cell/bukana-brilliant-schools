@@ -159,3 +159,7 @@ if (failed > 0) {
 }
 
 console.log('\nAll smoke checks passed.');
+
+check(homePage.includes('<HomeLifeSection />') && !homePage.includes('<HeroRopeStrip />'), 'homepage school photographs sit in the Life at BBS section, not the hero');
+check(ropeSource.includes('schoolImages.slice(0, 6)') && ropeSource.includes('duration={84}') && ropeSource.includes('duration={92}'), 'homepage rope strip uses a small image selection and slower movement');
+check(galleryComponent.includes('grid gap-5 sm:grid-cols-2 lg:grid-cols-3') && !galleryComponent.includes('bbs-image-marquee__track'), 'gallery page uses a static responsive image grid without horizontal auto-scroll');
