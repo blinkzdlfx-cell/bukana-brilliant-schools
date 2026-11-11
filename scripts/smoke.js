@@ -87,9 +87,9 @@ const importedIcons = lucideImport ? lucideImport[1].split(',').map((name) => na
 check(importedIcons.includes('ArrowRight'), 'homepage imports the ArrowRight icon used by its calls to action');
 check(importedIcons.includes('MessageCircle'), 'homepage imports the MessageCircle icon used by its contact section');
 check(homePage.includes('href={admissionsCta.href}') && homePage.includes('href={academicsCta.href}'), 'homepage hero actions have working destinations');
-check(homePage.includes('<HeroRopeStrip />') && homePage.includes('<LearningImageMarquee'), 'homepage includes the animated hero rope and school image strip');
+check(homePage.includes('<HomeLifeSection />') && homePage.includes('<HeroRopeStrip />') && !homePage.includes('<LearningImageMarquee'), 'homepage places the limited photo rope strip in the Life at BBS section, below the hero');
 check(heroRopeSource.includes('schoolImages') && heroRopeSource.includes('photo.enhanced'), 'hero rope uses approved enhanced school photographs');
-check(stylesSource.includes('@keyframes bbs-rope-travel') && stylesSource.includes('@keyframes bbs-rope-sway'), 'hero rope travels continuously with a natural sway');
+check(stylesSource.includes('@keyframes bbs-rope-travel') && stylesSource.includes('@keyframes bbs-rope-sway') && stylesSource.includes('var(--rope-duration,84s)'), 'homepage rope travels slowly with a natural sway');
 check(stylesSource.includes('.bbs-hero-rope:hover .bbs-rope-track') && stylesSource.includes('prefers-reduced-motion: reduce'), 'hero rope pauses on interaction and respects reduced motion');
 check(galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('Real moments. Real learning.'), 'gallery includes the continuous official school image strip');
 check(imageMarqueeSource.includes('bbs-image-marquee__track') && imageMarqueeSource.includes('aria-hidden={isDuplicate || undefined}'), 'image marquee duplicates its image set for a seamless screen-reader-safe loop');
@@ -153,6 +153,9 @@ if (assetsExists) {
   check(referencedCss, 'index.html references a generated CSS bundle');
 }
 
+check(heroRopeSource.includes('schoolImages.slice(0, 6)') && heroRopeSource.includes('duration={84}') && heroRopeSource.includes('duration={92}'), 'homepage rope strip uses a small image selection and slower movement');
+check(imageMarqueeSource.includes('grid gap-5 sm:grid-cols-2 lg:grid-cols-3') && !imageMarqueeSource.includes('bbs-image-marquee__track'), 'gallery image component uses a static responsive grid without automatic horizontal movement');
+
 if (failed > 0) {
   console.error(`\n${failed} smoke check(s) failed.`);
   process.exit(1);
@@ -160,6 +163,3 @@ if (failed > 0) {
 
 console.log('\nAll smoke checks passed.');
 
-check(homePage.includes('<HomeLifeSection />') && !homePage.includes('<HeroRopeStrip />'), 'homepage school photographs sit in the Life at BBS section, not the hero');
-check(ropeSource.includes('schoolImages.slice(0, 6)') && ropeSource.includes('duration={84}') && ropeSource.includes('duration={92}'), 'homepage rope strip uses a small image selection and slower movement');
-check(galleryComponent.includes('grid gap-5 sm:grid-cols-2 lg:grid-cols-3') && !galleryComponent.includes('bbs-image-marquee__track'), 'gallery page uses a static responsive image grid without horizontal auto-scroll');
