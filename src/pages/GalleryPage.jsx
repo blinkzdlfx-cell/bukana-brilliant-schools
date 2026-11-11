@@ -87,7 +87,7 @@ export function GalleryPage() {
     <>
       <section className="relative isolate overflow-hidden bg-brand-deep text-white">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full border border-white/10" />
-        <div className="container-wide relative grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[1fr_0.92fr] lg:py-24">
+        <div className="container-wide relative grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[0.92fr_1.08fr] lg:py-24">
           <div>
             <Badge variant="accent" className="mb-5 gap-2 border border-white/15 bg-white/10 text-[#F2D98C]"><span className="h-2 w-2 rounded-full bg-accent" /> Official school gallery</Badge>
             <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">A closer look at life at Bukana Brilliant Schools.</h1>
