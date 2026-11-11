@@ -197,7 +197,10 @@ Rules:
 
 - Tailwind CSS 4 is the primary styling system.
 - Define reusable CSS theme variables in the global stylesheet using the approved tokens above.
-- Use shadcn/ui components selectively and adapt them to this visual system.
+- Use shadcn/ui components as the shared UI foundation. Components are generated/maintained in `src/components/ui` and configured by the root `components.json`.
+- Keep shadcn primitives consistent; customize through variants and Tailwind classes rather than creating a second competing component system.
+- Use the New York shadcn style, JavaScript/JSX, Tailwind CSS 4, and Lucide icons.
+- The homepage hero uses a photographic rope-strip animation built from approved local school photographs. Keep movement smooth, responsive, paused on hover/focus, and disabled for reduced-motion preferences. Avoid generic animated gradients, decorative blobs, and excessive motion.
 - Use `clsx`, `tailwind-merge`, and `class-variance-authority` for reusable class composition when useful.
 - Do not introduce Bootstrap or a parallel utility framework.
 - Avoid a large handwritten stylesheet; keep custom CSS limited to global tokens, resets, and cases Tailwind cannot express cleanly.
