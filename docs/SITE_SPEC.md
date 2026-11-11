@@ -135,7 +135,7 @@ Potential categories:
 
 Use actual school photographs supplied or approved by the owner. Do not imply generic stock photos depict this specific school. If temporary imagery is needed during design, clearly treat it as temporary and replace it before production.
 
-The homepage and gallery may share a continuous right-to-left image strip using clearly labelled illustrative stock photos while approved school photos are unavailable. The strip must state that the images do not depict BBS, credit the photographers, pause on hover/focus, and respect reduced-motion preferences. It must never be presented as the school's official photo gallery.
+The homepage and gallery use the supplied official school photographs. Each available photograph is displayed as a paired composition: its enhanced 16:9 version and its original portrait version. Portrait originals use a restrained zoomed object-cover crop; the enhanced landscape image remains uncropped by the display component. The strip moves continuously from right to left, pauses on hover/focus, and respects reduced-motion preferences. Do not describe these supplied school photographs as stock imagery.
 
 Do not publish identifiable student photos without documented owner approval and appropriate parent/guardian consent. Do not expose student names, sensitive details, or metadata.
 
