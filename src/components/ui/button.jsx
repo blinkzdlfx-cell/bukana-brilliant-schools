@@ -1,43 +1,29 @@
 import { cloneElement, isValidElement } from 'react';
+import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils.js';
 
-export const buttonVariants = {
-  primary:
-    'bg-brand text-surface-white px-5 py-3 rounded-button font-semibold text-base shadow-sm hover:bg-brand-deep transition-all duration-200 active:translate-y-px focus-visible:outline-brand focus-visible:outline-2 focus-visible:outline-offset-2',
-  secondary:
-    'bg-surface-white text-brand border border-brand px-5 py-3 rounded-button font-semibold text-base shadow-sm hover:bg-brand hover:text-surface-white transition-all duration-200 active:translate-y-px focus-visible:outline-brand focus-visible:outline-2 focus-visible:outline-offset-2',
-  outline:
-    'bg-transparent text-brand border border-brand px-5 py-3 rounded-button font-semibold text-base shadow-sm hover:bg-brand hover:text-surface-white transition-all duration-200 active:translate-y-px focus-visible:outline-brand focus-visible:outline-2 focus-visible:outline-offset-2',
-  accent:
-    'bg-accent text-ink-deep px-5 py-3 rounded-button font-semibold text-base shadow-sm hover:bg-brand-deep hover:text-surface-white transition-all duration-200 active:translate-y-px focus-visible:outline-accent focus-visible:outline-2 focus-visible:outline-offset-2',
-};
-
-export function Button({ variant = 'primary', className, disabled, asChild = false, href, children, ...props }) {
-  const classes = cn('inline-flex items-center justify-center gap-2 text-center align-middle', buttonVariants[variant], className);
-
+export const buttonVariants = cva('inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0', {
+  variants: {
+    variant: {
+      default: 'bg-brand text-white shadow-sm hover:bg-brand-deep',
+      primary: 'bg-brand text-white shadow-sm hover:bg-brand-deep',
+      destructive: 'bg-red-600 text-white shadow-sm hover:bg-red-700',
+      outline: 'border border-brand bg-transparent text-brand hover:bg-brand hover:text-white',
+      secondary: 'border border-white/50 bg-white/10 text-white hover:bg-white hover:text-brand-deep',
+      ghost: 'hover:bg-brand/10 hover:text-brand-deep',
+      link: 'text-brand underline-offset-4 hover:underline',
+      accent: 'bg-accent text-ink-deep shadow-sm hover:bg-[#e7c96f]'
+    },
+    size: { default: 'h-10 px-4 py-2', sm: 'h-9 rounded-md px-3', lg: 'h-11 rounded-md px-8', icon: 'h-10 w-10' }
+  },
+  defaultVariants: { variant: 'default', size: 'default' }
+});
+export function Button({ className, variant = 'default', size = 'default', asChild = false, href, children, disabled, ...props }) {
+  const classes = cn(buttonVariants({ variant, size }), className);
   if (asChild) {
-    if (!isValidElement(children)) {
-      throw new Error('Button with asChild requires exactly one valid child element.');
-    }
-
-    return cloneElement(children, {
-      ...props,
-      ...children.props,
-      className: cn(classes, children.props.className),
-      href: href ?? children.props.href,
-      disabled: disabled ?? children.props.disabled,
-    });
+    if (!isValidElement(children)) throw new Error('Button with asChild requires exactly one valid child element.');
+    return cloneElement(children, { ...props, ...children.props, className: cn(classes, children.props.className), href: href ?? children.props.href, disabled: disabled ?? children.props.disabled });
   }
-
-  const Comp = href ? 'a' : 'button';
-  return (
-    <Comp
-      className={classes}
-      {...props}
-      {...(href ? { href } : { disabled })}
-      aria-disabled={disabled && href ? true : undefined}
-    >
-      {children}
-    </Comp>
-  );
+  const Component = href ? 'a' : 'button';
+  return <Component className={classes} {...props} {...(href ? { href, 'aria-disabled': disabled || undefined, tabIndex: disabled ? -1 : props.tabIndex } : { disabled })}>{children}</Component>;
 }
