@@ -1,0 +1,20 @@
+import { schoolImages } from '@/data/learning-images.js';
+const photos = schoolImages.slice(0, 10);
+function Lane({ images, reverse = false, duration = 42 }) {
+  const loop = [...images, ...images];
+  return <div className={`bbs-rope-lane ${reverse ? 'bbs-rope-lane--reverse' : ''}`} style={{ '--rope-duration': `${duration}s` }}>
+    <svg className="bbs-rope-line" viewBox="0 0 1200 150" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 74 C160 12 260 138 430 74 S700 12 870 74 S1080 138 1220 74" /></svg>
+    <div className="bbs-rope-track">{loop.map((photo, index) => <figure className="bbs-rope-photo" key={index} style={{ '--photo-index': index % images.length }}>
+      <img src={photo.enhanced} alt="" width="640" height="360" loading="lazy" decoding="async" />
+      <figcaption>{photo.caption}</figcaption>
+    </figure>)}</div>
+  </div>;
+}
+export function HeroRopeStrip() {
+  if (!photos.length) return null;
+  return <div className="bbs-hero-rope" aria-label="Photographs of Bukana Brilliant Schools">
+    <div className="bbs-hero-rope__heading"><span className="bbs-hero-rope__dot" /><span>Life at BBS</span><span className="bbs-hero-rope__rule" /><span className="bbs-hero-rope__count">A look inside our school</span></div>
+    <Lane images={photos} duration={42} /><Lane images={[...photos].reverse()} reverse duration={48} />
+    <p className="bbs-hero-rope__note">Real classrooms, real people, real school moments.</p>
+  </div>;
+}
