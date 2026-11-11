@@ -10,6 +10,7 @@ A responsive public website for Bukana Brilliant Schools, serving Creche, Nurser
 - Vite (the installed version is defined by `package.json` and `package-lock.json`)
 - JavaScript / JSX
 - Tailwind CSS 4 via `@tailwindcss/vite`
+- shadcn/ui (New York style, configured in `components.json`)
 - Motion
 - Lucide React
 
@@ -19,6 +20,12 @@ The owner has reported Node.js `v24.21.0` and npm `12.2.1`. Verify the versions 
 node --version
 npm --version
 ```
+
+## UI components
+
+Shared UI primitives live in `src/components/ui/` and follow shadcn/ui conventions. The root `components.json` configures the shadcn CLI for Vite, JavaScript/JSX, Tailwind CSS 4, and the repository aliases. Add or update primitives through the shadcn workflow, then adapt variants to the BBS design tokens. Avoid creating a separate custom UI kit.
+
+The homepage hero includes a moving photographic rope strip built from approved local school images. It pauses on hover/focus and respects reduced-motion preferences.
 
 ## Setup
 
