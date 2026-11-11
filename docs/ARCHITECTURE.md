@@ -119,7 +119,9 @@ This is a proposed organization, not a requirement to create empty folders or un
 
 - Tailwind CSS 4 is the primary styling system.
 - Global stylesheet owns design tokens, base resets, font setup, and reduced-motion defaults.
-- shadcn/ui is used selectively.
+- shadcn/ui is the shared component foundation. `components.json` configures the New York style, JavaScript/JSX, Tailwind CSS 4 stylesheet path, and project aliases.
+- Shared shadcn primitives live in `src/components/ui`; use `cn` from `src/lib/utils.js` for class composition. Extend variants rather than building parallel custom button/card systems.
+- The homepage hero's `HeroRopeStrip` is a focused presentation component backed by `src/data/learning-images.js`; it uses local enhanced school photos, CSS motion, and reduced-motion handling.
 - No Bootstrap.
 - Avoid a large custom CSS framework.
 - Keep the approved green, white, and restrained yellow brand colours, plus supporting deep-green and neutral tokens, centralized in the global stylesheet. Follow the balance and contrast rules in `docs/DESIGN_SYSTEM.md`; do not let white become excessive or yellow dominate.
