@@ -2,6 +2,8 @@ import { ArrowRight, BookOpen, Building2, Palette, ShieldCheck, Trees } from 'lu
 import { Button } from '@/components/ui/button.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
+import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 const experiences = [
   {
@@ -53,12 +55,25 @@ export function SchoolLifePage() {
         </div>
       </section>
 
+      <section className="section-pad bg-surface-warm">
+        <div className="container-wide grid gap-5 sm:grid-cols-3">
+          {[schoolImages[0], schoolImages[1], schoolImages[6]].map((image) => (
+            <figure key={image.id} className="overflow-hidden rounded-2xl bg-white shadow-sm">
+              <div className="aspect-[4/3] overflow-hidden">
+                <OptimizedImage src={image.enhanced} optimized={image.optimized.enhanced} alt={image.alt} sizes="(max-width: 640px) 100vw, 33vw" className="h-full w-full object-cover" />
+              </div>
+              <figcaption className="px-4 py-3 text-sm font-semibold text-ink-deep">{image.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="section-pad bg-surface-white">
         <div className="container-wide">
           <SectionHeading
             eyebrow="Explore school life"
             title="What would you like to know?"
-            description="Use these topics to guide a conversation with the school. They are questions for families to explore, not claims about facilities or activities that have not yet been confirmed."
+            description="Explore the parts of the school day that matter most to your family, from classroom learning to the wider school environment."
           />
           <div className="mt-11 grid gap-5 md:grid-cols-2">
             {experiences.map(({ label, icon: Icon, description }, index) => (
