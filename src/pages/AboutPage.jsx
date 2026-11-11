@@ -119,7 +119,7 @@ function OurPurposeSection() {
             <ShieldCheck aria-hidden="true" className="h-5 w-5" />
           </span>
           <p className="mt-6 text-lg font-semibold leading-8 text-ink-deep sm:text-xl">
-            {schoolProfile.mission}
+            {schoolProfile.mission.replaceAll('&rsquo;', '’').replaceAll('&mdash;', '—')}
           </p>
         </div>
       </div>

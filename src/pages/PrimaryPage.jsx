@@ -128,7 +128,7 @@ export function PrimaryPage() {
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-accent">
               <Users aria-hidden="true" className="h-5 w-5" />
             </span>
-            <h2 className="mt-5 text-balance text-2xl font-bold text-white sm:text-3xl">Want to know more about Primary?</h2>
+            <h2 className="mt-5 text-balance text-2xl font-bold text-white sm:text-3xl">Would you like to learn more about primary education?</h2>
             <p className="mt-3 leading-7 text-white">Contact the school to confirm current classes, requirements and next steps.</p>
           </div>
           <Button variant="accent" href="/contact" className="min-h-12 w-full px-6 sm:w-auto">

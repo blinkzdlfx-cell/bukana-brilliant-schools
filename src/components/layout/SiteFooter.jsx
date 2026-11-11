@@ -15,7 +15,7 @@ export function SiteFooter({ currentPath, onLinkClick }) {
         <div className="container-wide">
           <div className="max-w-3xl mx-auto text-center">
             <p className="mb-6 text-lg font-semibold text-[#dbe8dc]">
-              Considering {schoolProfile.name} for your child? Contact the school to discuss learning levels, admissions and arranging a visit.
+              Join {schoolProfile.name}! Have a question? Let us know how we can help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="accent" asChild className="px-8 py-3 text-base">
@@ -65,7 +65,9 @@ export function SiteFooter({ currentPath, onLinkClick }) {
                 }}
                 className="flex items-center gap-2"
               >
-                <img src={new URL('../../images/bukana-logo.jpeg', import.meta.url).href} alt="" width="48" height="40" className="h-10 w-12 shrink-0 object-contain" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-surface-white">
+                  <span className="text-xl font-bold tracking-tight">BBS</span>
+                </div>
                 <span className="text-sm font-bold uppercase tracking-widest text-ink-deep">
                   Bukana Brilliant Schools
                 </span>

@@ -218,7 +218,7 @@ function FamilySection() {
             Choosing a school is an important decision. We are ready to help you learn more about our learning levels and the next steps for your child.
           </p>
           <Button variant="outline" href="/about" className="mt-7 min-h-12 px-6">
-            Get to know BBS
+            About the school
           </Button>
         </div>
 

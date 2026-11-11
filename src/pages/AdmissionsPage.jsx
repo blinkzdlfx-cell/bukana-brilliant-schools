@@ -6,7 +6,7 @@ import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { contactDetails } from '@/data/contact.js';
 import { schoolImages } from '@/data/learning-images.js';
 import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
-import admissionsBurstImage from '@/images/back-to-school.png';
+import optimizedImageMap from '@/generated/optimized-image-map.js';
 
 const enquirySteps = [
   {
@@ -28,6 +28,8 @@ const enquirySteps = [
     icon: ClipboardList,
   },
 ];
+
+const admissionsBurstImage = optimizedImageMap['back-to-school.png']?.src;
 
 const burstParticles = Array.from({ length: 48 }, (_, index) => {
   const angle = Math.PI + (index % 16) * (Math.PI / 15);

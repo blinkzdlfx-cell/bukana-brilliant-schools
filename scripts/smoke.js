@@ -39,6 +39,14 @@ const workerPath = path.join(projectRoot, 'src/worker.js');
 const contactPagePath = path.join(projectRoot, 'src/pages/ContactPage.jsx');
 const footerPath = path.join(projectRoot, 'src/components/layout/SiteFooter.jsx');
 const headerPath = path.join(projectRoot, 'src/components/layout/SiteHeader.jsx');
+const admissionsPagePath = path.join(projectRoot, 'src/pages/AdmissionsPage.jsx');
+const admissionsPageSource = fs.existsSync(admissionsPagePath)
+  ? fs.readFileSync(admissionsPagePath, 'utf8')
+  : '';
+const optimizedImageMapPath = path.join(projectRoot, 'src/generated/optimized-image-map.js');
+const optimizedImageMapSource = fs.existsSync(optimizedImageMapPath)
+  ? fs.readFileSync(optimizedImageMapPath, 'utf8')
+  : '';
 const distExists = fs.existsSync(dist);
 const indexExists = fs.existsSync(indexPath);
 const assetsExists = fs.existsSync(assetsDir);
@@ -96,6 +104,8 @@ check(homePage.includes('href={admissionsCta.href}') && homePage.includes('href=
 check(homePage.includes('<HomeLifeSection />') && homePage.includes('<HeroRopeStrip />') && homePage.includes('schoolImages.slice(0, 6)'), 'homepage retains its hero photo strip and limits the Life at BBS section to six photos');
 check(heroRopeSource.includes('schoolImages') && heroRopeSource.includes('photo.optimized.enhanced') && heroRopeSource.includes('OptimizedImage'), 'hero rope uses responsive WebP school photographs');
 check(fs.existsSync(path.join(projectRoot, 'scripts/optimize-images.mjs')), 'responsive WebP image pipeline is included');
+check(admissionsPageSource.includes("optimizedImageMap['back-to-school.png']?.src") && !admissionsPageSource.includes("from '@/images/back-to-school.png'"), 'Admissions animation uses the generated WebP asset instead of bundling the original PNG');
+check(optimizedImageMapSource.includes('back-to-school.png'), 'image optimization manifest includes the admissions illustration');
 check(fs.existsSync(path.join(projectRoot, 'src/components/ui/optimized-image.jsx')), 'reusable responsive image component is included');
 check(stylesSource.includes('@keyframes bbs-rope-travel') && stylesSource.includes('@keyframes bbs-rope-sway') && stylesSource.includes('var(--rope-duration,84s)'), 'homepage rope travels slowly with a natural sway');
 check(stylesSource.includes('.bbs-hero-rope:hover .bbs-rope-track') && stylesSource.includes('prefers-reduced-motion: reduce'), 'hero rope pauses on interaction and respects reduced motion');

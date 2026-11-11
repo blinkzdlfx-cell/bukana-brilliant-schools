@@ -160,7 +160,7 @@ function EnquirySection() {
       <div className="container-wide flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <div className="max-w-2xl">
           <MessageCircle className="mb-4 h-8 w-8 text-accent" />
-          <h2 className="mb-3 text-3xl font-bold">Need details for your child?</h2>
+          <h2 className="mb-3 text-3xl font-bold">Questions about your child’s learning?</h2>
           <p className="leading-relaxed text-[#dbe8dc]">
             Speak with the school about current class availability, admission requirements and the next steps.
           </p>
@@ -170,7 +170,7 @@ function EnquirySection() {
             Contact the school
           </Button>
           <Button variant="secondary" href="/admissions" className="px-8 py-4">
-            Admissions
+            Admissions information
           </Button>
         </div>
       </div>
