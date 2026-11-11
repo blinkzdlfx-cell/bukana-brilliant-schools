@@ -2,6 +2,8 @@ import { ArrowRight, BookOpen, ClipboardCheck, GraduationCap, Users } from 'luci
 import { Button } from '@/components/ui/button.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
+import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 const topics = [
   {
@@ -55,12 +57,25 @@ export function PrimaryPage() {
         </div>
       </section>
 
+      <section className="section-pad bg-surface-warm">
+        <div className="container-wide grid items-center gap-7 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="overflow-hidden rounded-2xl">
+            <OptimizedImage src={schoolImages[1].enhanced} optimized={schoolImages[1].optimized.enhanced} alt={schoolImages[1].alt} sizes="(max-width: 768px) 100vw, 60vw" className="aspect-[16/10] h-full w-full object-cover" />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand">Learning in practice</p>
+            <h2 className="mt-3 text-2xl font-bold text-ink-deep">A strong foundation for lifelong learning.</h2>
+            <p className="mt-3 leading-7 text-ink-muted">Explore the learning environment and speak with the school about class structure, subjects and how pupils are supported.</p>
+          </div>
+        </div>
+      </section>
+
       <section className="section-pad bg-surface-white">
         <div className="container-wide">
           <SectionHeading
             eyebrow="Primary learning"
             title="The details parents should understand"
-            description="Class structures and academic arrangements should be explained by the school. These topics will help you get clear answers before making a decision."
+            description="Explore the areas that shape primary education and prepare the right questions for your conversation with the school."
           />
           <div className="mt-11 grid gap-5 md:grid-cols-3">
             {topics.map(({ title, detail, icon: Icon }, index) => (
