@@ -10,20 +10,20 @@ Use a deliberate balance of green-led brand areas, purposeful white/light conten
 
 ## 2. Brand colour tokens
 
-These are the approved starting tokens:
+These are the implemented design tokens. `src/styles/index.css` is the source of truth; keep this table synchronized whenever a token changes:
 
 | Token | Value | Usage |
 |---|---|---|
-| Primary green | `#0D8215` | Main brand colour, primary buttons, key brand moments, selected section backgrounds |
-| Deep green | `#094F1B` | Supporting green shade for depth, hover/active states, and selected dark-green surfaces |
-| Yellow accent | `#F2C94C` | Small highlights, selected icons, badges, underlines, markers, and occasional emphasis |
+| Primary green | `#176B3A` | Main brand colour, primary buttons, key brand moments, selected section backgrounds |
+| Deep green | `#124B2E` | Supporting green shade for depth, hover/active states, and selected dark-green surfaces |
+| Yellow accent | `#D8B85B` | Small highlights, selected icons, badges, underlines, markers, and occasional emphasis |
 | White | `#FFFFFF` | Clear content surfaces, cards, text on green, and visual breathing room; use intentionally, not as the background for every section |
-| Warm light neutral | `#F4F5EF` | Alternative light content surface to prevent excessive pure white |
-| Main text | `#172018` | Primary text on white and warm-light surfaces |
-| Deep charcoal | `#171B17` | Text and selected dark contrast areas where needed |
-| Muted text | `#687268` | Secondary text on light surfaces |
-| Soft border | `rgba(23,32,24,0.12)` | Dividers and outlines on light surfaces |
-| Dark border | `rgba(255,255,255,0.14)` | Dividers and outlines on dark surfaces |
+| Warm light neutral | `#F5F7F2` | Alternative light content surface to prevent excessive pure white |
+| Main text | `#26332B` | Primary text on white and warm-light surfaces |
+| Deep green text | `#17251C` | Headings and high-contrast text on light surfaces |
+| Muted text | `#66736A` | Secondary text on light surfaces |
+| Soft border | `rgba(23,37,28,0.11)` | Dividers and outlines on light surfaces |
+| Dark border | `rgba(255,255,255,0.16)` | Dividers and outlines on dark surfaces |
 
 Green, white, and yellow are the only brand colours. Deep green is a shade of the green identity. Warm light and charcoal are supporting neutrals for legibility and depth, not additional brand colours. Do not introduce unrelated accent colours.
 
