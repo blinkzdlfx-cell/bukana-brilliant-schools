@@ -27,24 +27,17 @@ const enquirySteps = [
   },
 ];
 
-const burstParticles = [
-  { x: -126, y: -126, size: 18, rotate: -24, delay: 0 },
-  { x: -92, y: -164, size: 22, rotate: 18, delay: 0.22 },
-  { x: -54, y: -112, size: 16, rotate: 32, delay: 0.48 },
-  { x: -22, y: -190, size: 20, rotate: -16, delay: 0.12 },
-  { x: 18, y: -144, size: 18, rotate: 28, delay: 0.62 },
-  { x: 54, y: -184, size: 22, rotate: -30, delay: 0.34 },
-  { x: 92, y: -128, size: 17, rotate: 16, delay: 0.78 },
-  { x: 128, y: -160, size: 20, rotate: 34, delay: 0.18 },
-  { x: -148, y: -62, size: 16, rotate: -12, delay: 0.92 },
-  { x: -108, y: -82, size: 19, rotate: 26, delay: 0.56 },
-  { x: -68, y: -42, size: 22, rotate: -34, delay: 0.3 },
-  { x: -34, y: -88, size: 17, rotate: 14, delay: 1.04 },
-  { x: 34, y: -72, size: 19, rotate: -22, delay: 0.7 },
-  { x: 72, y: -48, size: 16, rotate: 30, delay: 0.42 },
-  { x: 112, y: -86, size: 21, rotate: -18, delay: 0.84 },
-  { x: 148, y: -54, size: 17, rotate: 22, delay: 0.66 },
-];
+const burstParticles = Array.from({ length: 32 }, (_, index) => {
+  const angle = index * 2.399963229728653;
+  const radius = 58 + (index % 4) * 29;
+  return {
+    x: Math.round(Math.cos(angle) * radius * 1.08),
+    y: -Math.round(58 + (index % 8) * 18 + Math.abs(Math.sin(angle)) * 24),
+    size: 18 + (index % 4) * 3,
+    rotate: (index * 37) % 72 - 36,
+    delay: (index % 8) * 0.1,
+  };
+});
  
 const questions = [
   'Which classes have available places?',
@@ -100,17 +93,17 @@ export function AdmissionsPage() {
                   : {
                     x: [0, particle.x * 0.62, particle.x],
                     y: [0, particle.y * 0.62, particle.y],
-                    opacity: [0, 1, 0],
+                    opacity: [0, 1, 0.78],
                     scale: [0.25, 1, 0.7],
                     rotate: [0, particle.rotate],
                   }}
                 transition={shouldReduceMotion
                   ? { duration: 0 }
                   : {
-                    duration: 2.8 + (index % 4) * 0.32,
+                    duration: 2.4 + (index % 4) * 0.24,
                     delay: particle.delay,
                     repeat: Infinity,
-                    repeatDelay: 0.12,
+                    repeatDelay: 0.28,
                     ease: 'easeOut',
                     times: [0, 0.42, 1],
                   }}
