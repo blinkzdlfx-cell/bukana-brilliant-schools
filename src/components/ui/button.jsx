@@ -9,7 +9,7 @@ export const buttonVariants = cva('inline-flex items-center justify-center gap-2
       primary: 'bg-brand text-white shadow-sm hover:bg-brand-deep',
       destructive: 'bg-red-600 text-white shadow-sm hover:bg-red-700',
       outline: 'border border-brand bg-transparent text-brand hover:bg-brand hover:text-white',
-      secondary: 'border border-white/50 bg-white/10 text-white hover:bg-white hover:text-brand-deep',
+      secondary: 'border border-brand bg-white text-brand shadow-sm hover:bg-brand hover:text-white',
       ghost: 'hover:bg-brand/10 hover:text-brand-deep',
       link: 'text-brand underline-offset-4 hover:underline',
       accent: 'bg-accent text-ink-deep shadow-sm hover:bg-[#e7c96f]'
