@@ -15,6 +15,7 @@ import { schoolProfile, admissionsCta, academicsCta, contactCta } from '@/data/s
 import { contactDetails } from '@/data/contact.js';
 import { HeroRopeStrip } from '@/components/ui/hero-rope-strip.jsx';
 import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 const learningStages = [
   {
@@ -22,18 +23,21 @@ const learningStages = [
     description: 'Early care and a gentle introduction to learning.',
     icon: HeartHandshake,
     number: '01',
+    image: schoolImages[6],
   },
   {
     name: 'Nursery',
     description: 'A foundation for curiosity, confidence and discovery.',
     icon: Sparkles,
     number: '02',
+    image: schoolImages[12],
   },
   {
     name: 'Primary',
     description: 'The next stage of a child’s learning journey.',
     icon: GraduationCap,
     number: '03',
+    image: schoolImages[1],
   },
 ];
 
@@ -63,13 +67,13 @@ function HomeLifeSection() {
         <div className="max-w-3xl">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">Life at Bukana Brilliant Schools</p>
           <h2 className="text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">Real moments from our school community.</h2>
-          <p className="mt-4 max-w-2xl leading-7 text-ink-muted">A small selection of everyday moments from our classrooms and school environment. Visit the gallery to explore more photographs.</p>
+          <p className="mt-4 max-w-2xl leading-7 text-ink-muted">A selection of photographs from our classrooms, learning spaces and school community. Explore the gallery for more.</p>
         </div>
         <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
           {schoolImages.slice(0, 6).map((image) => (
             <figure key={image.id} className="overflow-hidden rounded-xl border border-border-soft bg-white shadow-sm">
               <div className="aspect-[4/3] overflow-hidden bg-brand/5">
-                <img src={image.enhanced} alt={image.alt} width="640" height="480" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                <OptimizedImage src={image.enhanced} optimized={image.optimized.enhanced} alt={image.alt} width={640} height={480} sizes="(max-width: 640px) 50vw, 33vw" loading="lazy" className="h-full w-full object-cover" />
               </div>
               <figcaption className="px-3 py-2 text-xs font-semibold text-ink-deep sm:text-sm">{image.caption}</figcaption>
             </figure>
@@ -163,13 +167,13 @@ function LearningPathSection() {
         <SectionHeading
           eyebrow="Explore BBS"
           title="One school, three learning stages"
-          description="Start with the stage you are exploring. The school can help you confirm age requirements, current availability and the right class for your child."
+          description="Explore Creche, Nursery and Primary, then speak with the school about class placement, age requirements and current availability."
         />
 
         <div className="mt-11 grid gap-5 md:grid-cols-3">
-          {learningStages.map(({ name, description, icon: Icon, number }) => (
+          {learningStages.map(({ name, description, icon: Icon, number, image }) => (
             <Card key={name} className="h-full overflow-hidden">
-              <CardBody className="flex h-full flex-col p-7 md:p-8">
+              <CardBody className="flex h-full flex-col p-5 md:p-6">
                 <div className="flex items-center justify-between">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
                     <Icon aria-hidden="true" className="h-6 w-6" />
@@ -209,7 +213,7 @@ function FamilySection() {
             The right school choice starts with the right questions.
           </h2>
           <p className="mt-5 max-w-xl leading-8 text-ink-muted">
-            Choosing a school is an important family decision. We make it easier to start a conversation with Bukana Brilliant Schools and find out what matters for your child.
+            Choosing a school is an important decision. We are ready to help you learn more about our learning levels and the next steps for your child.
           </p>
           <Button variant="outline" href="/about" className="mt-7 min-h-12 px-6">
             Get to know BBS
@@ -223,7 +227,7 @@ function FamilySection() {
             </span>
             <div>
               <h3 className="font-bold text-ink-deep">What would you like to know?</h3>
-              <p className="text-sm text-ink-muted">A helpful place to start your enquiry.</p>
+              <p className="text-sm text-ink-muted">Find answers to the questions that matter to your family.</p>
             </div>
           </div>
           <ul className="mt-6 space-y-4">
@@ -256,7 +260,7 @@ function AdmissionsSection() {
                 Take the next step for your child.
               </h2>
               <p className="mt-4 leading-7 text-white">
-                Contact the school to ask about available classes, admission requirements and how to arrange a visit. The school will confirm the current details with you.
+                Speak with the school about available classes, admission requirements and arranging a visit.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
