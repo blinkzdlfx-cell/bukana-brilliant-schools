@@ -137,7 +137,7 @@ function CurriculumSection() {
             ['Social studies & civic learning', 'Family, community, culture, citizenship, safety and respect for others.'],
             ['Creative & cultural arts', 'Drawing, craft, music, rhythm, drama, imagination and creative expression.'],
             ['Digital awareness & practical skills', 'Age-appropriate technology awareness, practical activities and independent learning habits.'],
-          ].map(([title, detail], index) => (
+          ].map(([title, detail]) => (
             <Card key={title} className="h-full">
               <CardBody className="p-6">
                 <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
