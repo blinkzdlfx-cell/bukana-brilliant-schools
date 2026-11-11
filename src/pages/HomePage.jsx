@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import {
   ArrowRight,
-  BookOpen,
   GraduationCap,
   MessageCircle,
   Sparkles,
