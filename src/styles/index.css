@@ -12,6 +12,8 @@
   --color-ink-muted: #66736A;
   --color-border-soft: rgba(23, 37, 28, 0.11);
   --color-border-dark: rgba(255, 255, 255, 0.16);
+  --color-card: #FFFFFF;
+  --color-card-foreground: #26332B;
   --radius-card: 1rem;
   --radius-button: 0.7rem;
   --radius-pill: 9999px;
