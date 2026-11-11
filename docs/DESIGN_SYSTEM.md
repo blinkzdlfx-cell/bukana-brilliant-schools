@@ -243,6 +243,8 @@ Use the official shadcn component patterns and registry documentation as the imp
 
 ## Homepage and gallery image motion
 
-The homepage hero is reserved for the school's message and admission calls to action. The small photographic rope strip belongs in the **Life at Bukana Brilliant Schools** section below the hero, using a maximum of six selected school images. Its horizontal movement is deliberately slow (84–92 seconds per loop) and pauses on hover or keyboard focus; reduced-motion preferences disable the animation.
+The homepage hero retains its photographic rope-strip animation. Do not remove or relocate its existing hero photographs. The separate **Life at Bukana Brilliant Schools** section below the hero presents a deliberately limited selection of six photographs, with a direct link to the full gallery.
 
-The dedicated Gallery page uses a static responsive image grid. It must not reuse the homepage's moving rope strip or any automatic right-to-left marquee. This keeps the homepage visual section concise while allowing the gallery to serve as the complete photo collection.
+The dedicated Gallery page displays the complete approved school-photo collection in a continuous right-to-left horizontal image slider. The duplicated image sequence creates a seamless loop. Movement is deliberately slow (84 seconds per loop) and pauses on hover or keyboard focus; reduced-motion preferences disable autoplay and leave the images accessible through horizontal scrolling.
+
+The homepage section and full gallery have different purposes: keep the homepage selection concise and let the gallery showcase the wider collection.
