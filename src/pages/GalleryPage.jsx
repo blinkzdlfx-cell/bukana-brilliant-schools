@@ -3,6 +3,7 @@ import { Camera, ChevronLeft, ChevronRight, MessageCircle, ShieldCheck, X } from
 import { Button } from '@/components/ui/button.jsx';
 import { Badge } from '@/components/ui/badge.jsx';
 import { schoolImages } from '@/data/learning-images.js';
+import galleryHeroImage from '@/images/Real school moments.png';
 
 const CATEGORY_ORDER = ['Campus', 'Classrooms', 'Learning', 'Activities', 'Students', 'Teachers'];
 
@@ -96,10 +97,26 @@ export function GalleryPage() {
               <Button variant="secondary" href="/school-life" className="min-h-12 border-white/50 bg-white/8 px-6 text-white shadow-none hover:bg-white hover:text-brand-deep">Explore school life</Button>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-md rounded-[1.5rem] border border-white/15 bg-white/8 p-6 backdrop-blur-sm sm:p-8">
-            <Camera aria-hidden="true" className="h-6 w-6 text-[#E8D28C]" />
-            <p className="mt-8 text-lg font-semibold text-white">Real school moments</p>
-            <p className="mt-2 text-sm leading-6 text-white/75">Browse the original school photographs alongside their enhanced landscape versions.</p>
+          <div className="relative mx-auto min-h-[20rem] w-full max-w-md overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl shadow-black/20 sm:min-h-[23rem]">
+            <img
+              src={galleryHeroImage}
+              alt=""
+              aria-hidden="true"
+              width="1200"
+              height="900"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/45 to-brand-deep/10" />
+            <div className="relative flex min-h-[20rem] flex-col justify-end p-6 sm:min-h-[23rem] sm:p-8">
+              <span className="mb-auto inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-brand-deep/45 text-[#E8D28C] backdrop-blur-sm">
+                <Camera aria-hidden="true" className="h-5 w-5" />
+              </span>
+              <p className="text-xl font-bold text-white">Real school moments</p>
+              <p className="mt-2 max-w-sm text-sm leading-6 text-white/85">Browse the original school photographs alongside their enhanced landscape versions.</p>
+            </div>
           </div>
         </div>
       </section>
