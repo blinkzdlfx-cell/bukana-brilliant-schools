@@ -168,3 +168,8 @@ If an admissions enquiry form is approved:
 ## 11. Architecture decision rule
 
 Prefer the simplest architecture that meets the approved requirements. Do not introduce a database, CMS, global state library, router, form service, analytics, or UI framework without a concrete need and owner approval.
+
+
+## UI component architecture
+
+The UI layer follows shadcn/ui's copy-owned component approach. Components live under `src/components/ui/` and are imported directly by pages. Shared class composition is provided by `cn` in `src/lib/utils.js`, using `clsx` and `tailwind-merge`; variant composition uses `class-variance-authority`. The currently adopted primitives are Button, Card, Input, Label, Textarea, Badge and Separator. Components remain plain JSX. Interaction primitives that require Radix packages should be added with their dependencies and accessibility behavior together, not approximated with decorative markup.
