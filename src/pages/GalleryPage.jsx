@@ -107,10 +107,10 @@ export function GalleryPage() {
               loading="eager"
               fetchPriority="high"
               decoding="async"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-contain"
             />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/45 to-brand-deep/10" />
-            <div className="relative flex min-h-[20rem] flex-col justify-end p-6 sm:min-h-[27rem] sm:p-8">
+            <div className="relative flex min-h-[20rem] flex-col justify-end p-6 sm:min-h-[23rem] sm:p-8">
               <span className="mb-auto inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-brand-deep/45 text-[#E8D28C] backdrop-blur-sm">
                 <Camera aria-hidden="true" className="h-5 w-5" />
               </span>
