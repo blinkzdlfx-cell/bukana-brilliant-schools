@@ -27,15 +27,16 @@ const enquirySteps = [
   },
 ];
 
-const burstParticles = Array.from({ length: 32 }, (_, index) => {
-  const angle = index * 2.399963229728653;
-  const radius = 58 + (index % 4) * 29;
+const burstParticles = Array.from({ length: 48 }, (_, index) => {
+  const angle = Math.PI + (index % 16) * (Math.PI / 15);
+  const ring = 0.34 + Math.floor(index / 16) * 0.3;
+
   return {
-    x: Math.round(Math.cos(angle) * radius * 1.08),
-    y: -Math.round(58 + (index % 8) * 18 + Math.abs(Math.sin(angle)) * 24),
-    size: 18 + (index % 4) * 3,
+    left: Math.round(50 + Math.cos(angle) * 48 * ring),
+    top: Math.round(78 + Math.sin(angle) * 68 * ring),
+    size: 16 + (index % 4) * 3,
     rotate: (index * 37) % 72 - 36,
-    delay: (index % 8) * 0.1,
+    delay: (index % 12) * 0.07,
   };
 });
  
@@ -87,12 +88,12 @@ export function AdmissionsPage() {
                 width={particle.size}
                 height={particle.size}
                 draggable="false"
-                initial={shouldReduceMotion ? false : { x: 0, y: 0, opacity: 0, scale: 0.25 }}
+                initial={shouldReduceMotion ? false : { left: "50%", top: "78%", opacity: 0, scale: 0.25 }}
                 animate={shouldReduceMotion
-                  ? { x: particle.x, y: particle.y, opacity: 0.9, rotate: particle.rotate, scale: 1 }
+                  ? { left: `${particle.left}%`, top: `${particle.top}%`, opacity: 0.9, rotate: particle.rotate, scale: 1 }
                   : {
-                    x: [0, particle.x * 0.62, particle.x],
-                    y: [0, particle.y * 0.62, particle.y],
+                    left: ["50%", `${50 + (particle.left - 50) * 0.62}%`, `${particle.left}%`],
+                    top: ["78%", `${78 + (particle.top - 78) * 0.62}%`, `${particle.top}%`],
                     opacity: [0, 1, 0.78],
                     scale: [0.25, 1, 0.7],
                     rotate: [0, particle.rotate],
@@ -108,7 +109,7 @@ export function AdmissionsPage() {
                     times: [0, 0.42, 1],
                   }}
                 style={{ width: particle.size, height: particle.size }}
-                className="absolute left-1/2 top-[72%] rounded-[4px] border border-white/80 object-cover shadow-md shadow-black/30"
+                className="absolute rounded-[4px] border border-white/80 object-cover shadow-md shadow-black/30"
               />
             ))}
           </div>
