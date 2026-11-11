@@ -240,7 +240,7 @@ export function ContactPage() {
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">Planning a visit</p>
             <h2 className="text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">
-              Confirm the details before travelling.
+              We’d be happy to welcome you.
             </h2>
             <p className="mt-5 max-w-xl leading-8 text-ink-muted">
               Planning a visit? Send us a message first so we can confirm the best time to come and share the latest directions.
