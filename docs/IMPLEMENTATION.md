@@ -26,7 +26,8 @@ Exit checks:
 - Build header and responsive mobile navigation.
 - Build footer.
 - Establish page container and reusable section heading.
-- Establish button and card variants.
+- Configure shadcn/ui through `components.json` and use its shared Button/Card primitives.
+- Keep project-specific variants inside shadcn component variants; do not maintain a separate custom UI kit.
 - Add route handling and 404 page.
 - Add page-specific title and description handling.
 
@@ -72,6 +73,7 @@ Exit checks:
 ## Phase 4 — Interaction and accessibility
 
 - Motion and section reveals.
+- Homepage photographic rope-strip motion, including hover/focus pause and reduced-motion fallback.
 - Gallery interactions if included.
 - Contact links.
 - Form validation only if an actual submission path is configured.
@@ -108,6 +110,13 @@ Exit checks:
 - Perform final owner review.
 
 Do not deploy or change DNS without explicit owner approval.
+
+## shadcn/ui component workflow
+
+- Configuration: `components.json`.
+- Component source: `src/components/ui/`.
+- Add components with the shadcn CLI using the repository configuration; inspect generated code and adapt it to the approved BBS tokens.
+- Do not introduce a parallel component library or replace shadcn primitives with bespoke equivalents.
 
 ## Required commands
 
