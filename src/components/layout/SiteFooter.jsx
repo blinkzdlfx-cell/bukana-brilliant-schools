@@ -1,4 +1,4 @@
-import { Mail, Phone, MessageCircle, Facebook, Instagram } from 'lucide-react';
+import { Mail, MapPin, MessageCircle, Facebook, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { cn } from '@/lib/utils.js';
 import { contactCta, schoolProfile } from '@/data/school.js';
@@ -84,9 +84,9 @@ export function SiteFooter({ currentPath, onLinkClick }) {
                 Contact us
               </h2>
               <ul className="space-y-4 text-sm">
-                {contactData.address && (
+                {contactData.address && !contactData.addressPending && (
                   <li className="flex items-start gap-3 leading-relaxed">
-                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                     <div>
                       <p className="font-semibold text-ink-deep">Address</p>
                       <p className="text-ink">{contactData.address}</p>

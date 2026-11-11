@@ -3,9 +3,7 @@ import { BookOpen, Users, Star, GraduationCap, MessageCircle } from 'lucide-reac
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
-import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
 import { educationLevels } from '@/data/academics.js';
-import { admissionsCta, contactCta } from '@/data/school.js';
 
 const levelIcons = { creche: Users, nursery: Star, primary: GraduationCap };
 
@@ -22,7 +20,7 @@ export function AcademicsPage() {
 
 function HeroSection() {
   return (
-    <section className="relative bg-brand overflow-hidden">
+    <section className="relative bg-brand-deep overflow-hidden">
       <div className="relative container-wide section-pad pt-24 md:pt-36 pb-24 md:pb-36">
         <div>
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-accent">
@@ -83,8 +81,11 @@ function LevelsSection() {
                     </p>
                     <h2 className="mb-4 text-3xl font-bold text-ink-deep">{level.name}</h2>
                     <p className="text-lg leading-relaxed text-ink-muted">
-                      {level.summary ||
-                        `Information about ${level.name.toLowerCase()}. Details are pending owner confirmation.`}
+                      {level.summary || ({
+                        creche: 'Explore how the school welcomes its youngest learners and supports their first experiences in a learning environment.',
+                        nursery: 'Ask how early learning, communication, play and growing independence are supported at this stage.',
+                        primary: 'Learn about primary class placement, the curriculum and how children’s progress is supported.',
+                      }[level.id] || 'Contact the school for details about this learning level.')}
                     </p>
                   </div>
                   <div className={index % 2 === 0 ? 'bg-surface-warm p-7 md:p-10' : 'order-1 bg-surface-warm p-7 md:p-10'}>

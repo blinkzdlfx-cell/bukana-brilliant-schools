@@ -25,9 +25,8 @@ export const navigationItems = [
 
 export const navDropdowns = {
   about: [
-    { label: 'Overview & History', href: '/about#overview' },
-    { label: "Leadership / Director's Welcome", href: '/about#leadership' },
-    { label: 'Facilities and Learning Environment', href: '/about#facilities' },
+    { label: 'About the school', href: '/about#overview' },
+    { label: 'Our purpose and values', href: '/about#purpose' },
   ],
   academics: [
     { label: 'Curriculum Overview', href: '/academics#curriculum' },

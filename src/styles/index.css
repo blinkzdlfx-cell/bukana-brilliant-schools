@@ -132,6 +132,30 @@
   .scrollbar-hide::-webkit-scrollbar { display: none; }
 }
 
+/* Keyboard users can bypass repeated navigation and reach the page content. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  transform: translateY(-160%);
+  border-radius: 0.75rem;
+  background: var(--color-brand-deep);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(18, 75, 46, 0.18);
+  transition: transform 160ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  color: #fff;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 /* Calm, consistent motion for content entering the viewport. */
 .scroll-reveal {
   opacity: 0;
@@ -146,6 +170,34 @@
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+/* Seamless right-to-left image marquee shared by the homepage and gallery. */
+.bbs-image-marquee__viewport {
+  overflow: hidden;
+}
+
+.bbs-image-marquee__viewport:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 4px;
+  border-radius: 1.25rem;
+}
+
+.bbs-image-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: bbs-image-marquee 48s linear infinite;
+  will-change: transform;
+}
+
+.bbs-image-marquee__viewport:hover .bbs-image-marquee__track,
+.bbs-image-marquee__viewport:focus-visible .bbs-image-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes bbs-image-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -167,6 +219,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+
+  .bbs-image-marquee__viewport {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .bbs-image-marquee__track {
+    animation: none;
+    will-change: auto;
+  }
 
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -1,184 +1,126 @@
-import { motion } from 'motion/react';
-import { BookOpen, GraduationCap, Star, Users } from 'lucide-react';
-import { SectionHeading } from '@/components/ui/section-heading.jsx';
-import { Card, CardBody } from '@/components/ui/card.jsx';
+import { ArrowRight, BookOpen, ClipboardCheck, GraduationCap, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
-import { TemporaryImage } from '@/components/ui/temporary-image.jsx';
-import { primarySchool, pendingNote } from '@/data/academics.js';
-import { contactCta, admissionsCta } from '@/data/school.js';
+import { Card, CardBody } from '@/components/ui/card.jsx';
+import { SectionHeading } from '@/components/ui/section-heading.jsx';
+
+const topics = [
+  {
+    title: 'Class structure',
+    detail: 'Ask which primary classes are available, the age or placement requirements and how children move between levels.',
+    icon: GraduationCap,
+  },
+  {
+    title: 'Curriculum and subjects',
+    detail: 'Ask which curriculum is followed, which subjects are taught at each level and which learning materials are used.',
+    icon: BookOpen,
+  },
+  {
+    title: 'Progress and communication',
+    detail: 'Find out how learning is assessed, how progress is shared and how parents can discuss a child’s development with the school.',
+    icon: ClipboardCheck,
+  },
+];
+
+const questions = [
+  'Which primary class levels are currently available?',
+  'How is a child’s class placement determined?',
+  'Which subjects and learning materials are used?',
+  'How are assessments and parent updates handled?',
+];
 
 export function PrimaryPage() {
   return (
     <>
-      <HeroSection />
-      <StructureSection />
-      <SubjectsSection />
-      <AssessmentSection />
-      <EnquirySection />
-    </>
-  );
-}
-
-function HeroSection() {
-  return (
-    <section className="relative bg-brand overflow-hidden">
-      <div className="relative container-wide section-pad pt-24 md:pt-36 pb-24 md:pb-36">
-        <div>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-accent">
+      <section className="relative isolate overflow-hidden bg-brand-deep text-white">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full border border-white/10" />
+        <div className="container-wide relative py-16 md:py-20 lg:py-24">
+          <p className="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D28C]">
             <span className="h-2 w-2 rounded-full bg-accent" />
-            Primary School
-          </span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 mb-6 text-4xl md:text-5xl font-bold leading-tight text-surface-white text-balance"
-          >
-            Primary School
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-10 max-w-xl text-lg leading-relaxed text-[#dbe8dc] md:text-xl"
-          >
-            Primary classes and subjects. Ask the school about class structure, curriculum, subjects, and how
-            progress is assessed and shared with families.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="accent" href="/contact" className="px-8 py-4">
-              Ask about primary
+            Primary school
+          </p>
+          <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
+            Building strong foundations for what comes next.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
+            Learn what to ask about primary class placement, curriculum, subjects and the way children’s progress is supported at Bukana Brilliant Schools.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button variant="accent" href="/contact" className="min-h-12 px-6">
+              Ask about Primary <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </Button>
-            <Button variant="outline" href="/admissions" className="px-8 py-4">
-              Admissions enquiries
+            <Button variant="secondary" href="/admissions" className="min-h-12 border-white/50 bg-white/8 px-6 text-white shadow-none hover:bg-white hover:text-brand-deep">
+              Admissions information
             </Button>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function StructureSection() {
-  return (
-    <section className="bg-surface-white section-pad">
-      <div className="container-wide">
-        <SectionHeading
-          eyebrow="Class structure"
-          title="Primary classes"
-          description="Class structure, grade levels, and placement details are pending owner confirmation."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[
-            { label: 'Class structure', text: 'Primary grade levels and class organization.' },
-            { label: 'Subjects', text: 'Curriculum subjects taught at each level.' },
-            { label: 'Assessment', text: 'How learning and progress are assessed.' },
-          ].map((item) => (
-            <Card key={item.label}>
-              <CardBody className="p-7">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                  <GraduationCap className="h-6 w-6" />
-                </div>
-                <h3 className="mb-3 text-lg font-bold text-ink-deep">{item.label}</h3>
-                <p className="text-ink-muted">{item.text}</p>
-                <p className="mt-4 text-xs font-semibold text-ink-muted">Detail pending owner confirmation.</p>
-              </CardBody>
-            </Card>
-          ))}
+      <section className="section-pad bg-surface-white">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="Primary learning"
+            title="The details parents should understand"
+            description="Class structures and academic arrangements should be explained by the school. These topics will help you get clear answers before making a decision."
+          />
+          <div className="mt-11 grid gap-5 md:grid-cols-3">
+            {topics.map(({ title, detail, icon: Icon }, index) => (
+              <Card key={title} className="h-full">
+                <CardBody className="p-7 md:p-8">
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                      <Icon aria-hidden="true" className="h-6 w-6" />
+                    </span>
+                    <span className="text-xs font-bold tracking-[0.16em] text-ink-muted/60">0{index + 1}</span>
+                  </div>
+                  <h2 className="mt-7 text-xl font-bold text-ink-deep">{title}</h2>
+                  <p className="mt-3 leading-7 text-ink-muted">{detail}</p>
+                </CardBody>
+              </Card>
+            ))}
+          </div>
         </div>
-        <p className="mt-10 text-sm text-ink-muted text-center">{pendingNote}</p>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function SubjectsSection() {
-  return (
-    <section className="bg-surface-warm section-pad border-t border-border-soft">
-      <div className="container-wide">
-        <SectionHeading
-          eyebrow="Subjects"
-          title="Subjects taught"
-          description="The full subject list and curriculum outline are pending owner confirmation."
-        />
-        <div className="mt-12 flex flex-wrap gap-4 justify-center max-w-2xl mx-auto">
-          {[
-            'Literacy',
-            'Numeracy',
-            'Science',
-            'Social Studies',
-            'Creative Arts',
-            'Physical Education',
-          ].map((subject) => (
-            <span
-              key={subject}
-              className="px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-sm font-medium"
-            >
-              {subject}
+      <section className="section-pad border-y border-border-soft bg-surface-warm">
+        <div className="container-wide grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">A useful conversation</p>
+            <h2 className="text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">
+              What should you ask before enrolment?
+            </h2>
+            <p className="mt-5 leading-8 text-ink-muted">
+              A clear understanding of class placement, curriculum and communication helps families make an informed choice.
+            </p>
+          </div>
+          <div className="rounded-[1.5rem] border border-border-soft bg-white p-6 shadow-sm sm:p-8">
+            <ul className="space-y-4">
+              {questions.map((question) => (
+                <li key={question} className="flex items-start gap-3 border-b border-border-soft pb-4 last:border-0 last:pb-0">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                    <span className="h-2 w-2 rounded-full bg-brand" />
+                  </span>
+                  <span className="leading-7 text-ink">{question}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-brand-deep text-white">
+        <div className="container-wide flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
+          <div className="max-w-2xl">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-accent">
+              <Users aria-hidden="true" className="h-5 w-5" />
             </span>
-          ))}
-          <p className="mt-8 text-xs font-semibold text-ink-muted text-center">
-            Subject list pending owner confirmation.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function AssessmentSection() {
-  return (
-    <section className="bg-surface-white section-pad">
-      <div className="container-wide">
-        <SectionHeading
-          eyebrow="Assessment &amp; progression"
-          title="Tracking progress"
-          description="Assessment methods and progression details are pending owner confirmation."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {[
-            {
-              title: 'Assessment approach',
-              text: 'How the school checks understanding and progress.',
-            },
-            {
-              title: 'Parent communication',
-              text: 'Progress reports and parent-teacher updates.',
-            },
-          ].map((item) => (
-            <Card key={item.title}>
-              <CardBody className="p-7">
-                <h3 className="mb-3 text-lg font-bold text-ink-deep">{item.title}</h3>
-                <p className="text-ink-muted">{item.text}</p>
-                <p className="mt-4 text-xs font-semibold text-ink-muted">Detail pending owner confirmation.</p>
-              </CardBody>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function EnquirySection() {
-  return (
-    <section className="bg-brand-deep section-pad text-surface-white">
-      <div className="container-wide flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-        <div className="max-w-2xl">
-          <Users className="mb-4 h-8 w-8 text-accent" />
-          <h2 className="mb-3 text-3xl font-bold">Questions about primary?</h2>
-          <p className="leading-relaxed text-[#dbe8dc]">
-            Contact the school to confirm class placement, subjects, assessment, and enrolment next steps.
-          </p>
-        </div>
-        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-          <Button variant="accent" href="/contact" className="px-8 py-4">
-            Contact the school
-          </Button>
-          <Button variant="secondary" href="/admissions" className="px-8 py-4">
-            Admissions
+            <h2 className="mt-5 text-balance text-2xl font-bold text-white sm:text-3xl">Want to know more about Primary?</h2>
+            <p className="mt-3 leading-7 text-white">Contact the school to confirm current classes, requirements and next steps.</p>
+          </div>
+          <Button variant="accent" href="/contact" className="min-h-12 w-full px-6 sm:w-auto">
+            Contact the school <ArrowRight aria-hidden="true" className="h-4 w-4" />
           </Button>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
