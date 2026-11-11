@@ -88,7 +88,9 @@ check(importedIcons.includes('ArrowRight'), 'homepage imports the ArrowRight ico
 check(importedIcons.includes('MessageCircle'), 'homepage imports the MessageCircle icon used by its contact section');
 check(homePage.includes('href={admissionsCta.href}') && homePage.includes('href={academicsCta.href}'), 'homepage hero actions have working destinations');
 check(homePage.includes('<HomeLifeSection />') && homePage.includes('<HeroRopeStrip />') && homePage.includes('schoolImages.slice(0, 6)'), 'homepage retains its hero photo strip and limits the Life at BBS section to six photos');
-check(heroRopeSource.includes('schoolImages') && heroRopeSource.includes('photo.enhanced'), 'hero rope uses approved enhanced school photographs');
+check(heroRopeSource.includes('schoolImages') && heroRopeSource.includes('photo.optimized.enhanced') && heroRopeSource.includes('OptimizedImage'), 'hero rope uses responsive WebP school photographs');
+check(fs.existsSync(path.join(projectRoot, 'scripts/optimize-images.mjs')), 'responsive WebP image pipeline is included');
+check(fs.existsSync(path.join(projectRoot, 'src/components/ui/optimized-image.jsx')), 'reusable responsive image component is included');
 check(stylesSource.includes('@keyframes bbs-rope-travel') && stylesSource.includes('@keyframes bbs-rope-sway') && stylesSource.includes('var(--rope-duration,84s)'), 'homepage rope travels slowly with a natural sway');
 check(stylesSource.includes('.bbs-hero-rope:hover .bbs-rope-track') && stylesSource.includes('prefers-reduced-motion: reduce'), 'hero rope pauses on interaction and respects reduced motion');
 check(!galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('columns-1') && galleryPage.includes('Real moments. Real learning.'), 'dedicated gallery uses a static responsive masonry layout');
@@ -97,7 +99,7 @@ check(galleryPage.includes('role="dialog"') && galleryPage.includes('ArrowLeft')
 check(galleryPage.includes('image.original') && galleryPage.includes('image.enhanced'), 'gallery pairs original portrait photographs with enhanced landscape versions');
 check(imageMarqueeSource.includes('bbs-image-marquee__track') && imageMarqueeSource.includes('repeatedImages') && imageMarqueeSource.includes('aria-hidden={index >= schoolImages.length || undefined}'), 'gallery slider duplicates its image set for a seamless screen-reader-safe loop');
 check(imageMarqueeSource.includes('loading=') && imageMarqueeSource.includes('decoding="async"'), 'marquee images use browser loading and decoding hints');
-check(learningImagesSource.includes('enhanced-16x9-images') && learningImagesSource.includes('original:'), 'image data maps original and enhanced school photographs');
+check(learningImagesSource.includes('enhanced-16x9-images') && learningImagesSource.includes('original:') && learningImagesSource.includes('optimizedImageMap'), 'image data maps original, enhanced and optimized school photographs');
 check(stylesSource.includes('@keyframes bbs-image-marquee') && stylesSource.includes('animation-play-state: paused'), 'marquee scrolls continuously and pauses on hover or keyboard focus');
 check(stylesSource.includes('.bbs-image-marquee__track {') && stylesSource.includes('animation: none;'), 'marquee motion has a reduced-motion fallback');
 
