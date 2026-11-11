@@ -10,6 +10,9 @@ import {
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { Button } from '@/components/ui/button.jsx';
 import { contactDetails } from '@/data/contact.js';
+import { Input } from '@/components/ui/input.jsx';
+import { Textarea } from '@/components/ui/textarea.jsx';
+import { Label } from '@/components/ui/label.jsx';
 
 const CATEGORIES = [
   { label: 'Admissions enquiry', value: 'admissions' },
@@ -182,7 +185,7 @@ export function ContactPage() {
                 />
 
                 <div className="space-y-2">
-                  <label htmlFor="category" className="block text-sm font-semibold text-ink-deep">
+                  <Label htmlFor="category">
                     What is your enquiry about?
                   </label>
                   <select
@@ -281,7 +284,7 @@ function TextField({ label, id, type = 'text', autoComplete, value, onChange, er
       <label htmlFor={id} className="block text-sm font-semibold text-ink-deep">
         {label}
       </label>
-      <input
+      <Input
         id={id}
         name={id}
         type={type}
@@ -291,10 +294,7 @@ function TextField({ label, id, type = 'text', autoComplete, value, onChange, er
         onChange={(event) => onChange(event.currentTarget.value)}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? id + '-error' : undefined}
-        className={
-          'block min-h-12 w-full rounded-xl border bg-white px-4 py-3 text-ink outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ' +
-          (error ? 'border-red-600' : 'border-border-soft')
-        }
+        className={error ? 'border-red-700' : ''}
       />
       {error && <p id={id + '-error'} role="alert" className="text-sm font-medium text-red-700">{error}</p>}
     </div>
