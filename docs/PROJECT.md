@@ -47,6 +47,8 @@ Current parents, family members, prospective staff, and community visitors looki
 - **Distinctiveness:** a green-led school identity with restrained yellow accents, expressive typography, and intentional contrast.
 - **Accessibility:** readable, keyboard-friendly, mobile-first experience.
 - **Performance:** fast initial load, optimized images, minimal dependencies.
+- **Distinctive motion:** use the school's real photographs in a restrained, rope-like moving image strip in the homepage hero; respect reduced-motion preferences.
+- **Consistent UI foundation:** use shadcn/ui primitives configured for Vite, React JSX, and Tailwind CSS 4.
 - **Maintainability:** reusable components and structured content.
 
 ## 5. Brand and visual direction
