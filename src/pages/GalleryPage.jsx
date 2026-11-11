@@ -87,7 +87,7 @@ export function GalleryPage() {
     <>
       <section className="relative isolate overflow-hidden bg-brand-deep text-white">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full border border-white/10" />
-        <div className="container-wide relative grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[1fr_0.72fr] lg:py-24">
+        <div className="container-wide relative grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[1fr_0.92fr] lg:py-24">
           <div>
             <Badge variant="accent" className="mb-5 gap-2 border border-white/15 bg-white/10 text-[#F2D98C]"><span className="h-2 w-2 rounded-full bg-accent" /> Official school gallery</Badge>
             <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">A closer look at life at Bukana Brilliant Schools.</h1>
@@ -97,7 +97,7 @@ export function GalleryPage() {
               <Button variant="secondary" href="/school-life" className="min-h-12 border-white/50 bg-white/8 px-6 text-white shadow-none hover:bg-white hover:text-brand-deep">Explore school life</Button>
             </div>
           </div>
-          <div className="relative mx-auto min-h-[20rem] w-full max-w-md overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl shadow-black/20 sm:min-h-[23rem]">
+          <div className="relative mx-auto min-h-[22rem] w-full max-w-none overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl shadow-black/20 sm:min-h-[23rem]">
             <img
               src={galleryHeroImage}
               alt=""
@@ -110,7 +110,7 @@ export function GalleryPage() {
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/45 to-brand-deep/10" />
-            <div className="relative flex min-h-[20rem] flex-col justify-end p-6 sm:min-h-[23rem] sm:p-8">
+            <div className="relative flex min-h-[20rem] flex-col justify-end p-6 sm:min-h-[27rem] sm:p-8">
               <span className="mb-auto inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-brand-deep/45 text-[#E8D28C] backdrop-blur-sm">
                 <Camera aria-hidden="true" className="h-5 w-5" />
               </span>
