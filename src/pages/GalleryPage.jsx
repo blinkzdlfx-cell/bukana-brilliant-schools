@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { Camera, ChevronLeft, ChevronRight, MessageCircle, ShieldCheck, X } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { Badge } from '@/components/ui/badge.jsx';
-import { schoolImages } from '@/data/learning-images.js';
+import { schoolImages, schoolImageAssets } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 import galleryHeroImage from '@/images/Real school moments.png';
 
 const CATEGORY_ORDER = ['Campus', 'Classrooms', 'Learning', 'Activities', 'Students', 'Teachers'];
@@ -98,8 +99,9 @@ export function GalleryPage() {
             </div>
           </div>
           <div className="relative mx-auto min-h-[22rem] w-full max-w-none overflow-hidden rounded-[1.5rem] border border-white/15 shadow-2xl shadow-black/20 sm:min-h-[23rem]">
-            <img
+            <OptimizedImage
               src={galleryHeroImage}
+              optimized={schoolImageAssets["Real school moments.png"]}
               alt=""
               aria-hidden="true"
               width="1200"
@@ -127,7 +129,7 @@ export function GalleryPage() {
             <div className="max-w-2xl">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand">The BBS photo collection</p>
               <h2 className="text-balance text-3xl font-bold tracking-tight text-ink-deep sm:text-4xl">Real moments. Real learning.</h2>
-              <p className="mt-4 leading-7 text-ink-muted">Browse the collection at your own pace. Select any photograph to view its original and enhanced versions.</p>
+              <p className="mt-4 leading-7 text-ink-muted">Explore the photographs at your own pace. Select an image to compare the original with its enhanced landscape version.</p>
             </div>
             <p className="text-sm font-semibold text-ink-muted" aria-live="polite">{visibleImages.length} {visibleImages.length === 1 ? 'photo' : 'photos'}</p>
           </div>
@@ -164,23 +166,26 @@ export function GalleryPage() {
                   className="group relative block w-full overflow-hidden bg-brand/5 text-left"
                 >
                   <div className={`relative overflow-hidden ${IMAGE_SHAPES[index % IMAGE_SHAPES.length]}`}>
-                    <img
+                    <OptimizedImage
                       src={image.enhanced || image.original}
+                      optimized={image.optimized.enhanced}
                       alt={image.alt}
-                      width="1280"
-                      height="720"
+                      width={1280}
+                      height={720}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       loading={index < 3 ? 'eager' : 'lazy'}
-                      decoding="async"
+                      fetchPriority={index === 0 ? 'high' : undefined}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
                     />
                     <span className="absolute bottom-3 right-3 block h-28 w-[4.5rem] overflow-hidden rounded-xl border-2 border-white shadow-lg sm:h-32 sm:w-20">
-                      <img
+                      <OptimizedImage
                         src={image.original || image.enhanced}
+                        optimized={image.optimized.original}
                         alt=""
-                        width="360"
-                        height="640"
+                        width={360}
+                        height={640}
+                        sizes="5rem"
                         loading="lazy"
-                        decoding="async"
                         className="h-full w-full scale-110 object-cover"
                       />
                     </span>
@@ -236,7 +241,7 @@ export function GalleryPage() {
             </div>
             <div className="grid items-center gap-4 lg:grid-cols-[minmax(0,1fr)_14rem]">
               <div className="flex min-h-56 items-center justify-center overflow-hidden rounded-xl bg-black/40">
-                <img src={selectedImage.enhanced || selectedImage.original} alt={selectedImage.alt} className="max-h-[62vh] w-full object-contain" />
+                <OptimizedImage src={selectedImage.enhanced || selectedImage.original} optimized={selectedImage.optimized.enhanced} alt={selectedImage.alt} sizes="90vw" className="max-h-[62vh] w-full object-contain" />
               </div>
               <div className="flex flex-col items-center gap-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/65">Original photograph</p>
