@@ -37,6 +37,9 @@ jobs:
           git commit -m "chore: sync npm dependency lockfile"
           git push
 
+      - name: Verify clean locked dependency install
+        run: npm ci --no-audit --no-fund
+
       - name: Lint source
         run: npm run lint
 
