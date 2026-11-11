@@ -13,6 +13,7 @@ import { contactDetails } from '@/data/contact.js';
 import { Input } from '@/components/ui/input.jsx';
 import { Textarea } from '@/components/ui/textarea.jsx';
 import { Label } from '@/components/ui/label.jsx';
+import { Separator } from '@/components/ui/separator.jsx';
 
 const CATEGORIES = [
   { label: 'Admissions enquiry', value: 'admissions' },
@@ -187,7 +188,7 @@ export function ContactPage() {
                 <div className="space-y-2">
                   <Label htmlFor="category">
                     What is your enquiry about?
-                  </label>
+                  </Label>
                   <select
                     id="category"
                     name="category"
@@ -201,11 +202,11 @@ export function ContactPage() {
                   </select>
                 </div>
 
+                <Separator className="my-2" />
+
                 <div className="space-y-2">
-                  <label htmlFor="message" className="block text-sm font-semibold text-ink-deep">
-                    Message
-                  </label>
-                  <textarea
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
                     id="message"
                     name="message"
                     rows={5}
@@ -214,7 +215,7 @@ export function ContactPage() {
                     onChange={(event) => handleChange('message', event.currentTarget.value)}
                     aria-invalid={Boolean(errors.message)}
                     aria-describedby={errors.message ? 'message-error' : undefined}
-                    className="block min-h-36 w-full resize-y rounded-xl border border-border-soft bg-white px-4 py-3 leading-7 text-ink outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                    className="min-h-36 resize-y rounded-xl px-4 py-3 leading-7"
                     placeholder="Tell us what you would like to know..."
                   />
                   {errors.message && <p id="message-error" role="alert" className="text-sm font-medium text-red-700">{errors.message}</p>}
