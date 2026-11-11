@@ -1,6 +1,7 @@
 import { Camera, MessageCircle, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { LearningImageMarquee } from '@/components/ui/learning-image-marquee.jsx';
+import { Badge } from '@/components/ui/badge.jsx';
 
 export function GalleryPage() {
   return (
@@ -9,7 +10,7 @@ export function GalleryPage() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full border border-white/10" />
         <div className="container-wide relative grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[1fr_0.72fr] lg:py-24">
           <div>
-            <p className="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D28C]"><span className="h-2 w-2 rounded-full bg-accent" /> Official school gallery</p>
+            <Badge variant="accent" className="mb-5 gap-2 border border-white/15 bg-white/10 text-[#F2D98C]"><span className="h-2 w-2 rounded-full bg-accent" /> Official school gallery</Badge>
             <h1 className="max-w-3xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">A closer look at life at Bukana Brilliant Schools.</h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">Explore photographs of the school environment, learning spaces, teachers and students.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row"><Button variant="accent" href="/contact" className="min-h-12 px-6">Ask about a school visit</Button><Button variant="secondary" href="/school-life" className="min-h-12 border-white/50 bg-white/8 px-6 text-white shadow-none hover:bg-white hover:text-brand-deep">Explore school life</Button></div>
