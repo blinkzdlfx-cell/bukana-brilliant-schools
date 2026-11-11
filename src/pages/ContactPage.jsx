@@ -256,7 +256,10 @@ export function ContactPage() {
             </Button>
           </div>
 
-          <div className="overflow-hidden rounded-[1.5rem] border border-border-soft bg-white p-5 shadow-sm sm:p-7">\n            <div className="mb-6 aspect-[16/9] overflow-hidden rounded-xl">\n              <OptimizedImage src={schoolImages[0].enhanced} optimized={schoolImages[0].optimized.enhanced} alt={schoolImages[0].alt} sizes="(max-width: 1024px) 100vw, 40vw" className="h-full w-full object-cover" />\n            </div>
+          <div className="overflow-hidden rounded-[1.5rem] border border-border-soft bg-white p-5 shadow-sm sm:p-7">
+            <div className="mb-6 aspect-[16/9] overflow-hidden rounded-xl">
+              <OptimizedImage src={schoolImages[0].enhanced} optimized={schoolImages[0].optimized.enhanced} alt={schoolImages[0].alt} sizes="(max-width: 1024px) 100vw, 40vw" className="h-full w-full object-cover" />
+            </div>
             <div className="flex items-center gap-3">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
                 <MapPin aria-hidden="true" className="h-5 w-5" />
