@@ -14,6 +14,7 @@ import { Card, CardBody } from '@/components/ui/card.jsx';
 import { schoolProfile, admissionsCta, academicsCta, contactCta } from '@/data/school.js';
 import { contactDetails } from '@/data/contact.js';
 import { LearningImageMarquee } from '@/components/ui/learning-image-marquee.jsx';
+import { HeroRopeStrip } from '@/components/ui/hero-rope-strip.jsx';
 
 const learningStages = [
   {
@@ -126,52 +127,7 @@ function HeroSection() {
           </p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 22, scale: 0.985 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.14, duration: 0.5, ease: 'easeOut' }}
-          className="relative mx-auto w-full max-w-[34rem] lg:ml-auto"
-        >
-          <div aria-hidden="true" className="absolute -right-5 -top-5 h-24 w-24 rounded-[2rem] border border-accent/30" />
-          <div aria-hidden="true" className="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-accent/15 blur-2xl" />
-          <div className="relative rounded-[1.75rem] border border-white/60 bg-[#F8FAF6] p-5 text-ink shadow-2xl shadow-black/20 sm:p-7">
-            <div className="flex items-center justify-between gap-3 border-b border-border-soft pb-5">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand">The BBS journey</p>
-                <h2 className="mt-2 text-xl font-bold tracking-tight text-ink-deep sm:text-2xl">A place to grow</h2>
-              </div>
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand/10 text-brand">
-                <Sparkles aria-hidden="true" className="h-5 w-5" />
-              </span>
-            </div>
-
-            <div className="relative space-y-3 py-5">
-              <div aria-hidden="true" className="absolute bottom-12 left-[1.45rem] top-12 w-px bg-brand/15" />
-              {learningStages.map(({ name, description, icon: Icon, number }, index) => (
-                <div key={name} className="relative flex items-center gap-4 rounded-2xl border border-border-soft bg-white p-4 shadow-sm">
-                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                    <Icon aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                      <h3 className="text-base font-bold text-ink-deep">{name}</h3>
-                      <span className="text-[10px] font-bold tracking-[0.12em] text-brand/65">{number}</span>
-                    </div>
-                    <p className="mt-1 text-sm leading-6 text-ink-muted">{description}</p>
-                  </div>
-                  {index === 0 && <span className="sr-only">First stage</span>}
-                </div>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-3 rounded-xl bg-brand-deep px-4 py-3.5 text-white">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent">
-                <BookOpen aria-hidden="true" className="h-4 w-4" />
-              </span>
-              <p className="text-sm font-medium leading-6">Be a star @ BBS — every child has room to shine.</p>
-            </div>
-          </div>
-        </motion.div>
+        <HeroRopeStrip />
       </div>
     </section>
   );
