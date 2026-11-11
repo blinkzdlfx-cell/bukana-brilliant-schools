@@ -282,9 +282,7 @@ export function ContactPage() {
 function TextField({ label, id, type = 'text', autoComplete, value, onChange, error, required = false }) {
   return (
     <div className="space-y-2">
-      <label htmlFor={id} className="block text-sm font-semibold text-ink-deep">
-        {label}
-      </label>
+      <Label htmlFor={id}>{label}</Label>
       <Input
         id={id}
         name={id}
