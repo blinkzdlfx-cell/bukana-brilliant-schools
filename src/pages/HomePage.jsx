@@ -47,9 +47,9 @@ export function HomePage() {
     <>
       <HeroSection />
       <LearningImageMarquee
-        eyebrow="Learning in motion"
-        title="Every little discovery deserves a moment."
-        description="A visual celebration of reading, creativity and the joy of learning."
+        eyebrow="Life at Bukana Brilliant Schools"
+        title="Real moments from our school community."
+        description="Explore authentic photographs of our learning spaces, teachers, students and school environment."
       />
       <LearningPathSection />
       <FamilySection />
