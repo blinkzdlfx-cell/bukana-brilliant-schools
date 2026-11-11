@@ -6,9 +6,9 @@ export const schoolProfile = {
   address: 'Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos, Nigeria',
   addressPendingConfirmation: true,
   description:
-    'Bukana Brilliant Schools serves Creche, Nursery, and Primary education in Ijegun, Lagos, helping every child grow in confidence, curiosity, and character.',
+    'Bukana Brilliant Schools offers Creche, Nursery and Primary education in Ijegun, Lagos, with a focus on helping every child grow in confidence, curiosity and character.',
   mission:
-    'To nurture every child&rsquo;s potential through caring, purposeful early-years and primary education&mdash;helping each pupil grow in confidence, curiosity, and character, and be a star @ BBS.',
+    'To nurture every child’s potential through caring, purposeful early-years and primary education, helping each pupil grow in confidence, curiosity and character.',
   vision: null,
   values: null,
   logo: null,
@@ -36,7 +36,7 @@ export const navDropdowns = {
 };
 
 export const admissionsCta = {
-  label: 'Enquire about admission',
+  label: 'Enquire about admissions',
   href: '/admissions',
 };
 

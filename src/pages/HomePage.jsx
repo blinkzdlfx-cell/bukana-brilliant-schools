@@ -222,7 +222,14 @@ function FamilySection() {
           </Button>
         </div>
 
-        <div className="rounded-[1.5rem] border border-border-soft bg-white p-6 shadow-sm sm:p-8">
+        <div className="space-y-5">
+          <figure className="overflow-hidden rounded-[1.5rem] border border-border-soft bg-white shadow-sm">
+            <div className="aspect-[16/9] overflow-hidden">
+              <OptimizedImage src={schoolImages[13].enhanced} optimized={schoolImages[13].optimized.enhanced} alt={schoolImages[13].alt} sizes="(max-width: 1024px) 100vw, 45vw" loading="lazy" className="h-full w-full object-cover" />
+            </div>
+            <figcaption className="px-4 py-3 text-sm font-semibold text-ink-deep">{schoolImages[13].caption}</figcaption>
+          </figure>
+          <div className="rounded-[1.5rem] border border-border-soft bg-white p-6 shadow-sm sm:p-8">
           <div className="flex items-center gap-3">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
               <Compass aria-hidden="true" className="h-5 w-5" />
@@ -242,6 +249,7 @@ function FamilySection() {
               </li>
             ))}
           </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export const contactDetails = {
 };
 
 export const contactIntro =
-  'Contact Bukana Brilliant Schools to ask about Creche, Nursery, and Primary admissions, current requirements, or arranging a visit. Reach us by email or WhatsApp.';
+  'Contact Bukana Brilliant Schools to ask about Creche, Nursery and Primary admissions, current requirements or arranging a school visit. You can reach the school by email or WhatsApp.';
 
 export const contactFormSuccessMessage =
-  'Thank you for contacting Bukana Brilliant Schools. Your message has been prepared for sending&mdash;please complete it in your email app or WhatsApp.';
+  'Thank you for contacting Bukana Brilliant Schools. Your message is ready to send. Review it in your email application or WhatsApp before sending.';

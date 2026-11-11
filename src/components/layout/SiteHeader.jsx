@@ -159,7 +159,7 @@ export function SiteHeader({ currentPath, onLinkClick }) {
             }}
             className="min-h-11 px-5 text-sm"
           >
-            Enquire about admission
+            Enquire about admissions
           </Button>
         </div>
 
@@ -279,7 +279,7 @@ export function SiteHeader({ currentPath, onLinkClick }) {
               }}
               className="min-h-12 w-full"
             >
-              Enquire about admission
+              Enquire about admissions
             </Button>
           </div>
         </div>

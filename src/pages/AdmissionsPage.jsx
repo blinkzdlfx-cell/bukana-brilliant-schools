@@ -66,7 +66,7 @@ export function AdmissionsPage() {
               Make your first step an informed one.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg">
-              Considering Bukana Brilliant Schools for Creche, Nursery or Primary? Start by speaking with the school. The admissions team can confirm current availability, requirements and how to proceed.
+              Considering Bukana Brilliant Schools for Creche, Nursery or Primary? Start by speaking with the school. The school can confirm current availability, requirements and how to proceed.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button variant="accent" href="/contact" className="min-h-12 px-6">
@@ -183,7 +183,7 @@ export function AdmissionsPage() {
             <div className="mt-7 flex items-start gap-3 rounded-xl bg-surface-warm p-4">
               <ShieldCheck aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
               <p className="text-sm leading-6 text-ink-muted">
-                The admissions team will guide you through the current requirements and next steps.
+                The school will guide you through the current requirements and next steps.
               </p>
             </div>
           </div>
