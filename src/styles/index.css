@@ -247,7 +247,7 @@
   }
 }
 
-/* Photographic rope strip in the homepage hero */
+/* Photographic rope strip in the homepage Life at BBS section */
 .bbs-hero-rope{position:relative;width:100%;max-width:38rem;margin-inline:auto;padding:1.25rem 0 .5rem;overflow:hidden;isolation:isolate;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .bbs-hero-rope__heading{display:flex;align-items:center;gap:.6rem;margin:0 1rem 1rem;color:rgba(255,255,255,.82);font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
 .bbs-hero-rope__dot{width:.45rem;height:.45rem;flex:0 0 auto;border-radius:50%;background:var(--color-accent)}
@@ -257,7 +257,7 @@
 .bbs-rope-lane--reverse{margin-left:-1.6rem}
 .bbs-rope-line{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .bbs-rope-line path{fill:none;stroke:rgba(226,210,155,.72);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:5 5}
-.bbs-rope-track{position:absolute;inset:0 auto 0 0;display:flex;align-items:center;width:max-content;gap:1.15rem;animation:bbs-rope-travel var(--rope-duration,42s) linear infinite;will-change:transform}
+.bbs-rope-track{position:absolute;inset:0 auto 0 0;display:flex;align-items:center;width:max-content;gap:1.15rem;animation:bbs-rope-travel var(--rope-duration,84s) linear infinite;will-change:transform}
 .bbs-rope-lane--reverse .bbs-rope-track{animation-direction:reverse}
 .bbs-rope-photo{position:relative;width:clamp(7.8rem,17vw,10.5rem);height:8.3rem;flex:0 0 auto;padding:.28rem;border:1px solid rgba(255,255,255,.72);border-radius:.38rem;background:#f8faf6;box-shadow:0 9px 24px rgba(0,0,0,.22);transform:rotate(calc((var(--photo-index) - 4)*1.15deg));animation:bbs-rope-sway 3.8s ease-in-out infinite;animation-delay:calc(var(--photo-index)*-.31s)}
 .bbs-rope-photo:nth-child(3n){margin-top:1.35rem}.bbs-rope-photo:nth-child(4n){margin-top:-.9rem}
