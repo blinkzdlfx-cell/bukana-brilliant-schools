@@ -12,6 +12,8 @@ import { Button } from '@/components/ui/button.jsx';
 import { SectionHeading } from '@/components/ui/section-heading.jsx';
 import { Card, CardBody } from '@/components/ui/card.jsx';
 import { schoolProfile } from '@/data/school.js';
+import { schoolImages } from '@/data/learning-images.js';
+import { OptimizedImage } from '@/components/ui/optimized-image.jsx';
 
 const foundations = [
   {
@@ -80,7 +82,8 @@ function HeroSection() {
 
         <div className="relative mx-auto w-full max-w-md">
           <div aria-hidden="true" className="absolute -inset-4 rounded-[2rem] border border-white/15" />
-          <div className="relative rounded-[1.5rem] border border-white/15 bg-white/8 p-7 backdrop-blur-sm sm:p-9">
+          <div className="relative rounded-[1.5rem] border border-white/15 bg-white/8 p-5 backdrop-blur-sm sm:p-7">
+            <div className="mb-6 aspect-[16/9] overflow-hidden rounded-xl"><OptimizedImage src={schoolImages[0].enhanced} optimized={schoolImages[0].optimized.enhanced} alt={schoolImages[0].alt} sizes="(max-width: 1024px) 100vw, 40vw" loading="eager" className="h-full w-full object-cover" /></div>
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/15 text-[#E8D28C]">
               <BookOpen aria-hidden="true" className="h-6 w-6" />
             </span>
@@ -89,7 +92,7 @@ function HeroSection() {
               “{schoolProfile.tagline}”
             </p>
             <p className="mt-4 text-sm leading-7 text-white/70">
-              A commitment to helping children develop confidence, curiosity and character through their learning journey.
+              Helping children develop confidence, curiosity and character as they learn and grow.
             </p>
           </div>
         </div>
@@ -108,7 +111,7 @@ function OurPurposeSection() {
             A strong beginning matters.
           </h2>
           <p className="mt-5 leading-8 text-ink-muted">
-            Early learning is an important part of a child’s journey. Bukana Brilliant Schools brings together Creche, Nursery and Primary education for families in Ijegun, Lagos.
+            Bukana Brilliant Schools brings Creche, Nursery and Primary education together in one school community in Ijegun, Lagos.
           </p>
         </div>
         <div className="rounded-[1.5rem] border border-brand/10 bg-surface-warm p-7 sm:p-9">
@@ -131,7 +134,7 @@ function FoundationsSection() {
         <SectionHeading
           eyebrow="The BBS outlook"
           title="Growing in more than one way"
-          description="The school’s stated purpose places confidence, curiosity and character alongside a child’s learning journey."
+          description="Confidence, curiosity and character are important parts of a child’s development."
         />
         <div className="mt-11 grid gap-5 md:grid-cols-3">
           {foundations.map(({ title, description, icon: Icon }, index) => (
@@ -167,7 +170,7 @@ function FamilyPartnershipSection() {
               A school choice is a family decision.
             </h2>
             <p className="mt-4 leading-7 text-white">
-              We encourage parents and guardians to speak with the school, ask questions and learn more about the learning levels and current arrangements before making a decision.
+              We welcome conversations with parents and guardians. Contact us to learn more about our learning levels and arrange a visit.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
