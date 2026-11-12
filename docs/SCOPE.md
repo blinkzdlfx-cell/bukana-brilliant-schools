@@ -11,8 +11,6 @@ The initial release is a public-facing informational school website.
 - Admissions information page with a numbered enquiry process and required document checklist.
 - School Life / Gallery page.
 - Contact / Find Us page with an email (mailto) enquiry form and WhatsApp contact link.
-- Career page (vacancy interest).
-- Optional News & Events page only if the school supplies maintainable content.
 - Optional News & Events page only if the school supplies maintainable content.
 - Responsive desktop and mobile navigation.
 - Reusable page sections and UI components.
@@ -22,7 +20,7 @@ The initial release is a public-facing informational school website.
 - Accessible interaction states.
 - 404 page.
 - Production build and smoke checks.
-- Deployment configuration once the hosting provider is confirmed.
+- Cloudflare Workers deployment configuration using Wrangler.
 
 ## 2. Functional expectations
 
@@ -69,6 +67,7 @@ These features must not be added simply because they are common in school websit
 - Unverified curriculum or policy claims.
 - Unapproved identifiable student photographs.
 - Unmaintained news/event feeds.
+- Career/vacancy page (removed from the approved public scope).
 
 ## 5. Scope control
 

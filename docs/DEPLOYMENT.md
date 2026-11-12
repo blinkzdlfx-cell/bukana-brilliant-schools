@@ -2,12 +2,14 @@
 
 ## 1. Current status
 
-The site is a Vite-built React single-page application (SPA) deployed to **Cloudflare Workers** using `wrangler`. The owner is preparing to connect the repository and test the generated deployment. Do not assume that a live deployment has been verified.
+The site is a Vite-built React single-page application (SPA) deployed to **Cloudflare Workers** using `wrangler` (`wrangler.toml`, `src/worker.js`).
 
-Planned domain:
-- `bukanabrilliantschools.com`
+Primary public URL:
+- `https://bukanabrilliantschools.com`
 
-Do not assume DNS access, hosting configuration, environment variables, or deployment credentials are available.
+The `www` hostname also responds at `https://www.bukanabrilliantschools.com` and publishes the apex hostname as its canonical URL.
+
+**Public check — 2026-11-12:** direct page retrieval confirmed the homepage and key nested routes return their expected page content and metadata on the public domain. This is not an interactive browser audit. Desktop/mobile viewport rendering, live menu/form interactions, browser Console errors, and Network failures remain unverified until browser tooling is available.
 
 ## 2. Build settings
 
@@ -36,9 +38,8 @@ The app selects pages from `window.location.pathname`. The Worker (`src/worker.j
 - `/school-life`
 - `/gallery`
 - `/contact`
-- `/career`
 
-The `wrangler.toml` `[assets]` directory points to `dist`, and `env.ASSETS.fetch` serves built assets with the SPA fallback in `src/worker.js`.
+The `wrangler.toml` `[assets]` directory points to `dist`, and `env.ASSETS.fetch` serves built assets with the SPA fallback in `src/worker.js`. The removed `/career` route is not part of the public navigation or sitemap; the application handles unknown routes with its not-found page.
 
 ## 4. Deploy command
 
@@ -123,7 +124,7 @@ If an enquiry integration or external service is later approved:
 - [ ] No critical console or network errors.
 - [ ] `wrangler deploy` completes without errors.
 - [ ] Domain DNS points to the approved host.
-- [ ] HTTPS works.
+- [x] HTTPS responds on the apex and `www` public hostnames (direct content retrieval checked 2026-11-12).
 - [ ] Final production review is approved by the owner.
 
 ## 9. Deployment safety

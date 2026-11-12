@@ -10,13 +10,13 @@ Use this list to collect the exact information and assets needed to finish the B
 - Educational levels: **Creche, Nursery, Primary**
 - Domain: **bukanabrilliantschools.com**
 - WhatsApp number supplied for the site: **07019779736** (display format)
-- Address currently recorded: **Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos, Nigeria** — owner must verify spelling, directions, and exact location before final publication.
+- Address: **Degbuyi Complex, 282, Jegun/Ikotun Road, Thomas Adeoye B/Stop, Ijegun, Lagos, Nigeria** — owner-confirmed for the current website; a precise map pin is still a separate item.
 
 ## Priority 1 — Required before the site can be signed off
 
 ### 1. Official identity and branding
 - [ ] Confirm the official school name and how it should appear in the header/footer.
-- [ ] Send the official logo (preferably SVG or transparent PNG; send the best available quality).
+- [x] Official logo supplied at `src/images/bukana-logo.jpeg`; GitHub Actions generates the SVG favicon and Apple touch icon from this source.
 - [ ] Confirm the tagline: **Be a star @ BBS**.
 - [ ] Approve the general wording and visual presentation of the website.
 - [ ] Provide any official school colours or brand rules beyond the current green/white/yellow design.
@@ -31,7 +31,7 @@ Use this list to collect the exact information and assets needed to finish the B
 - [ ] Send official Facebook, Instagram, or other social media links, if used.
 
 ### 3. Real school photographs
-Please send original photos from the school, preferably clear, well-lit, high-resolution images:
+The repository currently contains 21 school-photo entries with original and enhanced landscape versions. Review the set and confirm the usage rights and approvals below before treating the photo library as fully signed off.
 - [ ] School exterior, signboard, and entrance.
 - [ ] Classrooms or learning spaces.
 - [ ] Creche environment.
@@ -104,7 +104,7 @@ For **each** level, please provide:
 To avoid delaying the project, request these first:
 1. Official logo.
 2. Confirmation of WhatsApp **07019779736**, address, phone, email, opening hours, and map pin.
-3. At least 8–15 approved school photos, with consent confirmed for any identifiable children.
+3. Review the supplied 21 school-photo entries and confirm publication rights and parent/guardian consent for identifiable children.
 4. Short official school description and any approved mission/vision/values.
 5. Creche, Nursery, and Primary age ranges, class structure, and curriculum/learning details.
 6. Admission process, requirements, and whether fees should be shown publicly.

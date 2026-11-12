@@ -25,7 +25,7 @@ npm --version
 
 Shared UI primitives live in `src/components/ui/` and follow shadcn/ui conventions. The root `components.json` configures the shadcn CLI for Vite, JavaScript/JSX, Tailwind CSS 4, and the repository aliases. Add or update primitives through the shadcn workflow, then adapt variants to the BBS design tokens. Avoid creating a separate custom UI kit.
 
-The homepage hero includes a moving photographic rope strip built from approved local school images. It pauses on hover/focus and respects reduced-motion preferences.
+The homepage hero includes a restrained moving photographic rope strip built from school-supplied local images. It pauses on hover/focus and respects reduced-motion preferences. Publication rights and parent/guardian consent for identifiable pupils remain owner sign-off items.
 
 Current shadcn/ui primitives: Button, Card, Input, Label, Textarea, Badge and Separator. The contact enquiry form uses the form primitives, and the gallery uses Badge. Components are copied into the project and themed with the school tokens; add new components only when a page needs them.
 
@@ -59,7 +59,7 @@ The site is a Vite-built React single-page application (SPA).
 - After deployment, open the root URL and at least one nested route. Check browser Console and Network for JavaScript exceptions, failed module requests, and missing assets.
 - A successful build does not by itself prove that the deployed site renders correctly.
 
-For Cloudflare Pages, connect the repository using the build command and output directory above, then verify the deployment URL before changing or attaching a custom domain. Do not change DNS or production hosting settings without the owner's approval.
+The production Worker is configured through `wrangler.toml` and `src/worker.js`. After approval, deploy with `npm run build` followed by `npx wrangler deploy`. Do not change DNS or production hosting settings without the owner's approval.
 
 ## Agent instructions and project source of truth
 
@@ -83,4 +83,4 @@ Only publish school information confirmed by the owner. Do not invent fees, admi
 
 ## Domain
 
-Planned public domain: `bukanabrilliantschools.com`. Hosting and DNS configuration must be confirmed before production deployment.
+Public website: [https://bukanabrilliantschools.com](https://bukanabrilliantschools.com). The `www` hostname also responds and uses the apex URL as its canonical address. Verify the live deployment after every production release.

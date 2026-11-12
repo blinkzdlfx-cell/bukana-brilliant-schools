@@ -6,9 +6,8 @@ compatibility_date = "2026-11-06"
 directory = "dist"
 binding = "ASSETS"
 
-# Custom domain (bukanabrilliantschools.com) is configured separately via the
-# Cloudflare dashboard or `wrangler custom-domain add` once DNS is approved.
-# Do not add wildcard/path route patterns for custom domains here.
+# Custom hostnames are managed separately in the Cloudflare dashboard.
+# Keep custom-domain routes out of this file; do not add wildcard/path routes here.
 
 [observability]
 enabled = true

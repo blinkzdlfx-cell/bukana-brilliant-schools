@@ -17,7 +17,8 @@ const footerLinks = [
 export function SiteFooter({ currentPath, onLinkClick }) {
   const currentYear = new Date().getFullYear();
   const hasSocial = contactData.social && contactData.social.length > 0;
-  const mapHref = contactData.address
+  const hasConfirmedAddress = Boolean(contactData.address && !contactData.addressPending);
+  const mapHref = hasConfirmedAddress
     ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(contactData.address)
     : null;
 
@@ -115,7 +116,7 @@ export function SiteFooter({ currentPath, onLinkClick }) {
             <div>
               <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-ink-deep">Contact</h2>
               <ul className="mt-5 space-y-4 text-sm">
-                {contactData.address && (
+                {hasConfirmedAddress && (
                   <li className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                     <div className="min-w-0">

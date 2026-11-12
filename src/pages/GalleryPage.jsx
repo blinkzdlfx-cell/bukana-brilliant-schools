@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Camera, ChevronLeft, ChevronRight, MessageCircle, ShieldCheck, X } from 'lucide-react';
 import { Button } from '@/components/ui/button.jsx';
 import { Badge } from '@/components/ui/badge.jsx';
@@ -33,6 +33,9 @@ const IMAGE_SHAPES = [
 export function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const isViewerOpen = selectedIndex !== null;
 
   const categories = useMemo(
     () => ['All', ...CATEGORY_ORDER.filter((category) => galleryImages.some((image) => image.category === category))],
@@ -47,18 +50,52 @@ export function GalleryPage() {
   );
 
   useEffect(() => {
-    if (selectedIndex === null) return undefined;
+    if (!isViewerOpen) return undefined;
 
+    const previousFocus = document.activeElement;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
 
     function handleKeyDown(event) {
-      if (event.key === 'Escape') setSelectedIndex(null);
+      if (event.key === 'Escape') {
+        setSelectedIndex(null);
+        return;
+      }
       if (event.key === 'ArrowRight') {
         setSelectedIndex((current) => (current + 1) % visibleImages.length);
+        return;
       }
       if (event.key === 'ArrowLeft') {
         setSelectedIndex((current) => (current - 1 + visibleImages.length) % visibleImages.length);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusableElements = Array.from(
+        dialogRef.current?.querySelectorAll(
+          'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ) ?? []
+      ).filter((element) => !element.hasAttribute('hidden') && element.getAttribute('aria-hidden') !== 'true');
+
+      if (!focusableElements.length) {
+        event.preventDefault();
+        closeButtonRef.current?.focus();
+        return;
+      }
+
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      if (!dialogRef.current?.contains(document.activeElement)) {
+        event.preventDefault();
+        (event.shiftKey ? lastFocusable : firstFocusable).focus();
+      } else if (event.shiftKey && document.activeElement === firstFocusable) {
+        event.preventDefault();
+        lastFocusable.focus();
+      } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+        event.preventDefault();
+        firstFocusable.focus();
       }
     }
 
@@ -66,8 +103,9 @@ export function GalleryPage() {
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
+      if (previousFocus?.isConnected) previousFocus.focus?.();
     };
-  }, [selectedIndex, visibleImages.length]);
+  }, [isViewerOpen, visibleImages.length]);
 
   const selectedImage = selectedIndex === null ? null : visibleImages[selectedIndex];
 
@@ -225,6 +263,7 @@ export function GalleryPage() {
           onClick={() => setSelectedIndex(null)}
         >
           <div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label={`Photograph viewer: ${selectedImage.caption}`}
@@ -237,7 +276,7 @@ export function GalleryPage() {
                 <h2 className="mt-1 text-xl font-bold text-white sm:text-2xl">{selectedImage.caption}</h2>
                 <p className="mt-1 text-xs text-white/60">{selectedIndex + 1} of {visibleImages.length}</p>
               </div>
-              <button type="button" autoFocus onClick={() => setSelectedIndex(null)} aria-label="Close photograph viewer" className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><X aria-hidden="true" className="h-5 w-5" /></button>
+              <button type="button" ref={closeButtonRef} onClick={() => setSelectedIndex(null)} aria-label="Close photograph viewer" className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"><X aria-hidden="true" className="h-5 w-5" /></button>
             </div>
             <div className="grid items-center gap-4 lg:grid-cols-[minmax(0,1fr)_14rem]">
               <div className="flex min-h-56 items-center justify-center overflow-hidden rounded-xl bg-black/40">

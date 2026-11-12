@@ -38,6 +38,7 @@ const buttonPath = path.join(projectRoot, 'src/components/ui/button.jsx');
 const workerPath = path.join(projectRoot, 'src/worker.js');
 const contactPagePath = path.join(projectRoot, 'src/pages/ContactPage.jsx');
 const footerPath = path.join(projectRoot, 'src/components/layout/SiteFooter.jsx');
+const faviconPath = path.join(projectRoot, 'public/favicon.svg');
 const headerPath = path.join(projectRoot, 'src/components/layout/SiteHeader.jsx');
 const admissionsPagePath = path.join(projectRoot, 'src/pages/AdmissionsPage.jsx');
 const admissionsPageSource = fs.existsSync(admissionsPagePath)
@@ -69,6 +70,7 @@ const buttonSource = fs.existsSync(buttonPath) ? fs.readFileSync(buttonPath, 'ut
 const workerSource = fs.existsSync(workerPath) ? fs.readFileSync(workerPath, 'utf8') : '';
 const contactSource = fs.existsSync(contactPagePath) ? fs.readFileSync(contactPagePath, 'utf8') : '';
 const footerSource = fs.existsSync(footerPath) ? fs.readFileSync(footerPath, 'utf8') : '';
+const faviconSource = fs.existsSync(faviconPath) ? fs.readFileSync(faviconPath, 'utf8') : '';
 const headerSource = fs.existsSync(headerPath) ? fs.readFileSync(headerPath, 'utf8') : '';
 const routerPath = path.join(projectRoot, 'src/app/router.jsx');
 const routerSource = fs.existsSync(routerPath) ? fs.readFileSync(routerPath, 'utf8') : '';
@@ -89,6 +91,8 @@ if (fs.existsSync(optimizedImagesDir)) {
 const html = indexExists ? fs.readFileSync(indexPath, 'utf8') : '';
 check(html.includes('Bukana Brilliant Schools'), 'index.html contains school name');
 check(html.includes('Be a star @ BBS'), 'index.html contains tagline');
+check(faviconSource.includes('<svg') && faviconSource.includes('<path') && !faviconSource.includes('<image') && !faviconSource.includes('<rect width="32"'), 'favicon uses vector paths from the school logo instead of the generic placeholder');
+check(fs.existsSync(path.join(projectRoot, 'public/apple-touch-icon.png')), 'Apple touch icon is generated from the school logo');
 check(/<meta[^>]+name=["']description["']/i.test(html), 'index.html contains meta description');
 
 // The homepage renders these icons in its always-visible contact section.
@@ -111,7 +115,8 @@ check(stylesSource.includes('@keyframes bbs-rope-travel') && stylesSource.includ
 check(stylesSource.includes('.bbs-hero-rope:hover .bbs-rope-track') && stylesSource.includes('prefers-reduced-motion: reduce'), 'hero rope pauses on interaction and respects reduced motion');
 check(!galleryPage.includes('<LearningImageMarquee') && galleryPage.includes('columns-1') && galleryPage.includes('Real moments. Real learning.'), 'dedicated gallery uses a static responsive masonry layout');
 check(galleryPage.includes('aria-pressed={isActive}') && galleryPage.includes('setActiveCategory'), 'gallery category filters expose their active state and update the visible collection');
-check(galleryPage.includes('role="dialog"') && galleryPage.includes('ArrowLeft') && galleryPage.includes('ArrowRight') && galleryPage.includes('Escape'), 'gallery lightbox supports accessible viewing and keyboard navigation');
+check(galleryPage.includes('role="dialog"') && galleryPage.includes('aria-modal="true"') && galleryPage.includes('ArrowLeft') && galleryPage.includes('ArrowRight') && galleryPage.includes('Escape'), 'gallery lightbox supports accessible viewing and keyboard navigation');
+check(galleryPage.includes('dialogRef.current?.querySelectorAll') && galleryPage.includes('previousFocus?.focus?.()'), 'gallery lightbox traps keyboard focus and restores focus to the selected photo');
 check(galleryPage.includes('image.original') && galleryPage.includes('image.enhanced'), 'gallery pairs original portrait photographs with enhanced landscape versions');
 check(imageMarqueeSource.includes('bbs-image-marquee__track') && imageMarqueeSource.includes('repeatedImages') && imageMarqueeSource.includes('aria-hidden={index >= schoolImages.length || undefined}'), 'gallery slider duplicates its image set for a seamless screen-reader-safe loop');
 check(imageMarqueeSource.includes('loading="lazy"') && fs.existsSync(path.join(projectRoot, 'src/components/ui/optimized-image.jsx')), 'marquee images use the shared loading and decoding component');
@@ -154,7 +159,7 @@ check(galleryPage.includes('Respect, authenticity and pupil privacy') && gallery
 check(!appSource.includes("'/career'") && !appSource.includes('CareerPage'), 'careers route and page import are removed');
 check(!navigation.includes("href: '/career'") && !sitemap.includes('/career'), 'careers page is removed from navigation and sitemap');
 
-check(!footerSource.includes('<Phone') && footerSource.includes('{contactData.address && (') && footerSource.includes('<MapPin'), 'footer displays the supplied school address with a location icon and does not show an unconfirmed phone number');
+check(!footerSource.includes('<Phone') && footerSource.includes('const hasConfirmedAddress = Boolean(contactData.address && !contactData.addressPending)') && footerSource.includes('{hasConfirmedAddress && (') && footerSource.includes('<MapPin'), 'footer only displays a confirmed address with a location icon and does not show a phone number');
 check(contactSource.includes('aria-invalid={Boolean(error)}') && contactSource.includes('htmlFor={id}'), 'contact form fields expose accessible labels and validation state');
 check(headerSource.includes('inert={!isOpen}') && headerSource.includes('aria-hidden={!isOpen}'), 'closed mobile navigation is removed from keyboard interaction');
 check(appSource.includes('className="skip-link"') && appSource.includes('id="main-content"'), 'site provides a keyboard skip link and main content landmark');

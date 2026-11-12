@@ -53,14 +53,7 @@ Current parents, family members, prospective staff, and community visitors looki
 
 ## 5. Brand and visual direction
 
-Bukana Brilliant Schools' brand identity is built around three colours: green, white, and yellow.
-- Primary green: `#0D8215`.
-- Deep supporting green: `#094F1B`.
-- Yellow accent: `#F2C94C`.
-- White: `#FFFFFF`.
-- Warm light neutral: `#F4F5EF`.
-- Main text on light surfaces: `#172018`.
-- Deep charcoal: `#171B17`.
+Bukana Brilliant Schools' brand identity is built around green, white, and restrained yellow accents. The implemented colour tokens are documented in `docs/DESIGN_SYSTEM.md`; `src/styles/index.css` is the implementation source of truth. Do not duplicate older colour values in project notes.
 
 Green is the leading brand colour and should be recognizable throughout the website. White is an important supporting colour that helps parents read details and navigate content, but it must be used with green and warm-light sections so the overall site does not become predominantly white. Yellow is only a restrained brightness accent for small highlights, selected icons, badges, underlines, and occasional emphasis. It must not dominate large areas or compete with green.
 

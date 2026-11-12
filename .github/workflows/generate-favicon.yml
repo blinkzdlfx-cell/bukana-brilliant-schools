@@ -41,6 +41,7 @@ jobs:
           grep -q "<svg" public/favicon.svg
           grep -q "<path" public/favicon.svg
           ! grep -q "<image" public/favicon.svg
+          test "$(wc -c < public/favicon.svg)" -le 131072
           test -s public/apple-touch-icon.png
 
       - name: Commit generated favicon assets

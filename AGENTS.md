@@ -31,7 +31,7 @@ Create a polished, trustworthy, modern, responsive website for a school serving 
 
 - School name: **Bukana Brilliant Schools**
 - Tagline: **Be a star @ BBS**
-- Planned domain: `bukanabrilliantschools.com`
+- Public domain: `bukanabrilliantschools.com`
 
 Do not invent school facts. See `docs/CONTENT.md`.
 
@@ -52,16 +52,7 @@ Do not add Bootstrap or another competing styling framework. Do not add hosting-
 
 ## 4. Design rules
 
-Use Bukana Brilliant Schools' three-colour identity:
-- Primary green: `#0D8215`
-- Deep green: `#094F1B`
-- Yellow accent: `#F2C94C`
-- White: `#FFFFFF`
-- Warm neutral: `#F4F5EF`
-- Main text: `#172018`
-- Deep charcoal: `#171B17`
-
-Green leads. White supports readability but must not dominate the entire site. Yellow is a restrained accent. Follow `docs/DESIGN_SYSTEM.md`.
+Use Bukana Brilliant Schools' green-and-white identity with restrained yellow accents. The implemented tokens are defined in `docs/DESIGN_SYSTEM.md` and `src/styles/index.css`; treat those files as the source of truth instead of copying older hex values into agent instructions.
 
 ## 5. Product and content rules
 
@@ -134,15 +125,15 @@ If a check cannot be run, explicitly state that it remains unverified.
 
 ## 10. Deployment and blank-screen diagnosis
 
-The current deployment target is being evaluated through Cloudflare Pages. Do not assume deployment success or modify DNS without owner approval.
+The repository's production target is Cloudflare Workers via Wrangler (`wrangler.toml`, `src/worker.js`). The public apex and `www` domains currently respond, but never assume a new commit has deployed until the live site is checked.
 
-For a Cloudflare Pages deployment:
+For a Cloudflare Workers deployment:
+- Install command: `npm ci` when a lockfile exists.
 - Build command: `npm run build`
 - Output directory: `dist`
-- Install command: `npm ci` when a lockfile exists.
-- Verify the exact branch and commit selected by Cloudflare.
-- Test the Cloudflare-provided URL before attaching a custom domain.
-- Test the home page and a nested route.
+- Deploy with `npx wrangler deploy` only after owner approval.
+- Verify the exact branch and commit selected for deployment.
+- Test the home page and nested routes directly on both public hostnames.
 
 If the site is blank, do not immediately rewrite components or change hosting configuration. Inspect:
 1. Cloudflare build/deployment logs.
