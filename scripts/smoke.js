@@ -154,7 +154,7 @@ check(galleryPage.includes('Respect, authenticity and pupil privacy') && gallery
 check(!appSource.includes("'/career'") && !appSource.includes('CareerPage'), 'careers route and page import are removed');
 check(!navigation.includes("href: '/career'") && !sitemap.includes('/career'), 'careers page is removed from navigation and sitemap');
 
-check(!footerSource.includes('<Phone') && footerSource.includes('contactData.address && !contactData.addressPending'), 'footer hides unconfirmed address details and uses the correct location icon');
+check(!footerSource.includes('<Phone') && footerSource.includes('{contactData.address && (') && footerSource.includes('<MapPin'), 'footer displays the supplied school address with a location icon and does not show an unconfirmed phone number');
 check(contactSource.includes('aria-invalid={Boolean(error)}') && contactSource.includes('htmlFor={id}'), 'contact form fields expose accessible labels and validation state');
 check(headerSource.includes('inert={!isOpen}') && headerSource.includes('aria-hidden={!isOpen}'), 'closed mobile navigation is removed from keyboard interaction');
 check(appSource.includes('className="skip-link"') && appSource.includes('id="main-content"'), 'site provides a keyboard skip link and main content landmark');

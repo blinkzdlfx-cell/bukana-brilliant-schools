@@ -1,5 +1,5 @@
 from pathlib import Path
-import subprocess
+import vtracer
 import tempfile
 
 from PIL import Image
@@ -40,30 +40,27 @@ PUBLIC.mkdir(parents=True, exist_ok=True)
 # Create a crisp raster companion for iOS home-screen bookmarks.
 touch_size = 180
 touch_icon = Image.new("RGBA", (touch_size, touch_size), (255, 255, 255, 255))
-mark.thumbnail((156, 156), Image.Resampling.LANCZOS)
-touch_icon.alpha_composite(mark, ((touch_size - mark.width) // 2, (touch_size - mark.height) // 2))
+touch_mark = mark.copy()
+touch_mark.thumbnail((156, 156), Image.Resampling.LANCZOS)
+touch_icon.alpha_composite(touch_mark, ((touch_size - touch_mark.width) // 2, (touch_size - touch_mark.height) // 2))
 touch_icon.convert("RGB").save(PNG_OUTPUT, format="PNG", optimize=True)
 
 with tempfile.TemporaryDirectory() as temporary_directory:
     input_png = Path(temporary_directory) / "school-mark.png"
     mark.save(input_png, format="PNG", optimize=True)
-    subprocess.run(
-        [
-            "vtracer",
-            "--input", str(input_png),
-            "--output", str(SVG_OUTPUT),
-            "--colormode", "color",
-            "--hierarchical", "stacked",
-            "--mode", "spline",
-            "--filter_speckle", "4",
-            "--color_precision", "6",
-            "--layer_difference", "16",
-            "--corner_threshold", "60",
-            "--length_threshold", "4.0",
-            "--max_iterations", "10",
-            "--splice_threshold", "45",
-        ],
-        check=True,
+    vtracer.convert_image_to_svg_py(
+        str(input_png),
+        str(SVG_OUTPUT),
+        colormode="color",
+        hierarchical="stacked",
+        mode="spline",
+        filter_speckle=4,
+        color_precision=6,
+        layer_difference=16,
+        corner_threshold=60,
+        length_threshold=4.0,
+        max_iterations=10,
+        splice_threshold=45,
     )
 
 svg = SVG_OUTPUT.read_text(encoding="utf-8")
