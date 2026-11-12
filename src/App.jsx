@@ -4,6 +4,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter.jsx';
 import { navigate } from '@/app/router.jsx';
 import { HomePage } from '@/pages/HomePage.jsx';
 import { AboutPage } from '@/pages/AboutPage.jsx';
+import { ProprietorWelcomePage } from '@/pages/ProprietorWelcomePage.jsx';
 import { AcademicsPage } from '@/pages/AcademicsPage.jsx';
 import { EarlyYearsPage } from '@/pages/EarlyYearsPage.jsx';
 import { PrimaryPage } from '@/pages/PrimaryPage.jsx';
@@ -27,6 +28,11 @@ const PAGE_META = {
     title: 'About Bukana Brilliant Schools | BBS',
     description: 'Learn about Bukana Brilliant Schools and explore the questions families can ask as they consider Creche, Nursery, and Primary education.',
     canonicalPath: '/about',
+  },
+  '/proprietor-welcome': {
+    title: "A Welcome Message from the Proprietor | Bukana Brilliant Schools",
+    description: 'Read a welcome message from the proprietor of Bukana Brilliant Schools in Ijegun, Lagos.',
+    canonicalPath: '/proprietor-welcome',
   },
   '/academics': {
     title: 'Academics: Creche, Nursery & Primary | BBS',
@@ -107,6 +113,7 @@ function updatePageMetadata(pathname) {
 const ROUTES = [
   { path: '/', element: <HomePage /> },
   { path: '/about', element: <AboutPage /> },
+  { path: '/proprietor-welcome', element: <ProprietorWelcomePage /> },
   { path: '/academics', element: <AcademicsPage /> },
   { path: '/early-years', element: <EarlyYearsPage /> },
   { path: '/primary', element: <PrimaryPage /> },
