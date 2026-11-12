@@ -33,13 +33,15 @@ See `docs/OWNER_CONTENT_CHECKLIST.md`. Main blockers:
 - [x] Run `npm run lint` in CI.
 - [x] Run `npm run build` in CI.
 - [x] Run `npm run test:smoke` in CI.
-- [ ] Verify every public route directly and after refresh: `/`, `/about`, `/academics`, `/admissions`, `/school-life`, `/gallery`, `/contact`, and an unknown route.
+- [x] Retrieve all nine published routes directly and confirm route-specific metadata plus the not-found metadata for an unknown path on the apex hostname (2026-11-12).
+- [ ] Verify every public route after a browser refresh and test in-page navigation.
 - [ ] Check small mobile, tablet, and desktop widths for overflow and layout issues.
 - [ ] Check browser Console and Network for runtime errors, missing assets, and failed requests.
 - [ ] Verify all buttons and links have real, correct destinations in the live site.
 - [ ] Confirm the direct WhatsApp link opens the intended account on mobile and desktop.
 - [ ] Replace design-only image placeholders with approved real photos or remove the relevant image areas.
-- [ ] Verify page metadata, canonical URLs, Open Graph metadata, favicon, robots rules, and sitemap on the deployed domain.
+- [x] Retrieve route-specific titles, descriptions, canonical URLs, Open Graph URLs, `robots.txt`, and the nine-entry sitemap from the public domain (2026-11-12).
+- [ ] Verify the favicon file response and visual appearance, and inspect metadata and assets in a browser.
 - [ ] Confirm the hosting platform deployed the intended commit and publishes `dist`.
 - [ ] Verify HTTPS, custom domain, and direct route refresh on production.
 - [ ] Obtain owner approval before final launch.
@@ -50,4 +52,4 @@ Source changes have been merged to `main` in PR #2. CI passed for dependency ins
 
 ## Current verification status
 
-**Code-level CI checks: passed.** Responsive browser inspection, live deployment verification, approved school assets, confirmation of owner-dependent information, and final owner sign-off remain outstanding. Do not represent the website as fully production-ready until these final checks are complete.
+**Code-level CI checks: passed on 2026-11-12 at commit `a9adc9863989436f3499364562eb4d5307bf12f6`.** Public direct-content retrieval confirmed all nine published routes on the apex hostname, a not-found response with `noindex, nofollow` metadata for an unknown path, and an apex canonical URL from the `www` homepage. The live `robots.txt` and nine-entry sitemap were retrieved. Source review confirms the contact form has labelled fields, client-side validation, and prepares a `mailto:` message; it does not send or store enquiries. These checks do not verify browser rendering, viewport behavior, menu/gallery interactions, live form behavior, Console or Network errors, image HTTP responses, or the exact commit deployed to Cloudflare. The interactive browser audit could not start because the browser-testing wallet balance is negative. Responsive browser inspection, owner approval of school imagery and copy, confirmation of owner-dependent facts, and final sign-off remain outstanding. Do not represent the website as fully production-ready until these checks are complete.
