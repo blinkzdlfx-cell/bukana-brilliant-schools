@@ -152,6 +152,11 @@ function FoundationsSection() {
             </Card>
           ))}
         </div>
+        <div className="mt-9 flex justify-center">
+          <Button variant="primary" href="/contact" className="min-h-12 px-7">
+            Contact the school <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
     </section>
   );
