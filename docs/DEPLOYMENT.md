@@ -9,7 +9,7 @@ Primary public URL:
 
 The `www` hostname also responds at `https://www.bukanabrilliantschools.com` and publishes the apex hostname as its canonical URL.
 
-**Public check — 2026-11-12:** direct page retrieval confirmed the homepage and key nested routes return their expected page content and metadata on the public domain. This is not an interactive browser audit. Desktop/mobile viewport rendering, live menu/form interactions, browser Console errors, and Network failures remain unverified until browser tooling is available.
+**Public check — 2026-11-12:** direct retrieval from the apex host returned page content and route-specific title, description, canonical URL, Open Graph URL, and robots metadata for all nine published routes: `/`, `/about`, `/academics`, `/early-years`, `/primary`, `/admissions`, `/school-life`, `/gallery`, and `/contact`. A deliberately unknown path returned the not-found page metadata with `noindex, nofollow`. The `www` homepage returned the same school content and advertised the apex hostname as its canonical URL. `robots.txt` and the nine-entry `sitemap.xml` were also retrieved. These are direct content checks, not interactive browser tests or proof of the exact Cloudflare commit currently serving traffic. Desktop/mobile rendering, menu and gallery interactions, contact-form validation and `mailto:` behavior in a live browser, browser Console errors, Network failures, and image response status remain unverified because the interactive browser audit could not start.
 
 ## 2. Build settings
 
