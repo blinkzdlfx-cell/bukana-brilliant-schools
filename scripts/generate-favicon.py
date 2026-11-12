@@ -26,14 +26,13 @@ mark = image.crop((left, top, right, bottom))
 if mark.width == 0 or mark.height == 0:
     raise SystemExit("The logo emblem crop is empty; check the source logo dimensions.")
 
+# Keep the logo's original white areas opaque; the favicon must retain its
+# green emblem on a clean white background rather than becoming transparent.
 pixels = mark.load()
 for y in range(mark.height):
     for x in range(mark.width):
         red, green, blue, alpha = pixels[x, y]
-        if red > 238 and green > 238 and blue > 238:
-            pixels[x, y] = (255, 255, 255, 0)
-        else:
-            pixels[x, y] = (red, green, blue, 255)
+        pixels[x, y] = (red, green, blue, 255)
 
 PUBLIC.mkdir(parents=True, exist_ok=True)
 
@@ -47,7 +46,10 @@ touch_icon.convert("RGB").save(PNG_OUTPUT, format="PNG", optimize=True)
 
 # Reduce JPEG noise and unnecessary path detail before vectorization.
 vector_mark = mark.copy()
-vector_mark.thumbnail((256, 256), Image.Resampling.LANCZOS)
+vector_mark.thumbnail((220, 220), Image.Resampling.LANCZOS)
+vector_canvas = Image.new('RGBA', (256, 256), (255, 255, 255, 255))
+vector_canvas.alpha_composite(vector_mark, ((256 - vector_mark.width) // 2, (256 - vector_mark.height) // 2))
+vector_mark = vector_canvas
 vector_alpha = vector_mark.getchannel("A")
 vector_palette = vector_mark.convert("RGB").quantize(colors=8, method=Image.Quantize.MEDIANCUT)
 vector_mark = vector_palette.convert("RGB").convert("RGBA")
