@@ -27,6 +27,7 @@ export const navDropdowns = {
   about: [
     { label: 'About the school', href: '/about#overview' },
     { label: 'Our purpose and values', href: '/about#purpose' },
+    { label: "Proprietor's welcome message", href: '/proprietor-welcome' },
   ],
   academics: [
     { label: 'Curriculum Overview', href: '/academics#curriculum' },
