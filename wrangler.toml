@@ -1,6 +1,7 @@
 name = "bukana-brilliant-schools"
 main = "src/worker.js"
 compatibility_date = "2026-11-06"
+keep_vars = true
 
 [assets]
 directory = "dist"

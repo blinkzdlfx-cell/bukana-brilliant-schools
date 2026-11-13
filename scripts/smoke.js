@@ -183,6 +183,43 @@ check(heroRopeSource.includes('schoolImages.slice(0, 6)') && heroRopeSource.incl
 check(imageMarqueeSource.includes('bbs-image-marquee__track') && stylesSource.includes('animation: bbs-image-marquee 84s linear infinite;'), 'legacy marquee component retains its own looping styles');
 check(appSource.includes("if (pathname === '/gallery') return undefined;"), 'static gallery is excluded from automatic scroll-reveal movement');
 
+
+// Maintenance-mode Worker behaviour and independent dashboard control.
+const { default: maintenanceWorker } = await import('../src/worker.js');
+const maintenanceRoutes = ['/', '/about', '/gallery', '/favicon.svg', '/assets/site.css'];
+let schoolAssetFetches = 0;
+const schoolAssetBinding = {
+  fetch: async () => {
+    schoolAssetFetches += 1;
+    return new Response('normal school asset', { status: 200 });
+  },
+};
+for (const route of maintenanceRoutes) {
+  const response = await maintenanceWorker.fetch(
+    new Request(`https://bukanabrilliantschools.com${route}`),
+    { MAINTENANCE_MODE: 'true', ASSETS: schoolAssetBinding }
+  );
+  const body = await response.text();
+  check(response.status === 503, `maintenance mode returns HTTP 503 for ${route}`);
+  check(response.headers.get('cache-control')?.includes('no-store'), `maintenance response is not cached for ${route}`);
+  check(response.headers.get('x-robots-tag')?.includes('noindex'), `maintenance response is excluded from indexing for ${route}`);
+  check(body.includes('Bukana Brilliant Schools') && body.includes('Be a star @ BBS'), `maintenance response uses Bukana branding for ${route}`);
+}
+check(schoolAssetFetches === 0, 'maintenance mode intercepts requests before static assets are served');
+const schoolHeadResponse = await maintenanceWorker.fetch(
+  new Request('https://bukanabrilliantschools.com/about', { method: 'HEAD' }),
+  { MAINTENANCE_MODE: 'true', ASSETS: schoolAssetBinding }
+);
+check(schoolHeadResponse.status === 503 && (await schoolHeadResponse.text()) === '', 'maintenance mode handles HEAD requests without a body');
+const schoolNormalResponse = await maintenanceWorker.fetch(
+  new Request('https://bukanabrilliantschools.com/about'),
+  { MAINTENANCE_MODE: 'false', ASSETS: schoolAssetBinding }
+);
+check(schoolNormalResponse.status === 200 && (await schoolNormalResponse.text()) === 'normal school asset', 'turning maintenance mode off restores normal asset handling');
+check(wranglerSource.includes('keep_vars = true'), 'Wrangler preserves dashboard-managed maintenance variables');
+check(workerSource.includes('MAINTENANCE_MODE') && workerSource.includes('status: 503'), 'Worker implements server-side maintenance mode');
+check(fs.existsSync(path.join(projectRoot, 'docs/MAINTENANCE_MODE.md')), 'maintenance-mode dashboard instructions are documented');
+
 if (failed > 0) {
   console.error(`\n${failed} smoke check(s) failed.`);
   process.exit(1);
