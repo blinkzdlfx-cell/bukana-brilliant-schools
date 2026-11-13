@@ -6,6 +6,7 @@ keep_vars = true
 [assets]
 directory = "dist"
 binding = "ASSETS"
+run_worker_first = true
 
 # Custom hostnames are managed separately in the Cloudflare dashboard.
 # Keep custom-domain routes out of this file; do not add wildcard/path routes here.

@@ -217,6 +217,7 @@ const schoolNormalResponse = await maintenanceWorker.fetch(
 );
 check(schoolNormalResponse.status === 200 && (await schoolNormalResponse.text()) === 'normal school asset', 'turning maintenance mode off restores normal asset handling');
 check(wranglerSource.includes('keep_vars = true'), 'Wrangler preserves dashboard-managed maintenance variables');
+check(wranglerSource.includes('run_worker_first = true'), 'Cloudflare invokes the Worker before serving every static asset');
 check(workerSource.includes('MAINTENANCE_MODE') && workerSource.includes('status: 503'), 'Worker implements server-side maintenance mode');
 check(fs.existsSync(path.join(projectRoot, 'docs/MAINTENANCE_MODE.md')), 'maintenance-mode dashboard instructions are documented');
 

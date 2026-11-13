@@ -14,7 +14,7 @@ If the variable is absent, maintenance mode is off. The setting is case-insensit
 
 ## Behaviour
 
-- The Worker checks the setting before serving any asset or route.
+- The Worker is configured with `run_worker_first = true` and checks the setting before serving any asset or route.
 - While enabled, every request—including the homepage, nested routes, favicon, and static assets—receives the Bukana-branded maintenance page.
 - Responses use HTTP `503 Service Unavailable`, `Cache-Control: no-store`, and `X-Robots-Tag: noindex, nofollow, noarchive`.
 - A `HEAD` request receives the same status and headers without a response body.
