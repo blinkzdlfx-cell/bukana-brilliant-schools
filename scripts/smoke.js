@@ -54,6 +54,7 @@ const assetsExists = fs.existsSync(assetsDir);
 
 const appSource = fs.existsSync(appPath) ? fs.readFileSync(appPath, 'utf8') : '';
 const galleryPage = fs.existsSync(galleryPagePath) ? fs.readFileSync(galleryPagePath, 'utf8') : '';
+const ourVisionPage = fs.existsSync(ourVisionPagePath) ? fs.readFileSync(ourVisionPagePath, 'utf8') : '';
 const imageMarqueeSource = fs.existsSync(imageMarqueePath) ? fs.readFileSync(imageMarqueePath, 'utf8') : '';
 const heroRopeSource = fs.existsSync(heroRopePath) ? fs.readFileSync(heroRopePath, 'utf8') : '';
 const shadcnConfig = fs.existsSync(shadcnConfigPath) ? fs.readFileSync(shadcnConfigPath, 'utf8') : '';
@@ -145,6 +146,10 @@ check(homePage.includes('border-white/50 bg-white/8') && homePage.includes('text
 check(!headerSource.includes('activeLang') && !headerSource.includes('languageOptions'), 'header does not expose a non-functional language switcher');
 
 check(appSource.includes("{ path: '/gallery', element: <GalleryPage /> }"), 'gallery route renders the dedicated gallery page');
+check(appSource.includes("{ path: '/our-vision', element: <OurVisionPage /> }"), 'Our Vision route renders its dedicated page');
+check(ourVisionPage.includes('The Proprietor') && !ourVisionPage.includes('full name'), 'Our Vision page uses the proprietor role without a personal name');
+check(ourVisionPage.includes('data:image/webp;base64,') && ourVisionPage.includes('alt="The proprietor of Bukana Brilliant Schools"'), 'Our Vision page includes the proprietor portrait with descriptive alternative text');
+check(ourVisionPage.includes('Every child’s potential') && ourVisionPage.includes('A strong foundation'), 'Our Vision page presents its educational vision pillars');
 check(appSource.includes('new URL(nextPathname, window.location.origin)') && appSource.includes('target.hash'), 'SPA navigation supports dropdown section anchors');
 check(appSource.includes('const currentPathname = window.location.pathname') && appSource.includes('target.pathname !== currentPathname'), 'SPA navigation compares the destination against the pre-navigation route');
 check(buttonSource.includes('inline-flex shrink-0 items-center justify-center'), 'shared buttons render as aligned, non-shrinking flex controls');
@@ -158,6 +163,8 @@ check(!galleryPage.includes('unsplash.com') && !galleryPage.includes('galleryIte
 check(galleryPage.includes('Respect, authenticity and pupil privacy') && galleryPage.includes('parent or guardian consent'), 'gallery explains the approved-photo policy and privacy standard');
 check(!appSource.includes("'/career'") && !appSource.includes('CareerPage'), 'careers route and page import are removed');
 check(!navigation.includes("href: '/career'") && !sitemap.includes('/career'), 'careers page is removed from navigation and sitemap');
+check(navigation.includes("{ label: 'Our Vision', href: '/our-vision' }"), 'Our Vision is linked from the About dropdown');
+check(footerSource.includes("{ label: 'Our Vision', href: '/our-vision' }"), 'Our Vision is linked from the footer');
 
 check(!footerSource.includes('<Phone') && footerSource.includes('const hasConfirmedAddress = Boolean(contactData.address && !contactData.addressPending)') && footerSource.includes('{hasConfirmedAddress && (') && footerSource.includes('<MapPin'), 'footer only displays a confirmed address with a location icon and does not show a phone number');
 check(contactSource.includes('aria-invalid={Boolean(error)}') && contactSource.includes('htmlFor={id}'), 'contact form fields expose accessible labels and validation state');
