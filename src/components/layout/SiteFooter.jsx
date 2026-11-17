@@ -7,7 +7,6 @@ import { contactDetails as contactData } from '@/data/contact.js';
 const footerLinks = [
   { label: 'Home', href: '/' },
   { label: 'About the school', href: '/about' },
-  { label: 'Our Vision', href: '/our-vision' },
   { label: 'Academics', href: '/academics' },
   { label: 'Admissions', href: '/admissions' },
   { label: 'School life', href: '/school-life' },
