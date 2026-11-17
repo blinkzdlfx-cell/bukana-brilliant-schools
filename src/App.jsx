@@ -5,6 +5,7 @@ import { navigate } from '@/app/router.jsx';
 import { HomePage } from '@/pages/HomePage.jsx';
 import { AboutPage } from '@/pages/AboutPage.jsx';
 import { ProprietorWelcomePage } from '@/pages/ProprietorWelcomePage.jsx';
+import { OurVisionPage } from '@/pages/OurVisionPage.jsx';
 import { AcademicsPage } from '@/pages/AcademicsPage.jsx';
 import { EarlyYearsPage } from '@/pages/EarlyYearsPage.jsx';
 import { PrimaryPage } from '@/pages/PrimaryPage.jsx';
@@ -28,6 +29,11 @@ const PAGE_META = {
     title: 'About Bukana Brilliant Schools | BBS',
     description: 'Learn about Bukana Brilliant Schools and explore the questions families can ask as they consider Creche, Nursery, and Primary education.',
     canonicalPath: '/about',
+  },
+  '/our-vision': {
+    title: 'Our Vision | Bukana Brilliant Schools',
+    description: 'Discover the vision and educational aspirations of Bukana Brilliant Schools, shared by the proprietor.',
+    canonicalPath: '/our-vision',
   },
   '/proprietor-welcome': {
     title: "A Welcome Message from the Proprietor | Bukana Brilliant Schools",
@@ -114,6 +120,7 @@ const ROUTES = [
   { path: '/', element: <HomePage /> },
   { path: '/about', element: <AboutPage /> },
   { path: '/proprietor-welcome', element: <ProprietorWelcomePage /> },
+  { path: '/our-vision', element: <OurVisionPage /> },
   { path: '/academics', element: <AcademicsPage /> },
   { path: '/early-years', element: <EarlyYearsPage /> },
   { path: '/primary', element: <PrimaryPage /> },
