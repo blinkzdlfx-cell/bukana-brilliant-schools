@@ -35,7 +35,13 @@ Never invent:
 
 If a detail is not verified, omit it or mark it internally as pending. Do not publish internal placeholders as facts.
 
-## 3. Content groups
+## 3. Our Vision page
+
+- The public `/our-vision` page identifies school leadership using the role title **The Proprietor**; the proprietor's personal name is not displayed.
+- The vision wording is an aspirational editorial draft prepared at the school's request. It focuses on each child's potential, strong educational foundations, character, curiosity, and a lifelong love of learning. It does not claim specific facilities, results, accreditations, or teaching methods.
+- The school should review and approve the vision wording and portrait before treating this page as final public policy/content.
+
+## 4. Content groups
 
 ### School identity
 - Official name.
@@ -99,7 +105,7 @@ Potential fields:
 
 Every contact value requires owner confirmation.
 
-## 4. Placeholder and image policy
+## 5. Placeholder and image policy
 
 - The current local photo library in `src/images/` contains 21 school-supplied photo entries; do not describe these as stock imagery.
 - The presence of photos in the repository does not independently confirm publication rights or parent/guardian consent.
@@ -109,7 +115,7 @@ Every contact value requires owner confirmation.
 - Avoid fabricated testimonials and fake review cards.
 - If no approved imagery exists, use neutral design placeholders that are clearly marked for replacement.
 
-## 5. Data organization
+## 6. Data organization
 
 Keep repeated content in dedicated data modules rather than scattering it through page components.
 
@@ -123,7 +129,7 @@ Recommended groups:
 
 Keep owner-dependent values centralized. Components should render structured content rather than contain repeated hard-coded school details.
 
-## 6. Content review before production
+## 7. Content review before production
 
 Before launch, the owner must review:
 - All copy.
@@ -139,7 +145,7 @@ Before launch, the owner must review:
 No unverified placeholder may remain in a production-facing page.
 
 
-## 7. Current school-photo implementation
+## 8. Current school-photo implementation
 
 - `src/data/learning-images.js` maps 21 original school-supplied photos to enhanced 16:9 versions and responsive WebP variants.
 - The homepage uses `HeroRopeStrip` for the first six photos and a separate six-photo `HomeLifeSection`. The two-lane rope strip moves slowly and respects hover, keyboard focus, and reduced-motion preferences.
